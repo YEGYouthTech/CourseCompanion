@@ -14,7 +14,7 @@ function NavItem({ href, children, mobile, right }: INavItemProps) {
     <Link href={href}>
       <a
         className={`${
-          router.pathname === href
+          router.pathname.startsWith(href)
             ? 'text-white hover:bg-gray-700'
             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
         } ${
