@@ -24,7 +24,7 @@ const Index = () => {
         `}</style>
       </Helmet>
 
-      <div className="headSection relative flex h-screen w-full flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:h-screen lg:p-8 lg:pt-32 xl:p-16 2xl:p-24">
+      <div className="headSection relative flex min-h-screen w-full flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:min-h-screen lg:p-8 lg:pt-32 xl:p-16 2xl:p-24">
         <div className="z-10 flex flex-row justify-center">
           <div className="leftSide flex max-w-full flex-col items-start justify-center gap-4 p-8 lg:w-10/12 lg:p-8 2xl:p-12">
             <h1 className="font-nunito animate-gradient-slow bg-gradient-to-l from-blue-300 via-green-300 to-blue-300 bg-clip-text text-4xl font-bold text-transparent lg:text-6xl">
