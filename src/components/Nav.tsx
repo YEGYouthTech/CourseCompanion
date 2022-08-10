@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import { UserAuth } from '../contexts/AuthContext';
-import NavItem from './navitem';
+import NavItem from './NavItem';
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
