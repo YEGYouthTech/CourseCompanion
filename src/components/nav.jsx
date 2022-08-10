@@ -3,12 +3,14 @@ import { Transition } from '@headlessui/react';
 import './nav.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { UserAuth } from '../contexts/AuthContext';
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = UserAuth();
   return (
     <div>
-      <nav className="fixed top-0 left-0 z-30 w-screen bg-gray-900 bg-opacity-40">
+      <nav className="fixed top-0 left-0 z-30 w-screen bg-gray-900 bg-opacity-40 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -31,13 +33,11 @@ function Nav() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <NavItem href="/">Home</NavItem>
                   <NavItem href="/about">About</NavItem>
-                  <NavItem href="/contact">Contact</NavItem>
-                  <NavItem href="/blog">Blog</NavItem>
                 </div>
               </div>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4 self-end">
+            <div className="hidden md:block h-full">
+              <div className="ml-10 flex flex-row items-center space-x-4 self-end h-full">
                 <a
                   className="text-text-500 bg-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:shadow-xl"
                   href="https://discord.gg/szjzhYkT9e"
@@ -50,6 +50,19 @@ function Nav() {
                     
                   </i>
                 </a>
+                {user?.uid ? (
+                  <Link href="/profile">
+                    <a className="h-full p-3">
+                      <img
+                        src={user.photoURL}
+                        alt="Profile"
+                        className="rounded-full h-full"
+                      />
+                    </a>
+                  </Link>
+                ) : (
+                  <NavItem href="/signin">Sign In</NavItem>
+                )}
               </div>
             </div>
             <div className="-mr-2 flex md:hidden">
@@ -117,6 +130,36 @@ function Nav() {
                 <NavItem href="/about" mobile={true}>
                   About
                 </NavItem>
+                <hr className="opacity-60" />
+                {user?.uid ? (
+                  <Link href="/profile">
+                    <a className="flex flex-row justify-end items-center p-3 text-gray-300 hover:bg-gray-700 hover:text-white font-medium">
+                      {user.displayName}
+                      <img
+                        src={user.photoURL}
+                        alt="Profile"
+                        className="rounded-full h-12 w-12 ml-4"
+                        referrerpolicy="no-referrer"
+                      />
+                    </a>
+                  </Link>
+                ) : (
+                  <NavItem href="/signin" mobile={true} right={true}>
+                    Sign In
+                  </NavItem>
+                )}
+                <a
+                  className="block text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white -700 px-3 py-2 rounded-md hover:shadow-xl text-right"
+                  href="https://discord.gg/szjzhYkT9e"
+                >
+                  Join us on Discord!
+                  <i
+                    className="icon-arrow-right"
+                    style={{ fontFamily: 'icomoon', marginLeft: '0.5rem' }}
+                  >
+                    
+                  </i>
+                </a>
               </div>
             </div>
           )}
@@ -126,7 +169,7 @@ function Nav() {
   );
 }
 
-function NavItem({ href, children, mobile }) {
+function NavItem({ href, children, mobile, right }) {
   const router = useRouter();
   return (
     <Link href={href}>
@@ -139,7 +182,7 @@ function NavItem({ href, children, mobile }) {
           !mobile
             ? 'px-3 py-2 rounded-md text-sm font-medium'
             : 'block px-3 py-2 rounded-md text-base font-medium'
-        }`}
+        } ${right ? 'text-right' : 'text-left'}`}
       >
         {children}
       </a>
