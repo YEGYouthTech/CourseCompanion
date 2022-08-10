@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import Nav from '@/components/nav';
+import Nav from '@/components/Nav';
 
 type IMainProps = {
   meta: ReactNode;

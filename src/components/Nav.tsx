@@ -35,6 +35,8 @@ function Nav() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <NavItem href="/">Home</NavItem>
                   <NavItem href="/about">About</NavItem>
+                  <NavItem href="/app">App</NavItem>
+                  <NavItem href="/support">Support</NavItem>
                 </div>
               </div>
             </div>
@@ -132,6 +134,12 @@ function Nav() {
                 </NavItem>
                 <NavItem href="/about" mobile={true}>
                   About
+                </NavItem>
+                <NavItem href="/app" mobile={true}>
+                  App
+                </NavItem>
+                <NavItem href="/support" mobile={true}>
+                  Support
                 </NavItem>
                 <hr className="opacity-60" />
                 {user?.uid ? (
