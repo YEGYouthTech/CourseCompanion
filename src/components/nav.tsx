@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
-import { Transition } from '@headlessui/react';
 import './nav.module.css';
+
+import { Transition } from '@headlessui/react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+
 import { UserAuth } from '../contexts/AuthContext';
+import NavItem from './navitem';
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = UserAuth();
   return (
     <div>
-      <nav className="fixed top-0 left-0 z-30 w-screen bg-gray-900 bg-opacity-40 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
-          <div className="flex items-center justify-between h-16">
+      <nav className="fixed top-0 left-0 z-30 w-screen bg-gray-900/40 backdrop-blur-sm">
+        <div className="mx-auto h-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <Link href="/">
                   <a>
                     <img
@@ -36,10 +38,10 @@ function Nav() {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block h-full">
-              <div className="ml-10 flex flex-row items-center space-x-4 self-end h-full">
+            <div className="hidden h-full md:block">
+              <div className="ml-10 flex h-full flex-row items-center space-x-4 self-end">
                 <a
-                  className="text-text-500 bg-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:shadow-xl"
+                  className="rounded-md bg-gray-700 px-3 py-2 text-sm font-medium text-text-500 hover:shadow-xl"
                   href="https://discord.gg/szjzhYkT9e"
                 >
                   Join us on Discord!
@@ -54,9 +56,10 @@ function Nav() {
                   <Link href="/profile">
                     <a className="h-full p-3">
                       <img
-                        src={user.photoURL}
+                        src={user.photoURL || undefined}
                         alt="Profile"
-                        className="rounded-full h-full"
+                        className="h-full rounded-full"
+                        referrerPolicy="no-referrer"
                       />
                     </a>
                   </Link>
@@ -69,7 +72,7 @@ function Nav() {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="inline-flex items-center justify-center rounded-md bg-gray-900 p-2 text-gray-400 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -123,7 +126,7 @@ function Nav() {
         >
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div ref={ref} className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
                 <NavItem href="/" mobile={true}>
                   Home
                 </NavItem>
@@ -133,13 +136,13 @@ function Nav() {
                 <hr className="opacity-60" />
                 {user?.uid ? (
                   <Link href="/profile">
-                    <a className="flex flex-row justify-end items-center p-3 text-gray-300 hover:bg-gray-700 hover:text-white font-medium">
+                    <a className="flex flex-row items-center justify-end p-3 font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
                       {user.displayName}
                       <img
-                        src={user.photoURL}
+                        src={user.photoURL || undefined}
                         alt="Profile"
-                        className="rounded-full h-12 w-12 ml-4"
-                        referrerpolicy="no-referrer"
+                        className="ml-4 h-12 w-12 rounded-full"
+                        referrerPolicy="no-referrer"
                       />
                     </a>
                   </Link>
@@ -149,7 +152,7 @@ function Nav() {
                   </NavItem>
                 )}
                 <a
-                  className="block text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white -700 px-3 py-2 rounded-md hover:shadow-xl text-right"
+                  className="block rounded-md px-3 py-2 text-right text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white hover:shadow-xl"
                   href="https://discord.gg/szjzhYkT9e"
                 >
                   Join us on Discord!
@@ -166,27 +169,6 @@ function Nav() {
         </Transition>
       </nav>
     </div>
-  );
-}
-
-function NavItem({ href, children, mobile, right }) {
-  const router = useRouter();
-  return (
-    <Link href={href}>
-      <a
-        className={`${
-          router.pathname === href
-            ? 'hover:bg-gray-700 text-white'
-            : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-        } ${
-          !mobile
-            ? 'px-3 py-2 rounded-md text-sm font-medium'
-            : 'block px-3 py-2 rounded-md text-base font-medium'
-        } ${right ? 'text-right' : 'text-left'}`}
-      >
-        {children}
-      </a>
-    </Link>
   );
 }
 

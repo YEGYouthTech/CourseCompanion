@@ -24,13 +24,13 @@ const Index = () => {
         `}</style>
       </Helmet>
 
-      <div className="headSection relative flex min-h-screen w-full flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:min-h-screen lg:p-8 lg:pt-32 xl:p-16 2xl:p-24">
+      <div className="relative flex min-h-screen w-full flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:min-h-screen lg:p-8 lg:pt-32 xl:p-16 2xl:p-24">
         <div className="z-10 flex flex-row justify-center">
-          <div className="leftSide flex max-w-full flex-col items-start justify-center gap-4 p-8 lg:w-10/12 lg:p-8 2xl:p-12">
-            <h1 className="font-nunito animate-gradient-slow bg-gradient-to-l from-blue-300 via-green-300 to-blue-300 bg-clip-text text-4xl font-bold text-transparent lg:text-6xl">
+          <div className="flex max-w-full flex-col items-start justify-center gap-4 p-8 lg:w-10/12 lg:p-8 2xl:p-12">
+            <h1 className="animate-gradient-slow bg-gradient-to-l from-blue-300 via-green-300 to-blue-300 bg-clip-text text-4xl font-bold text-transparent lg:text-6xl">
               Course Companion
             </h1>
-            <h2 className="font-nunito text-2xl font-bold text-text-500/[.87] lg:text-2xl 2xl:text-3xl ">
+            <h2 className="text-2xl font-bold text-text-500/[.87] lg:text-2xl 2xl:text-3xl ">
               Formerly known as
               <br />
               <span className="inf:text-transparent animate-gradient-slow bg-gradient-to-l from-green-300 via-blue-400 to-green-300 bg-clip-text lg:bg-none lg:text-current">
@@ -52,7 +52,7 @@ const Index = () => {
               <div className="flex w-full flex-row gap-4 lg:flex-col">
                 <div className="">
                   <button
-                    className="hover:bg-primary-400 focus:bg-primary-700 cursor-pointer rounded-full  border-2 border-gray-800 bg-primary-500 !bg-transparent p-2  px-6 text-lg transition-all hover:!border-primary-500 hover:shadow-sm disabled:opacity-50"
+                    className="cursor-pointer rounded-full border-2 border-gray-800  !bg-transparent p-2 px-6 text-lg  transition-all hover:!border-primary-500 hover:bg-primary-400 hover:shadow-sm focus:bg-primary-700 disabled:opacity-50"
                     onClick={() => {
                       router.push('/signin');
                     }}
@@ -65,10 +65,11 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="rightSide lg flex hidden flex-col items-center justify-center gap-8 p-16 lg:block">
+          <div className="hidden flex-col items-center justify-center gap-8 p-16 lg:flex">
             <img
               src="https://disadus-ht2rdc24j-icedtet.vercel.app/CuteLogo.svg"
-              className="h-128 w-auto"
+              alt="Logo"
+              className="h-[32rem] w-auto"
             />
           </div>
         </div>

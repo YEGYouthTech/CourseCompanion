@@ -22,7 +22,12 @@ module.exports = {
     extend: {
       colors: {
         primary: {
+          300: '#6fcec4',
+          400: '#50c3b8',
           500: '#3cafa3',
+          600: '#319087',
+          700: '#27726a',
+          800: '#1d544e',
         },
         text: {
           500: '#e8e6e3',

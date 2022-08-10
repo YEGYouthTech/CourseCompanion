@@ -1,10 +1,12 @@
-import { Meta } from "@/layouts/Meta.tsx";
-import { Main } from "@/templates/Main.tsx";
-import { GoogleButton } from "react-google-button";
-import { useContext, useEffect } from "react";
-import { Helmet } from "react-helmet";
-import { useRouter } from "next/router";
-import { UserAuth } from "../contexts/AuthContext";
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import GoogleButton from 'react-google-button';
+import { Helmet } from 'react-helmet';
+
+import { Meta } from '@/layouts/Meta';
+import { Main } from '@/templates/Main';
+
+import { UserAuth } from '../contexts/AuthContext';
 
 const Signin = () => {
   const { googleSignIn, user } = UserAuth();
@@ -12,7 +14,7 @@ const Signin = () => {
   useEffect(() => {
     if (user) {
       // Redirect to profile page
-      router.push("/profile");
+      router.push('/profile');
     }
   }, []);
   const handleGoogleSignIn = async () => {
@@ -31,8 +33,8 @@ const Signin = () => {
           }
         `}</style>
       </Helmet>
-      <div className="flex items-center justify-center w-screen h-screen">
-        <div className="flex flex-col p-16 bg-gray-100 rounded-3xl shadow-xl">
+      <div className="flex h-screen w-screen items-center justify-center">
+        <div className="flex flex-col rounded-3xl bg-gray-100 p-16 shadow-xl">
           {!user?.uid ? (
             <>
               <img
@@ -40,17 +42,17 @@ const Signin = () => {
                 src="https://disadus-ht2rdc24j-icedtet.vercel.app/_next/image?url=%2Flogo.png&w=128&q=100"
                 alt="Logo"
               />
-              <h1 className="font-bold font-display text-2xl text-center text-gray-750 mb-8">
+              <h1 className="mb-8 text-center font-display text-2xl font-bold text-gray-750">
                 Course Companion
               </h1>
               <GoogleButton onClick={handleGoogleSignIn} />
             </>
           ) : (
             <>
-              <h1 className="font-bold font-display text-2xl text-center text-gray-750 mb-8">
+              <h1 className="mb-8 text-center font-display text-2xl font-bold text-gray-750">
                 Logged in successfully!
               </h1>
-              <p className="text-center text-gray-500 text-lg">
+              <p className="text-center text-lg text-gray-500">
                 Redirecting you to the profile page...
               </p>
             </>
