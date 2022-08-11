@@ -13,6 +13,7 @@ function AppNav() {
             <div className="flex items-center">
               <div className="md:block">
                 <div className="flex items-baseline space-x-4">
+                  <AppNavItem href="/app">Home</AppNavItem>
                   <AppNavItem href="/app/classes">Classes</AppNavItem>
                   <AppNavItem href="/app/mutuals">Mutuals</AppNavItem>
                   <AppNavItem href="/app/spares">Spares</AppNavItem>

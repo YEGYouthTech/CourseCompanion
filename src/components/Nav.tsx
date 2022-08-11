@@ -12,7 +12,7 @@ function Nav() {
   const { user } = UserAuth();
   return (
     <div>
-      <nav className="fixed top-0 left-0 z-30 w-screen bg-gray-900/40 backdrop-blur-sm">
+      <nav className="fixed top-0 left-0 z-30 w-screen border-b border-gray-800 bg-gray-900/40 backdrop-blur-sm">
         <div className="mx-auto h-16 max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
