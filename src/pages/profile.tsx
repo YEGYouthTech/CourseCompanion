@@ -1,9 +1,12 @@
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
+import SetTimetableModal from '../components/SetTimetableModal';
+import SettingsModal from '../components/SettingsModal';
 import { UserAuth } from '../contexts/AuthContext';
 
 const Profile = () => {
@@ -13,6 +16,8 @@ const Profile = () => {
     // Redirect to signin page
     router.push('/signin');
   }
+  const timetableModalState = useState(false);
+  const settingsModalState = useState(false);
   return (
     <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
       <Helmet>
@@ -68,9 +73,21 @@ const Profile = () => {
                   creepy weirdo lurking on the interwebs 🥸
                 </p>
               )}
-              <div className="mt-8 flex justify-end">
+              <div className="mt-8 flex justify-end gap-2">
                 <button
-                  className="rounded bg-red-500 py-2 px-4 font-bold text-white hover:bg-red-700"
+                  className="rounded-md bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+                  onClick={() => timetableModalState[1](true)}
+                >
+                  Set Timetable
+                </button>
+                <button
+                  className="rounded-md bg-emerald-500 py-2 px-4 font-bold text-white hover:bg-emerald-700"
+                  onClick={() => settingsModalState[1](true)}
+                >
+                  Settings
+                </button>
+                <button
+                  className="rounded-md bg-red-500 py-2 px-4 font-bold text-white hover:bg-red-700"
                   onClick={logOut}
                 >
                   Logout
@@ -89,6 +106,8 @@ const Profile = () => {
           )}
         </div>
       </div>
+      <SetTimetableModal state={timetableModalState} />
+      <SettingsModal state={settingsModalState} />
     </Main>
   );
 };
