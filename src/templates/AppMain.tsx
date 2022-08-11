@@ -1,12 +1,10 @@
-import type { ReactNode } from 'react';
-
 import { Main } from '@/templates/Main';
 
 import AppNav from '../components/AppNav';
 
 type IAppMainProps = {
-  meta: ReactNode;
-  children: ReactNode;
+  meta: React.ReactNode;
+  children: React.ReactNode;
 };
 
 const AppMain = (props: IAppMainProps) => (

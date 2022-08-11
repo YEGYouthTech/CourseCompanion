@@ -1,14 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react';
-import type { Dispatch, ReactNode, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import { Fragment, useRef } from 'react';
 // import { ExclamationIcon } from '@heroicons/react/outline';
 
 type IBaseModalProps = {
   state: [boolean, Dispatch<SetStateAction<boolean>>]; // TODO
   color: string;
-  icon: ReactNode;
-  title: ReactNode;
-  children?: ReactNode;
+  icon: React.ReactNode;
+  title: React.ReactNode;
+  children?: React.ReactNode;
   btn1text: string;
   btn1handler?: () => void;
   btn2text: string;

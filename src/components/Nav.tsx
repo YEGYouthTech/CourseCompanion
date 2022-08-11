@@ -4,12 +4,12 @@ import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import { UserAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 import NavItem from './NavItem';
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = UserAuth();
+  const { user } = useAuth();
   return (
     <div>
       <nav className="fixed top-0 left-0 z-30 w-screen border-b border-gray-800 bg-gray-900/40 backdrop-blur-sm">

@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -7,15 +6,10 @@ import { Main } from '@/templates/Main';
 
 import SetTimetableModal from '../components/SetTimetableModal';
 import SettingsModal from '../components/SettingsModal';
-import { UserAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 
-const Profile = () => {
-  const router = useRouter();
-  const { user, logOut } = UserAuth();
-  if (!user) {
-    // Redirect to signin page
-    router.push('/signin');
-  }
+export default function Profile(): React.ReactNode {
+  const { user, logOut } = useAuth();
   const timetableModalState = useState(false);
   const settingsModalState = useState(false);
   return (
@@ -110,6 +104,4 @@ const Profile = () => {
       <SettingsModal state={settingsModalState} />
     </Main>
   );
-};
-
-export default Profile;
+}

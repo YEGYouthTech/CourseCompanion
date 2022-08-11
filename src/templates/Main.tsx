@@ -1,10 +1,8 @@
-import type { ReactNode } from 'react';
-
 import Nav from '@/components/Nav';
 
 type IMainProps = {
-  meta: ReactNode;
-  children: ReactNode;
+  meta: React.ReactNode;
+  children: React.ReactNode;
 };
 
 const Main = (props: IMainProps) => (

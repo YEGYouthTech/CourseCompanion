@@ -1,22 +1,13 @@
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import GoogleButton from 'react-google-button';
 import { Helmet } from 'react-helmet';
 
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-import { UserAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 
-const Signin = () => {
-  const { googleSignIn, user } = UserAuth();
-  const router = useRouter();
-  useEffect(() => {
-    if (user) {
-      // Redirect to profile page
-      router.push('/profile');
-    }
-  }, []);
+export default function Signin(): React.ReactNode {
+  const { googleSignIn, user } = useAuth();
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
@@ -61,6 +52,4 @@ const Signin = () => {
       </div>
     </Main>
   );
-};
-
-export default Signin;
+}

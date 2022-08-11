@@ -7,6 +7,7 @@ import {
 } from 'firebase/auth';
 import { createContext, useContext, useEffect, useState } from 'react';
 
+import Loading from '../components/Loading';
 import auth from '../lib/firebase';
 
 type IAuthContextProviderProps = {
@@ -27,6 +28,8 @@ const AuthContext = createContext<IAuthContext>({
 
 export function AuthContextProvider({ children }: IAuthContextProviderProps) {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
   const googleSignIn = () => {
     signInWithRedirect(auth, new GoogleAuthProvider());
   };
@@ -39,6 +42,7 @@ export function AuthContextProvider({ children }: IAuthContextProviderProps) {
     const unsubscribe = onAuthStateChanged(auth, (newUser) => {
       setUser(newUser);
       console.log(newUser?.displayName, newUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -47,11 +51,11 @@ export function AuthContextProvider({ children }: IAuthContextProviderProps) {
 
   return (
     <AuthContext.Provider value={{ googleSignIn, logOut, user }}>
-      {children}
+      {!loading ? children : <Loading />}
     </AuthContext.Provider>
   );
 }
 
-export const UserAuth = () => {
+export const useAuth = () => {
   return useContext(AuthContext);
 };
