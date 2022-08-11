@@ -56,7 +56,11 @@ const Index = () => {
                   <button
                     className="cursor-pointer rounded-full border-2 border-gray-800  !bg-transparent p-2 px-6 text-lg  transition-all hover:!border-primary-500 hover:bg-primary-400 hover:shadow-sm focus:bg-primary-700 disabled:opacity-50"
                     onClick={() => {
-                      router.push('/signin');
+                      if (!user?.uid) {
+                        router.push('/signin');
+                      } else {
+                        router.push('/app');
+                      }
                     }}
                   >
                     <span className="animate-gradient-slow bg-gradient-to-r from-primary-500 via-blue-500 to-primary-500 bg-clip-text !text-transparent">
