@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Helmet from 'react-helmet';
 
@@ -53,20 +54,15 @@ const Index = () => {
             <div className="flex w-full flex-col gap-4 lg:grow lg:justify-end">
               <div className="flex w-full flex-row gap-4 lg:flex-col">
                 <div className="">
-                  <button
-                    className="cursor-pointer rounded-full border-2 border-gray-800  !bg-transparent p-2 px-6 text-lg  transition-all hover:!border-primary-500 hover:bg-primary-400 hover:shadow-sm focus:bg-primary-700 disabled:opacity-50"
-                    onClick={() => {
-                      if (!user?.uid) {
-                        router.push('/signin');
-                      } else {
-                        router.push('/app');
-                      }
-                    }}
-                  >
-                    <span className="animate-gradient-slow bg-gradient-to-r from-primary-500 via-blue-500 to-primary-500 bg-clip-text !text-transparent">
-                      {!user?.uid ? 'Log in (Closed Beta)' : 'Continue to app'}
-                    </span>
-                  </button>
+                  <Link href={(!user?.uid && '/signin') || '/app'}>
+                    <a className="cursor-pointer rounded-full border-2 border-gray-800  !bg-transparent p-2 px-6 text-lg  transition-all hover:!border-primary-500 hover:bg-primary-400 hover:shadow-sm focus:bg-primary-700 disabled:opacity-50">
+                      <span className="animate-gradient-slow bg-gradient-to-r from-primary-500 via-blue-500 to-primary-500 bg-clip-text !text-transparent">
+                        {!user?.uid
+                          ? 'Log in (Closed Beta)'
+                          : 'Continue to app'}
+                      </span>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
