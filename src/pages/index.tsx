@@ -1,11 +1,13 @@
 import { useRouter } from 'next/router';
 import Helmet from 'react-helmet';
 
+import { UserAuth } from '@/contexts/AuthContext';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 const Index = () => {
   const router = useRouter();
+  const { user } = UserAuth();
   return (
     <Main
       meta={
@@ -58,7 +60,7 @@ const Index = () => {
                     }}
                   >
                     <span className="animate-gradient-slow bg-gradient-to-r from-primary-500 via-blue-500 to-primary-500 bg-clip-text !text-transparent">
-                      Log in (Closed Beta)
+                      {!user?.uid ? 'Log in (Closed Beta)' : 'Continue to app'}
                     </span>
                   </button>
                 </div>
