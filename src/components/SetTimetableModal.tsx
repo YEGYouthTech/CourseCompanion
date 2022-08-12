@@ -1,7 +1,7 @@
 import { Dialog } from '@headlessui/react';
-import { PencilAltIcon } from '@heroicons/react/outline';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useState } from 'react';
+import { HiOutlinePencilAlt as PencilAltIcon } from 'react-icons/hi';
 
 import { parseTimetable } from '@/lib/parseTimetable';
 

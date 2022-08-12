@@ -1,6 +1,6 @@
 import { Dialog } from '@headlessui/react';
-import { CogIcon } from '@heroicons/react/outline';
 import type { Dispatch, SetStateAction } from 'react';
+import { HiOutlineCog as CogIcon } from 'react-icons/hi';
 
 import BaseModal from './BaseModal';
 
