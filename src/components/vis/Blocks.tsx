@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import type { ICourse } from '../../lib/parseTimetable';
 
 type IBlockProps = {
@@ -31,14 +33,29 @@ export function Block({ header, index, course, rainbow }: IBlockProps) {
     'bg-pink-200',
     'bg-rose-300',
   ];
+  const [tooltip, showTooltip] = useState(false);
   return (
-    <span
-      className={`inline-block w-20 ${header ? 'p-1' : 'p-2'} ${
-        rainbow ? rainbowColors[index % rainbowColors.length] : ''
-      }`}
-    >
-      {header ? `Block ${index + 1}` : course?.code}
-    </span>
+    <>
+      <div
+        className={`relative inline-block w-20 ${header ? 'p-1' : 'p-2'} ${
+          rainbow ? rainbowColors[index % rainbowColors.length] : ''
+        }`}
+        data-tip={!header ? course?.name || '[ERROR]' : undefined}
+        onMouseEnter={() => {
+          showTooltip(true);
+        }}
+        onMouseLeave={() => {
+          showTooltip(false);
+        }}
+      >
+        {header ? `Block ${index + 1}` : course?.code}
+        {!header && tooltip ? (
+          <div className="absolute top-0 left-1/2 z-[999] w-32 -translate-x-1/2 -translate-y-full whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 text-sm font-normal text-white focus:outline-none">
+            {course?.name || '[ERROR]'}
+          </div>
+        ) : undefined}
+      </div>
+    </>
   );
 }
 

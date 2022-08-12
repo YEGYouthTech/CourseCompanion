@@ -11,7 +11,7 @@ import {
 import { parseTimetable } from '@/lib/parseTimetable';
 
 import BaseModal from './BaseModal';
-import { Blocks } from './vis/Blocks.jsx';
+import { Blocks } from './vis/Blocks';
 
 type ISetTimetableModalProps = {
   state: [boolean, Dispatch<SetStateAction<boolean>>];
@@ -134,7 +134,7 @@ export default function SetTimetableModal({
             <div className="mt-4">
               <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
 
-              <div className="w-full max-w-[25.5rem] overflow-x-auto whitespace-nowrap text-center text-xs text-gray-900">
+              <div className="-mt-20 w-full max-w-[25.5rem] overflow-x-auto  whitespace-nowrap px-6 pt-20 text-center text-xs text-gray-900">
                 {parsedTimetable.length ? (
                   <Blocks blocks={parsedTimetable} />
                 ) : (
@@ -143,10 +143,10 @@ export default function SetTimetableModal({
               </div>
               <div
                 className={`mt-3 inline-flex w-full items-center rounded-lg ${
-                  status.success ? 'bg-green-100' : 'bg-red-100'
-                } py-5 px-6 text-base ${
-                  status.success ? 'text-green-700' : 'text-red-700'
-                }`}
+                  status.success
+                    ? 'bg-green-100 text-base text-green-700'
+                    : 'bg-red-100 text-xs text-red-700'
+                } py-5 px-6`}
                 role="alert"
               >
                 {status.success ? (
