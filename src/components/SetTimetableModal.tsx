@@ -3,13 +3,15 @@ import { PencilAltIcon } from '@heroicons/react/outline';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useState } from 'react';
 
+import { parseTimetable } from '@/lib/parseTimetable';
+
 import BaseModal from './BaseModal';
 
 type ISetTimetableModalProps = {
   state: [boolean, Dispatch<SetStateAction<boolean>>];
 };
 
-function parseTimetable(timetable: string): string[] {
+function parseTimetable_TEST(timetable: string): string[] {
   if (Math.random() > 0.5) {
     throw new Error('Something went wrong');
   }
@@ -59,9 +61,10 @@ export default function SetTimetableModal({
   ]);
   useEffect(() => {
     try {
-      setParsedTimetable(parseTimetable(timetable));
+      const { blocks } = parseTimetable(timetable);
+      setParsedTimetable(blocks.map((block) => block.code));
     } catch (error) {
-      // fill timetable with question marks
+      console.error(error);
       setParsedTimetable([
         '?',
         '?',
@@ -108,7 +111,7 @@ export default function SetTimetableModal({
           {/* Dynamically set disabled */}
           <fieldset disabled={loading}>
             <textarea
-              className="min-h-[10rem] w-full overflow-hidden rounded-lg border-2 border-blue-200 p-4 text-sm text-gray-500 outline-none focus:border-[3px] focus:border-blue-500"
+              className="min-h-[10rem] w-full rounded-lg border-2 border-blue-200 p-4 text-sm text-gray-500 outline-none focus:border-[3px] focus:border-blue-500"
               value={timetable}
               onChange={(e) => setTimetable(e.target.value)}
               placeholder="Your timetable goes here"
@@ -116,10 +119,10 @@ export default function SetTimetableModal({
             <p className="mt-2 text-right font-body text-xs">
               Copy your timetable from this link:{' '}
               <a
-                className="text-emerald-600 underline"
-                href="https://schoolzone.epsb.ca/"
+                className="inline-block max-w-[15ch] truncate align-middle text-emerald-600 underline"
+                href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=10,01,22&daylist=false"
               >
-                https://schoolzone.epsb.ca/
+                https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=10,01,22&daylist=false
               </a>
             </p>
             <div className="mt-4">
