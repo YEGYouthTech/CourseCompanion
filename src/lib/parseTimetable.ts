@@ -105,7 +105,7 @@ function parseTimetable(content: string) {
     }
   });
   console.log('Days:', day2linenum);
-  for (let day = 1; day < 5; day++) {
+  for (let day = 1; day <= 5; day++) {
     if (day2linenum.get(day) === undefined) {
       throw new Error(`Your timetable doesn't have a day ${day}`);
     }
