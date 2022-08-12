@@ -127,42 +127,47 @@ export default function SetTimetableModal({
             </p>
             <div className="mt-4">
               <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
-              <div className="w-full max-w-[25.5rem] overflow-x-auto p-2 text-center text-xs text-gray-900">
-                <span className="w-12 bg-red-200 p-2">
+              <div className="w-full max-w-[25.5rem] overflow-x-auto whitespace-nowrap text-center text-xs text-gray-900">
+                <span className="inline-block w-20 p-1">1</span>
+                <span className="inline-block w-20 p-1">2</span>
+                <span className="inline-block w-20 p-1">3</span>
+                <span className="inline-block w-20 p-1">4</span>
+                <span className="inline-block w-20 p-1">5</span>
+                <span className="inline-block w-20 p-1">6</span>
+                <span className="inline-block w-20 p-1">7</span>
+                <span className="inline-block w-20 p-1">8</span>
+                <span className="inline-block w-20 p-1">9</span>
+                <span className="inline-block w-20 p-1">10</span>
+                <br />
+                <span className="inline-block w-20 bg-red-200 p-2">
                   {parsedTimetable[0]}
                 </span>
-                <span className="w-12 bg-orange-200 p-2">
+                <span className="inline-block w-20 bg-orange-200 p-2">
                   {parsedTimetable[1]}
                 </span>
-                <span className="w-12 bg-amber-200 p-2">
+                <span className="inline-block w-20 bg-amber-200 p-2">
                   {parsedTimetable[2]}
                 </span>
-                <span className="w-12 bg-yellow-200 p-2">
+                <span className="inline-block w-20 bg-yellow-200 p-2">
                   {parsedTimetable[3]}
                 </span>
-                <span className="w-12 bg-lime-200 p-2">
+                <span className="inline-block w-20 bg-lime-200 p-2">
                   {parsedTimetable[4]}
                 </span>
-                <span className="w-12 bg-green-200 p-2">
+                <span className="inline-block w-20 bg-green-200 p-2">
                   {parsedTimetable[5]}
                 </span>
-                <span className="w-12 bg-emerald-200 p-2">
+                <span className="inline-block w-20 bg-emerald-200 p-2">
                   {parsedTimetable[6]}
                 </span>
-                <span className="w-12 bg-teal-200 p-2">
+                <span className="inline-block w-20 bg-teal-200 p-2">
                   {parsedTimetable[7]}
                 </span>
-                <span className="w-12 bg-cyan-200 p-2">
+                <span className="inline-block w-20 bg-cyan-200 p-2">
                   {parsedTimetable[8]}
                 </span>
-                <span className="w-12 bg-sky-200 p-2">
+                <span className="inline-block w-20 bg-sky-200 p-2">
                   {parsedTimetable[9]}
-                </span>
-                <span className="w-12 bg-blue-200 p-2">
-                  {parsedTimetable[10]}
-                </span>
-                <span className="w-12 bg-indigo-200 p-2">
-                  {parsedTimetable[11]}
                 </span>
               </div>
             </div>
