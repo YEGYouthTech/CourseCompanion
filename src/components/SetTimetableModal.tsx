@@ -128,16 +128,16 @@ export default function SetTimetableModal({
             <div className="mt-4">
               <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
               <div className="w-full max-w-[25.5rem] overflow-x-auto whitespace-nowrap text-center text-xs text-gray-900">
-                <span className="inline-block w-20 p-1">1</span>
-                <span className="inline-block w-20 p-1">2</span>
-                <span className="inline-block w-20 p-1">3</span>
-                <span className="inline-block w-20 p-1">4</span>
-                <span className="inline-block w-20 p-1">5</span>
-                <span className="inline-block w-20 p-1">6</span>
-                <span className="inline-block w-20 p-1">7</span>
-                <span className="inline-block w-20 p-1">8</span>
-                <span className="inline-block w-20 p-1">9</span>
-                <span className="inline-block w-20 p-1">10</span>
+                <span className="inline-block w-20 p-1">Block 1</span>
+                <span className="inline-block w-20 p-1">Block 2</span>
+                <span className="inline-block w-20 p-1">Block 3</span>
+                <span className="inline-block w-20 p-1">Block 4</span>
+                <span className="inline-block w-20 p-1">Block 5</span>
+                <span className="inline-block w-20 p-1">Block 6</span>
+                <span className="inline-block w-20 p-1">Block 7</span>
+                <span className="inline-block w-20 p-1">Block 8</span>
+                <span className="inline-block w-20 p-1">Block 9</span>
+                <span className="inline-block w-20 p-1">Block 10</span>
                 <br />
                 <span className="inline-block w-20 bg-red-200 p-2">
                   {parsedTimetable[0]}
