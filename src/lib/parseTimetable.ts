@@ -53,6 +53,10 @@ function parseTimetable(content: string) {
     .map((line) => line.trim())
     .filter((line) => line.length > 0);
 
+  if (!lines.length) {
+    throw new Error('Empty timetable');
+  }
+
   // Parse the header.
   if (lines.length < 2) {
     throw new Error("Your timetable doesn't have a header");
@@ -73,7 +77,9 @@ function parseTimetable(content: string) {
       timePeriod
     )
   ) {
-    throw new Error("Your timetable doesn't have a valid date");
+    throw new Error(
+      "Your timetable doesn't have a valid date line (eg. February 2023). Usually, this should be the second line of your timetable."
+    );
   }
   console.log('Date:', timePeriod);
 
@@ -182,7 +188,7 @@ function parseTimetable(content: string) {
           blocks[thisBlock]?.code !== courseCode
         ) {
           throw new Error(
-            `Block ${thisBlock} is already occupied by ${blocks[thisBlock]?.code}`
+            `Tried to occupy block ${thisBlock} with ${courseCode} ("${courseName}"), but it is already occupied by ${blocks[thisBlock]?.code} ("${blocks[thisBlock]?.name}"). Either there is a typo, a course we don't know about, or something is off with the blocks system.`
           );
         }
         blocks[thisBlock] = {

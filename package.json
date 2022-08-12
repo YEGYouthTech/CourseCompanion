@@ -30,6 +30,7 @@
     "react-dom": "^18.2.0",
     "react-google-button": "^0.7.2",
     "react-helmet": "^6.1.0",
+    "react-hot-toast": "^2.3.0",
     "react-icons": "^4.4.0",
     "react-spinners": "^0.13.4"
   },

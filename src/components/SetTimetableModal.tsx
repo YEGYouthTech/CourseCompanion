@@ -1,7 +1,12 @@
 import { Dialog } from '@headlessui/react';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useState } from 'react';
-import { HiOutlinePencilAlt as PencilAltIcon } from 'react-icons/hi';
+import toast from 'react-hot-toast';
+import {
+  HiCheckCircle as CheckCircleIcon,
+  HiOutlinePencilAlt as PencilAltIcon,
+  HiXCircle as XCircleIcon,
+} from 'react-icons/hi';
 
 import { parseTimetable } from '@/lib/parseTimetable';
 
@@ -31,12 +36,25 @@ function parseTimetable_TEST(timetable: string): string[] {
   ];
 }
 
+async function saveTimetable(timetable: string[]): Promise<void> {
+  // TODO: implement
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  if (Math.random() > 0.5) {
+    throw new Error('Something went wrong');
+  }
+}
+
 function submitTimetable(
   e: React.FormEvent<HTMLFormElement>,
   timetable: string[]
 ): void {
   e.preventDefault();
-  console.log(timetable);
+  console.log('submitTimetable', timetable);
+  toast.promise(saveTimetable(timetable), {
+    loading: 'Saving timetable...',
+    success: <b>Timetable saved</b>,
+    error: <b>Error saving timetable</b>,
+  });
 }
 
 export default function SetTimetableModal({
@@ -45,6 +63,10 @@ export default function SetTimetableModal({
   const [loading, setLoading] = useState(false);
   const [timetable, setTimetable] = useState('');
   const [reason, setReason] = useState('');
+  const [status, setStatus] = useState({
+    success: false,
+    reason: 'No changes made.',
+  });
   const [parsedTimetable, setParsedTimetable] = useState([
     '',
     '',
@@ -64,7 +86,11 @@ export default function SetTimetableModal({
       const { blocks } = parseTimetable(timetable);
       setParsedTimetable(blocks.map((block) => block.code));
     } catch (error) {
-      console.error(error);
+      console.log(error);
+      setStatus({
+        success: false,
+        reason: error?.message,
+      });
       setParsedTimetable([
         '?',
         '?',
@@ -79,7 +105,12 @@ export default function SetTimetableModal({
         '?',
         '?',
       ]);
+      return;
     }
+    setStatus({
+      success: true,
+      reason: "Everything lookin' good!",
+    });
   }, [timetable]);
   return (
     <BaseModal
@@ -127,6 +158,7 @@ export default function SetTimetableModal({
             </p>
             <div className="mt-4">
               <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
+
               <div className="w-full max-w-[25.5rem] overflow-x-auto whitespace-nowrap text-center text-xs text-gray-900">
                 <span className="inline-block w-20 p-1">Block 1</span>
                 <span className="inline-block w-20 p-1">Block 2</span>
@@ -169,6 +201,21 @@ export default function SetTimetableModal({
                 <span className="inline-block w-20 bg-sky-200 p-2">
                   {parsedTimetable[9]}
                 </span>
+              </div>
+              <div
+                className={`mt-3 inline-flex w-full items-center rounded-lg ${
+                  status.success ? 'bg-green-100' : 'bg-red-100'
+                } py-5 px-6 text-base ${
+                  status.success ? 'text-green-700' : 'text-red-700'
+                }`}
+                role="alert"
+              >
+                {status.success ? (
+                  <CheckCircleIcon className="mr-2 h-4 min-w-[1rem] fill-current" />
+                ) : (
+                  <XCircleIcon className="mr-2 h-4 min-w-[1rem] fill-current" />
+                )}
+                <span>{status.reason}</span>
               </div>
             </div>
             <div className="mt-8 flex">
