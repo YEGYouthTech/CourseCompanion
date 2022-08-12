@@ -45,11 +45,7 @@ async function saveTimetable(timetable: string[]): Promise<void> {
   }
 }
 
-function submitTimetable(
-  e: React.FormEvent<HTMLFormElement>,
-  timetable: string[]
-): void {
-  e.preventDefault();
+function submitTimetable(timetable: string[]): void {
   console.log('submitTimetable', timetable);
   toast.promise(saveTimetable(timetable), {
     loading: 'Saving timetable...',
@@ -111,7 +107,7 @@ export default function SetTimetableModal({
       <div className="mt-2 w-full">
         <form
           onSubmit={(e) => {
-            submitTimetable(e, parsedTimetable);
+            e.preventDefault();
           }}
         >
           {/* Dynamically set disabled */}
