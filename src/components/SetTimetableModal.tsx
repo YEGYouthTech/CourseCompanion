@@ -11,6 +11,7 @@ import {
 import { parseTimetable } from '@/lib/parseTimetable';
 
 import BaseModal from './BaseModal';
+import { Blocks } from './vis/Blocks.jsx';
 
 type ISetTimetableModalProps = {
   state: [boolean, Dispatch<SetStateAction<boolean>>];
@@ -67,44 +68,18 @@ export default function SetTimetableModal({
     success: false,
     reason: 'No changes made.',
   });
-  const [parsedTimetable, setParsedTimetable] = useState([
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-  ]);
+  const [parsedTimetable, setParsedTimetable] = useState([]);
   useEffect(() => {
     try {
       const { blocks } = parseTimetable(timetable);
-      setParsedTimetable(blocks.map((block) => block.code));
+      setParsedTimetable(blocks);
     } catch (error) {
       console.log(error);
       setStatus({
         success: false,
         reason: error?.message,
       });
-      setParsedTimetable([
-        '?',
-        '?',
-        '?',
-        '?',
-        '?',
-        '?',
-        '?',
-        '?',
-        '?',
-        '?',
-        '?',
-        '?',
-      ]);
+      setParsedTimetable([]);
       return;
     }
     setStatus({
@@ -160,47 +135,11 @@ export default function SetTimetableModal({
               <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
 
               <div className="w-full max-w-[25.5rem] overflow-x-auto whitespace-nowrap text-center text-xs text-gray-900">
-                <span className="inline-block w-20 p-1">Block 1</span>
-                <span className="inline-block w-20 p-1">Block 2</span>
-                <span className="inline-block w-20 p-1">Block 3</span>
-                <span className="inline-block w-20 p-1">Block 4</span>
-                <span className="inline-block w-20 p-1">Block 5</span>
-                <span className="inline-block w-20 p-1">Block 6</span>
-                <span className="inline-block w-20 p-1">Block 7</span>
-                <span className="inline-block w-20 p-1">Block 8</span>
-                <span className="inline-block w-20 p-1">Block 9</span>
-                <span className="inline-block w-20 p-1">Block 10</span>
-                <br />
-                <span className="inline-block w-20 bg-red-200 p-2">
-                  {parsedTimetable[0]}
-                </span>
-                <span className="inline-block w-20 bg-orange-200 p-2">
-                  {parsedTimetable[1]}
-                </span>
-                <span className="inline-block w-20 bg-amber-200 p-2">
-                  {parsedTimetable[2]}
-                </span>
-                <span className="inline-block w-20 bg-yellow-200 p-2">
-                  {parsedTimetable[3]}
-                </span>
-                <span className="inline-block w-20 bg-lime-200 p-2">
-                  {parsedTimetable[4]}
-                </span>
-                <span className="inline-block w-20 bg-green-200 p-2">
-                  {parsedTimetable[5]}
-                </span>
-                <span className="inline-block w-20 bg-emerald-200 p-2">
-                  {parsedTimetable[6]}
-                </span>
-                <span className="inline-block w-20 bg-teal-200 p-2">
-                  {parsedTimetable[7]}
-                </span>
-                <span className="inline-block w-20 bg-cyan-200 p-2">
-                  {parsedTimetable[8]}
-                </span>
-                <span className="inline-block w-20 bg-sky-200 p-2">
-                  {parsedTimetable[9]}
-                </span>
+                {parsedTimetable.length ? (
+                  <Blocks blocks={parsedTimetable} />
+                ) : (
+                  ''
+                )}
               </div>
               <div
                 className={`mt-3 inline-flex w-full items-center rounded-lg ${

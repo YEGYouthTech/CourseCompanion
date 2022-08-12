@@ -44,6 +44,17 @@ Time Room Course Teacher Course Duration
 1:50 PM - 3:20 PM 100 French-9Y 10 (IB) Heather Taschuk Sep 2 - Jun 28
 `;
 
+export type ICourse = {
+  name: string;
+  code: string;
+  teacher: {
+    name: string;
+    initials: string;
+  } | null;
+  room: string | null;
+  duration: number | null;
+};
+
 function parseTimetable(content: string) {
   const lines = content
     .replace(/\r/g, '')
@@ -112,16 +123,7 @@ function parseTimetable(content: string) {
     day2lines.set(day, lines.slice(start, end));
   });
 
-  const blocks: {
-    name: string;
-    code: string;
-    teacher: {
-      name: string;
-      initials: string;
-    } | null;
-    room: string | null;
-    duration: number | null;
-  }[] = new Array(getNumBlocks()).fill(null).map(() => ({
+  const blocks: ICourse[] = new Array(getNumBlocks()).fill(null).map(() => ({
     name: 'Spare',
     code: 'SPARE',
     teacher: null,
