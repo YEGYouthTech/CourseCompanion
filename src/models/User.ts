@@ -36,7 +36,12 @@ const UserSchema = new mongoose.Schema({
     maxLength: 28,
   },
   groups: {
-    type: [String],
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group',
+      },
+    ],
     required: true,
     default: () => [],
   },

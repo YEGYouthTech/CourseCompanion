@@ -12,6 +12,7 @@ export default function Profile(): React.ReactNode {
   const { user, logOut } = useAuth();
   const timetableModalState = useState(false);
   const settingsModalState = useState(false);
+  user?.getIdToken()?.then(console.warn);
   return (
     <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
       <Helmet>

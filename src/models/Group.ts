@@ -9,7 +9,7 @@ const GroupSchema = new mongoose.Schema({
     maxLength: 32,
     unique: true,
   },
-  users: {
+  members: {
     type: [String],
     required: true,
   },
@@ -32,12 +32,12 @@ const GroupSchema = new mongoose.Schema({
 });
 
 GroupSchema.methods.addUser = function (user: string) {
-  this.users.push(user);
+  this.members.push(user);
   return this.save();
 };
 
 GroupSchema.methods.removeUser = function (user: string) {
-  this.users.pull(user);
+  this.members.pull(user);
   return this.save();
 };
 

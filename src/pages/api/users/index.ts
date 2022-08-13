@@ -10,6 +10,9 @@ export default async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   const { q } = req.query;
-  const users = await User.find().where('name').regex(new RegExp(q, 'i'));
+  const users = await User.find()
+    .where('name')
+    .regex(new RegExp(q, 'i'))
+    .select('uid name');
   return res.status(200).json(users);
 };
