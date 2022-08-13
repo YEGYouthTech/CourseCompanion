@@ -38,3 +38,7 @@ local
 
 # vercel
 .vercel
+
+# secrets
+.env
+*firebase-adminsdk-*.json
