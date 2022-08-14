@@ -56,15 +56,21 @@ export default async (req, res) => {
     });
   }
   if (method === 'PUT') {
-    // TODO: Secure this endpoint
     const {
-      body: { id, name, email },
+      query: { id },
+      body: { timetable },
     } = req;
-    const user = (await User.where('uid').equals(id))[0] || null;
-    if (!user) {
+    // Users may not modify other users
+    if (id !== user.user_id) {
+      return res.status(403).json({ error: 'You may not modify other users' });
+    }
+    const dbUser = (await User.where('uid').equals(id))[0] || null;
+    if (!dbUser) {
       return res.status(404).json({ error: 'User not found' });
     }
-    await user.update({ name, email });
+    await dbUser.update({
+      timetable: JSON.stringify(timetable) || dbUser.timetable,
+    });
     return res.status(200).json(user);
   }
   if (method === 'DELETE') {

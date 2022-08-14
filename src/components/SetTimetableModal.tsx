@@ -8,6 +8,7 @@ import {
   HiXCircle as XCircleIcon,
 } from 'react-icons/hi';
 
+import auth from '@/lib/firebase';
 import { parseTimetable } from '@/lib/parseTimetable';
 
 import BaseModal from './BaseModal';
@@ -39,18 +40,44 @@ function parseTimetable_TEST(timetable: string): string[] {
 
 async function saveTimetable(timetable: string[]): Promise<void> {
   // TODO: implement
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  if (Math.random() > 0.5) {
-    throw new Error('Something went wrong');
+  if (!auth.currentUser) {
+    throw new Error('Not logged in');
+  }
+  console.log('saveTimetable', timetable);
+  const request = await fetch(`/api/users/${auth.currentUser.uid}`, {
+    method: 'PUT',
+    body: JSON.stringify({ timetable }),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `${await auth.currentUser.getIdToken()}`,
+    },
+  });
+  let json;
+  try {
+    json = await request.json();
+  } catch (error) {
+    if (request.status !== 200) {
+      throw new Error(
+        `Received error HTTP status code ${request.status} ${request.statusText}`
+      );
+    }
+    throw new Error(error);
+  }
+  if (!request.ok || json?.error !== undefined) {
+    throw new Error(json?.error || 'Unknown error');
   }
 }
 
-function submitTimetable(timetable: string[]): void {
+function submitTimetable(timetable): void {
   console.log('submitTimetable', timetable);
   toast.promise(saveTimetable(timetable), {
     loading: 'Saving timetable...',
-    success: <b>Timetable saved</b>,
-    error: <b>Error saving timetable</b>,
+    success: (
+      <b>{`Your timetable has been ${
+        timetable.length ? 'updated' : 'deleted'
+      }!`}</b>
+    ),
+    error: (error: Error) => <b>Error: {error.message}</b>,
   });
 }
 
@@ -101,7 +128,7 @@ export default function SetTimetableModal({
       btn1text="Save"
       btn2text="Cancel"
       btn1handler={() => {
-        submitTimetable({ preventDefault: () => {} }, parsedTimetable);
+        submitTimetable(parsedTimetable);
       }}
     >
       <div className="mt-2 w-full">

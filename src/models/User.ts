@@ -46,9 +46,10 @@ const UserSchema = new mongoose.Schema({
     default: () => [],
   },
   timetable: {
-    type: [String],
-    required: true,
-    default: () => [],
+    type: String,
+    required: false,
+    minLength: 2,
+    maxLength: 4096,
   },
   createdAt: {
     type: Date,
