@@ -84,32 +84,31 @@ function submitTimetable(timetable): void {
 export default function SetTimetableModal({
   state: modalState,
 }: ISetTimetableModalProps) {
-  const [loading, setLoading] = useState(false);
-  const [timetable, setTimetable] = useState('');
+  const [timetableString, setTimetableString] = useState('');
   const [reason, setReason] = useState('');
   const [status, setStatus] = useState({
     success: false,
     reason: 'No changes made.',
   });
-  const [parsedTimetable, setParsedTimetable] = useState([]);
+  const [parsedTimetable, setParsedTimetable] = useState({});
   useEffect(() => {
     try {
-      const { blocks } = parseTimetable(timetable);
-      setParsedTimetable(blocks);
+      const timetable = parseTimetable(timetableString);
+      setParsedTimetable(timetable);
     } catch (error) {
       console.log(error);
       setStatus({
         success: false,
         reason: error?.message,
       });
-      setParsedTimetable([]);
+      setParsedTimetable({});
       return;
     }
     setStatus({
       success: true,
       reason: "Everything lookin' good!",
     });
-  }, [timetable]);
+  }, [timetableString]);
   return (
     <BaseModal
       state={modalState}
@@ -137,60 +136,57 @@ export default function SetTimetableModal({
             e.preventDefault();
           }}
         >
-          {/* Dynamically set disabled */}
-          <fieldset disabled={loading}>
-            <textarea
-              className="min-h-[10rem] w-full rounded-lg border-2 border-blue-200 p-4 text-sm text-gray-500 outline-none focus:border-[3px] focus:border-blue-500"
-              value={timetable}
-              onChange={(e) => setTimetable(e.target.value)}
-              placeholder="Your timetable goes here"
-            ></textarea>
-            <p className="mt-2 text-right font-body text-xs">
-              Copy your timetable from this link:{' '}
-              <a
-                className="inline-block max-w-[15ch] truncate align-middle text-emerald-600 underline"
-                href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=10,01,22&daylist=false"
-              >
-                https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=10,01,22&daylist=false
-              </a>
-            </p>
-            <div className="mt-4">
-              <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
+          <textarea
+            className="min-h-[10rem] w-full rounded-lg border-2 border-blue-200 p-4 text-sm text-gray-500 outline-none focus:border-[3px] focus:border-blue-500"
+            value={timetableString}
+            onChange={(e) => setTimetableString(e.target.value)}
+            placeholder="Your timetable goes here"
+          ></textarea>
+          <p className="mt-2 text-right font-body text-xs">
+            Copy your timetable from this link:{' '}
+            <a
+              className="inline-block max-w-[15ch] truncate align-middle text-emerald-600 underline"
+              href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=10,01,22&daylist=false"
+            >
+              https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=10,01,22&daylist=false
+            </a>
+          </p>
+          <div className="mt-4">
+            <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
 
-              <div className="-mt-20 w-full max-w-[25.5rem] overflow-x-auto  whitespace-nowrap px-6 pt-20 text-center text-xs text-gray-900">
-                {parsedTimetable.length ? (
-                  <Blocks blocks={parsedTimetable} />
-                ) : (
-                  ''
-                )}
-              </div>
-              <div
-                className={`mt-3 inline-flex w-full items-center rounded-lg ${
-                  status.success
-                    ? 'bg-green-100 text-base text-green-700'
-                    : 'bg-red-100 text-xs text-red-700'
-                } py-5 px-6`}
-                role="alert"
-              >
-                {status.success ? (
-                  <CheckCircleIcon className="mr-2 h-4 min-w-[1rem] fill-current" />
-                ) : (
-                  <XCircleIcon className="mr-2 h-4 min-w-[1rem] fill-current" />
-                )}
-                <span>{status.reason}</span>
-              </div>
+            <div className="-mt-20 w-full max-w-[25.5rem] overflow-x-auto  whitespace-nowrap px-6 pt-20 text-center text-xs text-gray-900">
+              {parsedTimetable?.blocks.length ? (
+                <Blocks blocks={parsedTimetable?.blocks} />
+              ) : (
+                ''
+              )}
             </div>
-            <div className="mt-8 flex">
-              <span className="mr-2 text-gray-900">Why&apos;d it change?</span>
-              <input
-                type="text"
-                className="grow border-b-2 border-blue-900 bg-transparent text-sm text-gray-800 outline-none focus:border-blue-600"
-                value={reason}
-                placeholder="Tell us a reason"
-                onChange={(e) => setReason(e.target.value)}
-              />
+            <div
+              className={`mt-3 inline-flex w-full items-center rounded-lg ${
+                status.success
+                  ? 'bg-green-100 text-base text-green-700'
+                  : 'bg-red-100 text-xs text-red-700'
+              } py-5 px-6`}
+              role="alert"
+            >
+              {status.success ? (
+                <CheckCircleIcon className="mr-2 h-4 min-w-[1rem] fill-current" />
+              ) : (
+                <XCircleIcon className="mr-2 h-4 min-w-[1rem] fill-current" />
+              )}
+              <span>{status.reason}</span>
             </div>
-          </fieldset>
+          </div>
+          <div className="mt-8 flex">
+            <span className="mr-2 text-gray-900">Why&apos;d it change?</span>
+            <input
+              type="text"
+              className="grow border-b-2 border-blue-900 bg-transparent text-sm text-gray-800 outline-none focus:border-blue-600"
+              value={reason}
+              placeholder="Tell us a reason"
+              onChange={(e) => setReason(e.target.value)}
+            />
+          </div>
         </form>
       </div>
     </BaseModal>
