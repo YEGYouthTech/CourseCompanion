@@ -207,7 +207,7 @@ function parseTimetable(content: string) {
     });
   });
 
-  return { name, school, timePeriod, blocks };
+  return { name, school, timePeriod, blocks, content };
 }
 
 console.log(parseTimetable(SAMPLE));
