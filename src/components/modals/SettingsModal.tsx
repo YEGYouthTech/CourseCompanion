@@ -2,7 +2,7 @@ import { Dialog } from '@headlessui/react';
 import type { Dispatch, SetStateAction } from 'react';
 import { HiOutlineCog as CogIcon } from 'react-icons/hi';
 
-import BaseModal from './BaseModal';
+import BaseModal from '../BaseModal';
 
 type ISetTimetableModalProps = {
   state: [boolean, Dispatch<SetStateAction<boolean>>];

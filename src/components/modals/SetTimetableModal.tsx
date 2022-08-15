@@ -11,8 +11,8 @@ import {
 import auth from '@/lib/firebase';
 import { parseTimetable } from '@/lib/parseTimetable';
 
-import BaseModal from './BaseModal';
-import { Blocks } from './vis/Blocks';
+import BaseModal from '../BaseModal';
+import { Blocks } from '../vis/Blocks';
 
 type ISetTimetableModalProps = {
   state: [boolean, Dispatch<SetStateAction<boolean>>];
@@ -155,7 +155,7 @@ export default function SetTimetableModal({
             <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
 
             <div className="-mt-20 w-full max-w-[25.5rem] overflow-x-auto  whitespace-nowrap px-6 pt-20 text-center text-xs text-gray-900">
-              {parsedTimetable?.blocks.length ? (
+              {parsedTimetable?.blocks?.length ? (
                 <Blocks blocks={parsedTimetable?.blocks} />
               ) : (
                 ''

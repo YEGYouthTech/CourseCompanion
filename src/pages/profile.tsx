@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-import SetTimetableModal from '../components/SetTimetableModal';
-import SettingsModal from '../components/SettingsModal';
+import SetTimetableModal from '../components/modals/SetTimetableModal';
+import SettingsModal from '../components/modals/SettingsModal';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Profile(): React.ReactNode {
