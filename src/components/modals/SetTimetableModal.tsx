@@ -74,7 +74,7 @@ function submitTimetable(timetable): void {
     loading: 'Saving timetable...',
     success: (
       <b>{`Your timetable has been ${
-        timetable.length ? 'updated' : 'deleted'
+        timetable?.blocks?.length ? 'updated' : 'deleted'
       }!`}</b>
     ),
     error: (error: Error) => <b>Error: {error.message}</b>,
