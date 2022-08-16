@@ -24,6 +24,12 @@ export default async (req, res) => {
     name: user.name,
     email: user.email,
     profileImage: user.picture,
+    grade: 0,
+    school: '',
+    groups: [],
+    pendingInvites: [],
+    timetable: '',
+    createdAt: new Date(),
   });
   return res.status(201).json(targetUser);
 };

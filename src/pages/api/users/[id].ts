@@ -47,18 +47,23 @@ export default async (req, res) => {
       uid: targetUser.uid,
       name: targetUser.name,
       email: targetUser.email,
-      timetable: userMayAccessTargetTimetable
-        ? targetUser.timetable
-        : undefined,
+      profileImage: targetUser.profileImage,
+      grade: targetUser.grade,
+      school: targetUser.school,
       groups: id === user.user_id ? targetUser.groups : undefined,
       pendingInvites:
         id === user.user_id ? targetUser.pendingInvites : undefined,
+
+      timetable: userMayAccessTargetTimetable
+        ? targetUser.timetable
+        : undefined,
+      createdAt: targetUser.createdAt,
     });
   }
   if (method === 'PUT') {
     const {
       query: { id },
-      body: { timetable },
+      body: { timetable, grade, school },
     } = req;
     // Users may not modify other users
     if (id !== user.user_id) {
@@ -70,8 +75,12 @@ export default async (req, res) => {
     }
     await dbUser.update({
       timetable: JSON.stringify(timetable) || dbUser.timetable,
+      school: school || undefined,
+      grade: grade || undefined,
     });
-    return res.status(200).json(user);
+    return res.status(200).json({
+      success: true,
+    });
   }
   if (method === 'DELETE') {
     // TODO: Secure this endpoint

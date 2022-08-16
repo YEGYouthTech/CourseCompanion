@@ -1,6 +1,12 @@
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
+  uid: {
+    type: String,
+    required: true,
+    minLength: 28,
+    maxLength: 28,
+  },
   name: {
     type: String,
     required: true,
@@ -16,24 +22,26 @@ const UserSchema = new mongoose.Schema({
     minLength: 2,
     maxLength: 64,
   },
-  grade: {
-    type: Number,
-    required: false,
-    min: 10,
-    max: 12,
-  },
   profileImage: {
     type: String,
-    required: false,
+    true: false,
     trim: true,
     minLength: 2,
     maxLength: 256,
   },
-  uid: {
-    type: String,
+  grade: {
+    type: Number,
     required: true,
-    minLength: 28,
-    maxLength: 28,
+    enum: [0, 10, 11, 12],
+  },
+  school: {
+    type: String,
+    required: false,
+    trim: true,
+    minLength: 0,
+    maxLength: 64,
+    enum: ['', 'Old Scona Academic', 'Lillian Osborne', 'Harry Ainlay'],
+    default: '',
   },
   groups: {
     type: [
@@ -45,21 +53,22 @@ const UserSchema = new mongoose.Schema({
     required: true,
     default: () => [],
   },
+  pendingInvites: {
+    type: [String],
+    required: true,
+    default: () => [],
+  },
   timetable: {
     type: String,
     required: false,
-    minLength: 2,
-    maxLength: 4096,
+    default: '',
+    minLength: 0,
+    maxLength: 8192,
   },
   createdAt: {
     type: Date,
     default: () => new Date(),
     required: true,
-  },
-  pendingInvites: {
-    type: [String],
-    required: true,
-    default: () => [],
   },
 });
 
