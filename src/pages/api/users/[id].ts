@@ -69,9 +69,21 @@ export default async (req, res) => {
     if (id !== user.user_id) {
       return res.status(403).json({ error: 'You may not modify other users' });
     }
-    const dbUser = (await User.where('uid').equals(id))[0] || null;
+    let dbUser = (await User.where('uid').equals(id))[0] || null;
     if (!dbUser) {
-      return res.status(404).json({ error: 'User not found' });
+      // return res.status(404).json({ error: 'User not found' });
+      dbUser = await User.create({
+        uid: user.user_id,
+        name: user.name,
+        email: user.email,
+        profileImage: user.picture,
+        grade: 0,
+        school: '',
+        groups: [],
+        pendingInvites: [],
+        timetable: '',
+        createdAt: new Date(),
+      });
     }
     await dbUser.update({
       timetable: JSON.stringify(timetable) || dbUser.timetable,
