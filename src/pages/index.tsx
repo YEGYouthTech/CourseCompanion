@@ -28,24 +28,21 @@ const Index = () => {
       </Helmet>
 
       <div className="relative flex min-h-screen w-full flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:min-h-screen lg:p-8 lg:pt-32 xl:p-16 2xl:p-24">
-        <div className="z-10 flex flex-col justify-center md:flex-row">
-          <div className="flex max-w-full flex-col items-start justify-center gap-4 p-8 lg:w-10/12 lg:p-8 2xl:p-12">
-            <img
-              src="https://media.discordapp.net/attachments/1006302753712259183/1008092038694178976/coco_VECTOR_2.png"
-              className="w-full scale-125"
-            />
+        <div className="z-10 flex flex-col justify-center px-16 md:flex-row">
+          <div className="mr-8 mb-16 flex flex-col items-center justify-center lg:p-8 2xl:p-12">
+            <img src="/logo.png" className="block w-full max-w-sm" />
           </div>
-          <div className="flex flex-col items-center justify-center gap-8 p-16">
-            <span className="font-body text-xl text-text-500/[.6]">
+          <div className="flex min-w-[300px] grow flex-col items-center justify-center gap-8">
+            <p className="max-w-[50vh] text-center font-body text-xl text-text-500/[.6] md:text-left">
               A non-district tool to help students compare their timetables,
               filling in the gaps in official programs (SchoolZone).
               <br />
               <br />
               For students, by students ❤️
-            </span>
+            </p>
             <br />
-            <div className="flex w-full flex-col gap-4 lg:grow lg:justify-end">
-              <div className="flex w-full flex-row gap-4 lg:flex-col">
+            <div className="flex w-full flex-col items-center gap-4 lg:grow lg:justify-end">
+              <div className="flex w-full max-w-[50vh] flex-row gap-4 lg:flex-col">
                 <div className="">
                   <Link href={(!user?.uid && '/signin') || '/app'}>
                     <a className="cursor-pointer rounded-full border-2 border-gray-800  !bg-transparent p-2 px-6 text-lg  transition-all hover:!border-primary-500 hover:bg-primary-400 hover:shadow-sm focus:bg-primary-700 disabled:opacity-50">
