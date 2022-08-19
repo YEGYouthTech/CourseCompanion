@@ -56,11 +56,20 @@ export default function SettingsModal({
         setGroups(groups);
       }
     }
-    toast.promise(updateDbUser(), {
-      loading: 'Loading settings...',
-      success: <b>Settings loaded!</b>,
-      error: (error: Error) => <b>Settings failed to load: {error.message}</b>,
-    });
+    toast.promise(
+      updateDbUser(),
+      {
+        loading: 'Loading groups...',
+        success: <b>Groups loaded!</b>,
+        error: (error: Error) => (
+          <b>Settings failed to load: {error.message}</b>
+        ),
+      },
+      {
+        id: 'groups-load',
+        duration: 500,
+      }
+    );
   }
   useUpdateEffect(reloadSettings, [user]);
   useUpdateEffect(() => {

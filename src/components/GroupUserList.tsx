@@ -1,6 +1,6 @@
 import GroupMember from './GroupMember';
 
-export default function GroupUserList({ group, reloadSettings }) {
+export default function GroupUserList({ group, reloadSettings, modalState }) {
   return (
     <div
       className="mt-4 w-full text-white"
@@ -15,6 +15,7 @@ export default function GroupUserList({ group, reloadSettings }) {
           memberId={memberId}
           groupId={group._id}
           reloadSettings={reloadSettings}
+          modalState={modalState}
         />
         // <li key={memberId}>{memberId}</li>
       ))}

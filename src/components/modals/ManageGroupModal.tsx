@@ -85,7 +85,11 @@ export default function ManageGroupModal({
         <code className="font-monospace ml-1 text-xs">({group[0]._id})</code>
       </p>
       <UserPicker selectedState={selectedState} onSelect={submitInvite} />
-      <GroupUserList group={group[0]} reloadSettings={reloadSettings} />
+      <GroupUserList
+        group={group[0]}
+        reloadSettings={reloadSettings}
+        modalState={modalState}
+      />
       <div className="flex flex-col gap-1">
         <button
           className="absolute top-0 right-0 mr-4 mt-4"

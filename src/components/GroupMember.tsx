@@ -4,7 +4,12 @@ import { HiOutlineUserRemove as UserRemoveIcon } from 'react-icons/hi';
 
 import { useAuth } from '@/contexts/AuthContext';
 
-export default function GroupMember({ memberId, groupId, reloadSettings }) {
+export default function GroupMember({
+  memberId,
+  groupId,
+  reloadSettings,
+  modalState,
+}) {
   const [member, setMember] = useState(null);
   const { user } = useAuth();
   async function loadMember() {
@@ -78,6 +83,9 @@ export default function GroupMember({ memberId, groupId, reloadSettings }) {
                 }
                 loadMember();
                 reloadSettings();
+                if (memberId === user.uid) {
+                  modalState[1](false);
+                }
               })(),
               {
                 loading: 'Removing member...',
