@@ -18,9 +18,13 @@ export default function GroupListItem({
     <div className="mx-auto my-1 flex max-w-lg flex-col items-center justify-between rounded-md border-b p-4 sm:flex-row">
       <div className="flex w-full flex-row items-center space-x-4">
         <img
-          src={group.profileImage || 'https://i.pravatar.cc/150'}
+          src={
+            group.profileImage ||
+            'https://lh3.googleusercontent.com/a/default-user'
+          }
           alt="default img"
           className="h-12 w-12 rounded-full"
+          referrerPolicy="no-referrer"
         />
         <div className="grow">
           <h1 className="tracking-tight">{group.name}</h1>

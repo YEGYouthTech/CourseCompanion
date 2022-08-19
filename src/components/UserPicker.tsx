@@ -97,6 +97,7 @@ export default function UserPicker({ selectedState, onSelect }) {
                           src={person.profileImage}
                           alt={person.name}
                           className="h-5 w-5 rounded-full"
+                          referrerPolicy="no-referrer"
                         />
                       </span>
                     </>

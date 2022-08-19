@@ -42,6 +42,7 @@ export default function GroupMember({
           className="h-8 w-8 rounded-full"
           src={member.profileImage}
           alt={member.name}
+          referrerPolicy="no-referrer"
         />
       )}
       <div className="flex grow flex-col">
