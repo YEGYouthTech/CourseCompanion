@@ -24,6 +24,8 @@ export default function SettingsModal({
   const inviteModalState = useState(false);
   const inviteModalGroup = useState(null);
   const createGroupModalState = useState(false);
+  const groupSettingsModalState = useState(false);
+  const groupSettingsModalGroup = useState(null);
   console.log(user);
   function reloadSettings(): void {
     async function updateDbUser() {
@@ -117,11 +119,18 @@ export default function SettingsModal({
       <ManageGroupModal
         group={inviteModalGroup}
         modalState={inviteModalState}
+        groupSettingsModalState={groupSettingsModalState}
+        groupSettingsModalGroup={groupSettingsModalGroup}
         reloadSettings={reloadSettings}
       />
       <CreateGroupModal
         modalState={createGroupModalState}
         reloadSettings={reloadSettings}
+      />
+      <CreateGroupModal
+        modalState={groupSettingsModalState}
+        reloadSettings={reloadSettings}
+        changingGroup={groupSettingsModalGroup[0] || true}
       />
     </>
   );

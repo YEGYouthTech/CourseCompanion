@@ -2,6 +2,7 @@ import { Dialog } from '@headlessui/react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import {
+  HiOutlineCog as CogIcon,
   HiOutlineTrash as TrashIcon,
   HiUserGroup as UserGroupIcon,
 } from 'react-icons/hi';
@@ -14,6 +15,8 @@ import UserPicker from '../UserPicker';
 
 export default function ManageGroupModal({
   group,
+  groupSettingsModalState,
+  groupSettingsModalGroup,
   modalState,
   reloadSettings,
 }) {
@@ -90,9 +93,21 @@ export default function ManageGroupModal({
         reloadSettings={reloadSettings}
         modalState={modalState}
       />
-      <div className="flex flex-col gap-1">
+      <div className="absolute top-0 right-0 mx-4 mt-5 flex flex-row gap-1 sm:m-6">
         <button
-          className="absolute top-0 right-0 mr-4 mt-4"
+          className=""
+          onClick={() => {
+            groupSettingsModalState[1](true);
+            groupSettingsModalGroup[1](group[0]);
+          }}
+        >
+          <CogIcon
+            className="h-6 w-6 text-gray-600/80 hover:text-gray-800"
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          className=""
           onClick={() => {
             if (
               !window.confirm('Are you sure you want to delete this group?')
@@ -130,7 +145,10 @@ export default function ManageGroupModal({
             );
           }}
         >
-          <TrashIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
+          <TrashIcon
+            className="h-6 w-6 text-red-600/80 hover:text-red-600"
+            aria-hidden="true"
+          />
         </button>
       </div>
     </BaseModal>

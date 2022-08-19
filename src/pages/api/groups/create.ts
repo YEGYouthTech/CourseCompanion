@@ -26,13 +26,17 @@ export default async (req, res) => {
   }
 
   const {
-    body: { name },
+    body: { name, profileImage },
   } = req;
   if (!name) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
   try {
-    const group = await Group.create({ name, owner: user.user_id });
+    const group = await Group.create({
+      name,
+      profileImage,
+      owner: user.user_id,
+    });
     // Add the owner to the group
     await group.addUser(user.user_id);
     await dbUser.update({ $push: { groups: group.id } });

@@ -9,7 +9,12 @@ dbConnect();
 
 export default async (req, res) => {
   const { method } = req;
-  if (method !== 'GET' && method !== 'POST' && method !== 'DELETE') {
+  if (
+    method !== 'GET' &&
+    method !== 'POST' &&
+    method !== 'DELETE' &&
+    method !== 'PUT'
+  ) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   if (!req.headers.authorization) {
@@ -22,16 +27,28 @@ export default async (req, res) => {
 
   if (method === 'GET') {
     const {
-      query: { q: name },
+      query: { q: name, id },
     } = req;
-    const group = await Group.findOne(
-      { where: { name } },
-      {
+    if (!name && !id) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+    let group;
+    if (name) {
+      group = await Group.findOne(
+        { where: { name } },
+        {
+          name: 1,
+          owner: 1,
+          members: 1,
+        }
+      );
+    } else if (id) {
+      group = await Group.findById(id, {
         name: 1,
         owner: 1,
         members: 1,
-      }
-    );
+      });
+    }
     if (!group) {
       return res.status(404).json({ error: 'Group not found' });
     }
@@ -115,5 +132,19 @@ export default async (req, res) => {
       { $pull: { groups: name, pendingInvites: name } }
     );
     return res.status(200).json({ message: 'Group deleted' });
+  }
+  if (method === 'PUT') {
+    const {
+      body: { id, name, profileImage },
+    } = req;
+    const group = await Group.findById(id);
+    if (!group) {
+      return res.status(404).json({ error: 'Group not found' });
+    }
+    if (group.owner !== user.uid) {
+      return res.status(403).json({ error: 'Forbidden' });
+    }
+    await group.update({ name, profileImage });
+    return res.status(200).json(group);
   }
 };

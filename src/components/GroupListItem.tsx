@@ -28,7 +28,7 @@ export default function GroupListItem({
         />
         <div className="grow">
           <h1 className="tracking-tight">{group.name}</h1>
-          <p className="font-light text-gray-500">
+          <p className="text-sm font-light text-gray-500">
             {isPending
               ? 'Invite pending'
               : group.owner === user.uid
