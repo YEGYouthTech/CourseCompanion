@@ -38,7 +38,9 @@ export default async (req, res) => {
       return res.status(404).json({ error: 'Group not found' });
     }
     if (group.members.length > 1) {
-      return res.status(400).json({ error: 'Group has members' });
+      return res.status(400).json({
+        error: 'Group has members. Kick them before deleting the group.',
+      });
     }
     // Users may not remove other users' groups
     if (group.owner !== user.user_id) {
