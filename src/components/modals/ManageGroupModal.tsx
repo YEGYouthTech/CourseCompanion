@@ -1,7 +1,10 @@
 import { Dialog } from '@headlessui/react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { HiUserGroup as UserGroupIcon } from 'react-icons/hi';
+import {
+  HiOutlineTrash as TrashIcon,
+  HiUserGroup as UserGroupIcon,
+} from 'react-icons/hi';
 
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -83,6 +86,49 @@ export default function ManageGroupModal({
       </p>
       <UserPicker selectedState={selectedState} onSelect={submitInvite} />
       <GroupUserList group={group[0]} reloadSettings={reloadSettings} />
+      <div className="flex flex-col gap-1">
+        <button
+          className="absolute top-0 right-0 mr-4 mt-4"
+          onClick={() => {
+            if (
+              !window.confirm('Are you sure you want to delete this group?')
+            ) {
+              return;
+            }
+            toast.promise(
+              (async () => {
+                const request = await fetch(`/api/groups/delete`, {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    group: group[0]._id,
+                  }),
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `${await user.getIdToken()}`,
+                  },
+                });
+                // if (request.status !== 200) {
+                //   throw new Error(
+                //     `Received error HTTP status code ${request.status} ${request.statusText}`
+                //   );
+                // }
+                const json = await request.json();
+                if (!request.ok || json?.error !== undefined) {
+                  throw new Error(json?.error || 'Unknown error');
+                }
+                modalState[1](false);
+              })(),
+              {
+                loading: 'Deleting group...',
+                success: <b>Group deleted!</b>,
+                error: (error: Error) => <b>Delete failed: {error.message}</b>,
+              }
+            );
+          }}
+        >
+          <TrashIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
+        </button>
+      </div>
     </BaseModal>
   );
 }
