@@ -4,12 +4,14 @@ import { Helmet } from 'react-helmet';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
+import GroupsModal from '../components/modals/GroupsModal';
 import SetTimetableModal from '../components/modals/SetTimetableModal';
 import SettingsModal from '../components/modals/SettingsModal';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Profile(): React.ReactNode {
   const { user, logOut } = useAuth();
+  const groupsModalState = useState(false);
   const timetableModalState = useState(false);
   const settingsModalState = useState(false);
   user?.getIdToken()?.then(console.warn);
@@ -70,10 +72,16 @@ export default function Profile(): React.ReactNode {
               )}
               <div className="mt-8 flex justify-end gap-2">
                 <button
+                  className="rounded-md bg-amber-500 py-2 px-4 font-bold text-white hover:bg-amber-700"
+                  onClick={() => groupsModalState[1](true)}
+                >
+                  Groups
+                </button>
+                <button
                   className="rounded-md bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
                   onClick={() => timetableModalState[1](true)}
                 >
-                  Set Timetable
+                  Timetable
                 </button>
                 <button
                   className="rounded-md bg-emerald-500 py-2 px-4 font-bold text-white hover:bg-emerald-700"
@@ -101,6 +109,7 @@ export default function Profile(): React.ReactNode {
           )}
         </div>
       </div>
+      <GroupsModal state={groupsModalState} />
       <SetTimetableModal state={timetableModalState} />
       <SettingsModal state={settingsModalState} />
     </Main>

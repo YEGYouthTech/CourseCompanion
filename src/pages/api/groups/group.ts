@@ -39,15 +39,15 @@ export default async (req, res) => {
   }
   if (method === 'POST') {
     const {
-      body: { group: groupId, action },
+      body: { group: groupId, user: userId, action },
     } = req;
     if (action !== 'add' && action !== 'remove') {
       return res.status(400).json({ error: 'Invalid action' });
     }
 
-    const dbUser = (await User.where('uid').equals(user.user_id))[0] || null;
+    const dbUser = (await User.where('uid').equals(userId))[0] || null;
     if (!dbUser) {
-      return res.status(400).json({ error: 'You are not a registered user' });
+      return res.status(400).json({ error: 'Not a registered user' });
     }
     const group = await Group.findById(groupId);
     if (!group) {
@@ -55,7 +55,7 @@ export default async (req, res) => {
     }
 
     if (action === 'add') {
-      if (group.members.includes(user.user_id)) {
+      if (group.members.includes(userId)) {
         return res.status(400).json({ error: 'User is already in the group' });
       }
       if (!dbUser.pendingInvites.includes(groupId)) {
@@ -63,23 +63,37 @@ export default async (req, res) => {
           error: `User is not invited to this group`,
         });
       }
-      await group.addUser(user.user_id);
+      // User may not add anyone but themselves to a group
+      if (userId !== user.uid) {
+        return res.status(403).json({ error: 'Not authorized' });
+      }
+      await group.addUser(userId);
       await User.updateOne(
-        { uid: user.user_id },
+        { uid: userId },
         { $pull: { pendingInvites: groupId }, $push: { groups: groupId } }
       );
     } else if (action === 'remove') {
-      // You must not be the owner of the group to remove yourself
-      if (group.owner === user.user_id) {
-        return res.status(400).json({ error: 'Delete the group instead' });
+      // if (!group.members.includes(userId)) {
+      //   return res.status(400).json({ error: 'User is not in the group' });
+      // }
+      // You may not remove the group owner
+      if (group.owner === userId) {
+        return res.status(400).json({
+          error:
+            'The group owner may not leave the group. Delete the group instead.',
+        });
       }
-      if (!group.members.includes(user.user_id)) {
-        return res.status(400).json({ error: 'User is not in the group' });
+      // You may not remove others from a group unless you are the owner
+      if (userId !== user.uid && group.owner !== user.uid) {
+        return res.status(403).json({
+          error:
+            'You may not remove others from a group unless you are the owner.',
+        });
       }
-      await group.removeUser(user.user_id);
+      await group.removeUser(userId);
       await User.updateOne(
-        { uid: user.user_id },
-        { $pull: { groups: groupId } }
+        { uid: userId },
+        { $pull: { groups: groupId, pendingInvites: groupId } }
       );
     }
     return res.status(200).json(group);

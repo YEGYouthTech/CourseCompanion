@@ -21,7 +21,7 @@ export default async (req, res) => {
 
   if (method === 'GET') {
     const {
-      query: { id },
+      query: { id, listGroups },
     } = req;
     let userMayAccessTargetTimetable = false;
     // Allow access if the user is reading their own profile
@@ -29,7 +29,7 @@ export default async (req, res) => {
       userMayAccessTargetTimetable || id === user.user_id;
     // Allow access if the user is a member of a mutual group
     const dbUser = (await User.where('uid').equals(user.user_id))[0] || null;
-    const targetUser = (await User.where('uid').equals(id))[0] || null;
+    let targetUser = (await User.where('uid').equals(id))[0] || null;
     if (!dbUser) {
       // You don't exist
       return res
@@ -43,6 +43,14 @@ export default async (req, res) => {
     userMayAccessTargetTimetable =
       userMayAccessTargetTimetable ||
       dbUser.groups.some((group) => targetUser.groups.includes(group));
+
+    if (listGroups && id === user.user_id && id === targetUser.uid) {
+      // populate groups
+      targetUser =
+        (
+          await User.where('uid').equals(id).populate('groups pendingInvites')
+        )[0] || null;
+    }
     return res.status(200).json({
       uid: targetUser.uid,
       name: targetUser.name,

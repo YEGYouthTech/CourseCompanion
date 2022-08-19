@@ -54,7 +54,12 @@ const UserSchema = new mongoose.Schema({
     default: () => [],
   },
   pendingInvites: {
-    type: [String],
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group',
+      },
+    ],
     required: true,
     default: () => [],
   },

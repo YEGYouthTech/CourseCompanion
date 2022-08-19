@@ -13,6 +13,6 @@ export default async (req, res) => {
   const users = await User.find()
     .where('name')
     .regex(new RegExp(q, 'i'))
-    .select('uid name');
+    .select('uid name profileImage');
   return res.status(200).json(users);
 };
