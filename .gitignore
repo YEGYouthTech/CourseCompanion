@@ -42,3 +42,4 @@ local
 # secrets
 .env
 *firebase-adminsdk-*.json
+tokens.txt
