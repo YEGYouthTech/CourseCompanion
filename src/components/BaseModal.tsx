@@ -34,7 +34,7 @@ export default function BaseModal({
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 overflow-y-auto"
+        className="fixed inset-0 z-50 overflow-y-auto"
         initialFocus={cancelButtonRef}
         onClose={setOpen}
       >
