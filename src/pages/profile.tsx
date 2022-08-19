@@ -16,7 +16,11 @@ export default function Profile(): React.ReactNode {
   const settingsModalState = useState(false);
   user?.getIdToken()?.then(console.warn);
   return (
-    <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
+    <Main
+      meta={
+        <Meta title="Profile | Course Companion" description="Lorem ipsum" />
+      }
+    >
       <Helmet>
         <style>{`
           html, body {
