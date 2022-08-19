@@ -41,7 +41,8 @@ const About = () => (
               <TeamMember
                 name="Oliver Chen"
                 title="Project Manager"
-                image="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
+                // image="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
+                image="/assets/images/team/Oliver_Chen.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
               <TeamMember
@@ -53,7 +54,8 @@ const About = () => (
               <TeamMember
                 name="Elina Ajamian"
                 title="Trust &amp; Safety Manager"
-                image="https://images.unsplash.com/photo-1634193295627-1cdddf751ebf?fit=clamp&w=400&h=400&q=80"
+                // image="https://images.unsplash.com/photo-1634193295627-1cdddf751ebf?fit=clamp&w=400&h=400&q=80"
+                image="/assets/images/team/Elina_Ajamian.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
               <TeamMember
