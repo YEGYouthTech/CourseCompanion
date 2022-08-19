@@ -60,6 +60,7 @@ export default function CreateGroupModal({
 
   useEffect(() => {
     if (!changingGroup) {
+      setName(`${user?.displayName?.split(' ')[0]}'s Group` || '');
       return;
     }
     setName(changingGroup.name);
