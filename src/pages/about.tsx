@@ -37,7 +37,7 @@ const About = () => (
                 </p>
               </div>
             </div>
-            <div className="mb-16 flex flex-wrap">
+            <div className="margin-auto mb-16 flex flex-wrap justify-center">
               <TeamMember
                 name="Oliver Chen"
                 title="Project Manager"
@@ -58,9 +58,22 @@ const About = () => (
                 image="/assets/images/team/Elina_Ajamian.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
+              <div className="basis-full"></div>
               <TeamMember
                 name="Evan Yin"
                 title="Art &amp; Design Manager"
+                image="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"
+                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
+              />
+              <TeamMember
+                name="Heril Saha"
+                title="Programming Manager"
+                image="/assets/images/team/Heril_Saha.jpg"
+                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
+              />
+              <TeamMember
+                name="Hao Cheng"
+                title="Lead Web Developer"
                 image="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
