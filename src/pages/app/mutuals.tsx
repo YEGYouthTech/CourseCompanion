@@ -1,8 +1,5 @@
-import { Meta } from '@/layouts/Meta';
-import AppMain from '@/templates/AppMain';
-
 const AppMutuals = () => (
-  <AppMain meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
+  <>
     <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-gray-750">
       Mutuals
     </h1>
@@ -22,7 +19,7 @@ const AppMutuals = () => (
       voluptatibus distinctio recusandae autem esse explicabo molestias officia
       placeat, accusamus aut saepe.
     </p>
-  </AppMain>
+  </>
 );
 
 export default AppMutuals;

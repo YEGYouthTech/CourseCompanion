@@ -21,13 +21,12 @@ export default async (req, res) => {
 
   if (method === 'GET') {
     const {
-      query: { id, listGroups },
+      query: { id, listGroups, mutualGroup },
     } = req;
     let userMayAccessTargetTimetable = false;
     // Allow access if the user is reading their own profile
     userMayAccessTargetTimetable =
       userMayAccessTargetTimetable || id === user.user_id;
-    // Allow access if the user is a member of a mutual group
     const dbUser = (await User.where('uid').equals(user.user_id))[0] || null;
     let targetUser = (await User.where('uid').equals(id))[0] || null;
     if (!dbUser) {
@@ -40,10 +39,17 @@ export default async (req, res) => {
       // The target user doesn't exist
       return res.status(404).json({ error: 'User not found' });
     }
-    userMayAccessTargetTimetable =
-      userMayAccessTargetTimetable ||
-      dbUser.groups.some((group) => targetUser.groups.includes(group));
-
+    // Allow access if the user is a member of a mutual group
+    if (!mutualGroup) {
+      userMayAccessTargetTimetable =
+        userMayAccessTargetTimetable ||
+        dbUser.groups.some((group) => targetUser.groups.includes(group));
+    } else {
+      userMayAccessTargetTimetable =
+        userMayAccessTargetTimetable ||
+        (dbUser.groups.includes(mutualGroup) &&
+          targetUser.groups.includes(mutualGroup));
+    }
     if (listGroups && id === user.user_id && id === targetUser.uid) {
       // populate groups
       targetUser =
