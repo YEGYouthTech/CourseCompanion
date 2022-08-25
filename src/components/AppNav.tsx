@@ -6,8 +6,8 @@ import AppNavItem from './AppNavItem';
 
 function AppNav() {
   return (
-    <div>
-      <nav className="fixed top-16 left-0 w-screen bg-gray-300">
+    <>
+      <nav className="fixed top-16 left-0 z-10 w-screen bg-gray-300">
         <div className="mx-auto h-16 max-w-7xl overflow-x-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
@@ -19,6 +19,7 @@ function AppNav() {
                   <AppNavItem href="/app/spares">Spares</AppNavItem>
                   <AppNavItem href="/app/similarity">Matrix</AppNavItem>
                   <AppNavItem href="/app/data">Data</AppNavItem>
+                  <AppNavItem href="/app/table">Table</AppNavItem>
                   <AppNavItem href="/app/aggregate">Aggregate</AppNavItem>
                 </div>
               </div>
@@ -26,8 +27,8 @@ function AppNav() {
           </div>
         </div>
       </nav>
-      <div className="mt-32"></div>
-    </div>
+      <div className="mt-36"></div>
+    </>
   );
 }
 

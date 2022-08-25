@@ -305,7 +305,7 @@ const PERIODS: { [index: string]: number } = {
   '3:25 PM - 4:55 PM': 5,
 };
 
-const DAYPERIOD2BLOCK: { [index: number]: number[] } = {
+const DAYPERIOD2BLOCK_OLD: { [index: number]: number[] } = {
   1: [1, 3, 6, 8],
   2: [2, 4, 7, 9, 11],
   3: [1, 5, 6, 10, 12],
@@ -313,7 +313,7 @@ const DAYPERIOD2BLOCK: { [index: number]: number[] } = {
   5: [4, 5, 9, 10],
 };
 
-const DAYPERIOD2BLOCK_NEW: { [index: number]: number[] } = {
+const DAYPERIOD2BLOCK: { [index: number]: number[] } = {
   1: [1, 3, 6, 8],
   2: [2, 5, 7, 9],
   3: [1, 4, 6, 10],

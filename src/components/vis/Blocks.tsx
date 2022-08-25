@@ -11,6 +11,8 @@ type IBlockProps = {
 
 type IBlocksProps = {
   blocks: ICourse[];
+  hideHeader?: boolean;
+  nameHeader?: string;
 };
 
 export function Block({ header, index, course, rainbow }: IBlockProps) {
@@ -37,9 +39,9 @@ export function Block({ header, index, course, rainbow }: IBlockProps) {
   return (
     <>
       <div
-        className={`relative inline-block w-20 ${header ? 'p-1' : 'p-2'} ${
-          rainbow ? rainbowColors[index % rainbowColors.length] : ''
-        }`}
+        className={`relative inline-block h-[37px] w-20 ${
+          header ? 'p-1' : 'p-2'
+        } ${rainbow ? rainbowColors[index % rainbowColors.length] : ''}`}
         data-tip={!header ? course?.name || '[ERROR]' : undefined}
         onMouseEnter={() => {
           showTooltip(true);
@@ -49,30 +51,53 @@ export function Block({ header, index, course, rainbow }: IBlockProps) {
         }}
       >
         {header ? `Block ${index + 1}` : course?.code}
-        {!header && tooltip ? (
-          <div className="absolute top-0 left-1/2 z-[999] w-32 -translate-x-1/2 -translate-y-full whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 text-sm font-normal text-white focus:outline-none">
+        {course?.name ? (
+          <div
+            className={`absolute top-0 left-1/2 z-[999] hidden w-32 -translate-x-1/2 -translate-y-full whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 text-sm font-normal text-white focus:outline-none ${
+              !header && tooltip && '!block'
+            }`}
+          >
+            <span className="text-[0px]">&nbsp;</span>
             {course?.name || '[ERROR]'}
           </div>
         ) : undefined}
+        <span className="absolute h-0">
+          <br />
+        </span>
       </div>
     </>
   );
 }
 
-export function Blocks({ blocks }: IBlocksProps) {
+export function Blocks({ blocks, hideHeader, nameHeader }: IBlocksProps) {
   return (
     <>
-      {blocks.map((_, i) => (
-        <Block key={`blocksHeader${i}`} header={true} index={i} />
-      ))}
+      {!hideHeader &&
+        blocks.map((_, i) => (
+          <>
+            {nameHeader && i === 0 && (
+              <div className="relative inline-block w-32 p-1 ">
+                <div className="font-body text-sm"></div>
+              </div>
+            )}
+            <Block key={`blocksHeader${i}`} header={true} index={i} />
+          </>
+        ))}
       <br />
       {blocks.map((course, i) => (
-        <Block
-          key={`blocks${course.code}${i}`}
-          index={i}
-          course={course}
-          rainbow={true}
-        />
+        <>
+          {nameHeader && i === 0 && (
+            <div className="relative inline-block w-32 p-1 ">
+              <div className="font-body text-sm">{nameHeader}</div>
+            </div>
+          )}
+          <Block
+            key={`blocks${course.code}${i}`}
+            index={i}
+            course={course}
+            rainbow={true}
+          />
+        </>
       ))}
     </>
   );

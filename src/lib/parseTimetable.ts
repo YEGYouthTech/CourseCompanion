@@ -10,6 +10,8 @@ import {
   SUBJKEY,
 } from './osa';
 
+const HAS_ROOM_AND_TEACHER = false;
+
 /* eslint-disable no-console */
 const SAMPLE = `
 Timetable for Oliver Chen at Old Scona School
@@ -145,8 +147,13 @@ function parseTimetable(content: string) {
         line
           .split(/^\d\d?:\d\d(?: [AP]M)? - \d\d?:\d\d(?: [AP]M)?/)[1]
           ?.trim() || '';
-      const room = line.split(' ')[0];
-      line = line.split(' ').slice(1).join(' ');
+      let room;
+      if (HAS_ROOM_AND_TEACHER) {
+        room = line.split(' ')[0];
+        line = line.split(' ').slice(1).join(' ');
+      } else {
+        room = '[UNK]';
+      }
       const duration =
         line
           .match(
@@ -164,8 +171,13 @@ function parseTimetable(content: string) {
         if (line.startsWith(name_)) {
           courseName = name_;
           courseCode = code_;
-          teacher = line.split(name_)?.[1]?.trim();
-          teacherInitials = teacher?.match(/[A-Z]/g)?.join('') || '';
+          if (HAS_ROOM_AND_TEACHER) {
+            teacher = line.split(name_)?.[1]?.trim();
+            teacherInitials = teacher?.match(/[A-Z]/g)?.join('') || '';
+          } else {
+            teacher = '[UNKNOWN]';
+            teacherInitials = '[UNK]';
+          }
           return false;
         }
         return true;

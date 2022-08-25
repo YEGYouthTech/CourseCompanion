@@ -1,12 +1,11 @@
-import { useContext } from "react";
+import { useContext } from 'react';
+import styled, { css } from 'styled-components';
 
-import { DataContext } from "@/templates/AppMain";
-
-import styled, { css } from "styled-components";
+import { DataContext } from '@/templates/AppMain';
 
 const genHSL = (idx: number) => {
   const hslVal = idx / 10;
-  return "hsla(" + ~~(360 * hslVal) + "," + "70%," + "80%,1)";
+  return `hsla(${~~(360 * hslVal)},` + `70%,` + `80%,1)`;
 };
 
 const Header = styled.h1<{ secondary?: boolean }>`
@@ -32,13 +31,15 @@ const TableWrapper = styled.div`
   font-family: Gilroy, sans-serif;
   padding-bottom: 1rem;
   padding-top: 0rem;
-  @media (max-width: 850px) {
+  @media (max-width: 600px) {
     padding-right: 0rem;
     padding-left: 0rem;
-    width: 25rem;
-    overflow: scroll;
+    width: 100%;
+    overflow-x: auto;
     padding-top: 1rem;
+    padding-bottom: 0;
   }
+  width: min(100vw, 36rem);
 `;
 
 const Table = styled.table`
@@ -92,8 +93,9 @@ const Td = styled.td<{
   padding-bottom: 0.5rem;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  min-width: 4rem;
   ${(props) =>
     props.left &&
     css`
@@ -128,7 +130,7 @@ const AppData = () => {
   const { group, data }: { group: any; data: any } =
     dataContext === null ? { group: null, data: null } : dataContext;
   return (
-    <>
+    <div className="flex flex-wrap">
       {data && data.length !== 0 ? (
         data.map((i: any) => (
           <>
@@ -140,27 +142,31 @@ const AppData = () => {
               <Table>
                 <Thead>
                   <Tr>
-                    <Th left>Block</Th>
+                    <Th>Block</Th>
+                    <Th left>Course</Th>
                     <Th>Code</Th>
                     <Th left>Teacher</Th>
                     <Th>Room</Th>
-                    <Th>Duration</Th>
+                    {/* <Th>Duration</Th> */}
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {i?.blocks.map((j: any, idx: number) => (
-                    <Tr>
+                  {i?.blocks?.map((j: any, blockid: number) => (
+                    <Tr key={blockid}>
+                      <Td>{blockid + 1}</Td>
                       <Td left>{j.name}</Td>
-                      <Td mono color={(idx + 1) as any}>
+                      <Td mono color={(blockid + 1) as any}>
                         {j.code}
                       </Td>
-                      <Td left>{j.teacher ? j.teacher.name : "N/A"}</Td>
-                      <Td mono green>
-                        {j.room ? j.room : "N/A"}
+                      <Td left green>
+                        {j.teacher ? j.teacher.name : 'N/A'}
                       </Td>
                       <Td mono blue>
-                        {j.duration !== null ? `${j.duration} hr` : "N/A"}
+                        {j.room ? j.room : 'N/A'}
                       </Td>
+                      {/* <Td>
+                        {j.duration !== null ? `${j.duration} hrs` : 'N/A'}
+                      </Td> */}
                     </Tr>
                   ))}
                 </Tbody>
@@ -179,7 +185,7 @@ const AppData = () => {
           </p>
         </>
       )}
-    </>
+    </div>
   );
 };
 
