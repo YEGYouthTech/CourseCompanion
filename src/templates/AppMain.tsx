@@ -1,13 +1,13 @@
-import { createContext, useState } from "react";
-import { toast } from "react-hot-toast";
-import { HiCog as CogIcon } from "react-icons/hi";
+import { createContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { HiCog as CogIcon } from 'react-icons/hi';
 
-import { useAuth } from "@/contexts/AuthContext";
-import { Main } from "@/templates/Main";
+import { useAuth } from '@/contexts/AuthContext';
+import { Main } from '@/templates/Main';
 
-import AppNav from "../components/AppNav";
-import GroupPicker from "../components/GroupPicker";
-import useUpdateEffect from "../hooks/useUpdateEffect";
+import AppNav from '../components/AppNav';
+import GroupPicker from '../components/GroupPicker';
+import useUpdateEffect from '../hooks/useUpdateEffect';
 
 type IAppMainProps = {
   meta: React.ReactNode;
@@ -26,7 +26,7 @@ const AppMain = (props: IAppMainProps) => {
   useUpdateEffect(() => {
     async function fetchGroups() {
       if (!user) {
-        throw new Error("Not logged in");
+        throw new Error('Not logged in');
       }
 
       const request = await fetch(`/api/users/${user.uid}/?listGroups=1`, {
@@ -41,7 +41,7 @@ const AppMain = (props: IAppMainProps) => {
       }
       const json = await request.json();
       if (!request.ok || json?.error !== undefined) {
-        throw new Error(json?.error || "Unknown error");
+        throw new Error(json?.error || 'Unknown error');
       }
       setGroups(json.groups);
     }
@@ -60,7 +60,7 @@ const AppMain = (props: IAppMainProps) => {
               `/api/users/${member}/?mutualGroup=${groupObj._id}`,
               {
                 headers: {
-                  "Content-Type": "application/json",
+                  'Content-Type': 'application/json',
                   Authorization: `${await user.getIdToken()}`,
                 },
               }
@@ -72,7 +72,7 @@ const AppMain = (props: IAppMainProps) => {
             }
             const json = await request.json();
             if (!request.ok || json?.error !== undefined) {
-              throw new Error(json?.error || "Unknown error");
+              throw new Error(json?.error || 'Unknown error');
             }
             try {
               timetables.push(JSON.parse(json?.timetable));
@@ -82,17 +82,17 @@ const AppMain = (props: IAppMainProps) => {
           })(member)
         )
       );
-      setData(timetables);
+      setData(timetables.filter((t) => t?.blocks?.length > 0));
     }
     toast.promise(
       fetchData(),
       {
-        loading: "Loading data...",
+        loading: 'Loading data...',
         success: <b>Data loaded!</b>,
         error: (error: Error) => <b>Data failed to load: {error.message}</b>,
       },
       {
-        id: "data-load",
+        id: 'data-load',
       }
     );
   }, [group]);

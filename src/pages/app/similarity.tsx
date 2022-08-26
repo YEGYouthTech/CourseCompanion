@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled, { css } from "styled-components";
-import AppMain from "@/templates/AppMain";
+
 import { DataContext } from "@/templates/AppMain";
 
 const Header = styled.h1<{ secondary?: boolean }>`
@@ -114,6 +114,9 @@ const Td = styled.td<{
 `;
 
 const compareClasses = (p1: any, p2: any, onlyColor = false) => {
+  if (!p1?.blocks?.length || !p2?.blocks?.length) {
+    return 0;
+  }
   // colors for 0% - 100%
   const hexList = [
     "#E33737",
@@ -129,26 +132,24 @@ const compareClasses = (p1: any, p2: any, onlyColor = false) => {
     "#008D39",
   ];
 
-  console.log("P1", p1);
-  console.log("P2", p2);
-  const sameClasses = [];
-
-  for (let i = 0; i < p1.blocks.length; i++) {
-    if (p1.blocks[i] === p2.blocks[i]) {
-      sameClasses.push(p1.blocks[i].code);
+  const intersection: Array<number> = [];
+  p1.blocks.forEach((b1: any, bid: number) => {
+    if (p2.blocks[bid].code === b1.code) {
+      intersection.push(bid);
     }
-  }
+  });
 
   if (onlyColor) {
-    return hexList[sameClasses.length];
+    return hexList[intersection.length] as string;
   }
 
-  return sameClasses.length * 10 + "%";
+  console.log(p1, p2, intersection);
+  return `${intersection.length * 10}%`; // x10 to turn into percentage
 };
 
 const AppIndex = () => {
   const dataContext = useContext(DataContext);
-  let { group, data }: { group: any; data: any } =
+  const { group, data }: { group: any; data: any } =
     dataContext === null ? { group: null, data: null } : dataContext;
 
   return (
@@ -170,7 +171,7 @@ const AppIndex = () => {
                   <Tr>
                     <Td blue>{i.name}</Td>
                     {data.map((j: any) => (
-                      <Td mono color={compareClasses(i, j, true)}>
+                      <Td mono color={compareClasses(i, j, true) as string}>
                         {compareClasses(i, j)}
                       </Td>
                     ))}
