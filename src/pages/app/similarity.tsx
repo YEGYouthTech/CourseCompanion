@@ -114,6 +114,9 @@ const Td = styled.td<{
 `;
 
 const compareClasses = (p1: any, p2: any, onlyColor = false) => {
+  if (!p1?.blocks?.length || !p2?.blocks?.length) {
+    return 0;
+  }
   // colors for 0% - 100%
   const hexList = [
     '#E33737',
