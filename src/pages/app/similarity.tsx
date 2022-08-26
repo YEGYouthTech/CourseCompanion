@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import styled, { css } from "styled-components";
-import AppMain from "@/templates/AppMain";
-import { DataContext } from "@/templates/AppMain";
+import { useContext } from 'react';
+import styled, { css } from 'styled-components';
+
+import { DataContext } from '@/templates/AppMain';
 
 const Header = styled.h1<{ secondary?: boolean }>`
   font-size: 2rem;
@@ -116,39 +116,37 @@ const Td = styled.td<{
 const compareClasses = (p1: any, p2: any, onlyColor = false) => {
   // colors for 0% - 100%
   const hexList = [
-    "#E33737",
-    "#DA5639",
-    "#FF5C28",
-    "#D7B04B",
-    "#C5C058",
-    "#B1D057",
-    "#89C65A",
-    "#5AC671",
-    "#41C05D",
-    "#21BD4D",
-    "#008D39",
+    '#E33737',
+    '#DA5639',
+    '#FF5C28',
+    '#D7B04B',
+    '#C5C058',
+    '#B1D057',
+    '#89C65A',
+    '#5AC671',
+    '#41C05D',
+    '#21BD4D',
+    '#008D39',
   ];
 
-  const p1Arr: Array<string> = [];
-  p1.blocks.map((i: any) => {
-    p1Arr.push(i.code);
+  const intersection = [];
+  p1.blocks.forEach((b1: any, bid: number) => {
+    if (p2.blocks[bid].code === b1.code) {
+      intersection.push(bid);
+    }
   });
 
-  const p2Arr: Array<string> = [];
-  p2.blocks.map((i: any) => {
-    p2Arr.push(i.code);
-  });
-
-  const intersection = p1Arr.filter((element) => p2Arr.includes(element));
   if (onlyColor) {
     return hexList[intersection.length];
   }
-  return intersection.length * 10 + "%"; // x10 to turn into percentage
+
+  console.log(p1, p2, intersection);
+  return `${intersection.length * 10}%`; // x10 to turn into percentage
 };
 
 const AppIndex = () => {
   const dataContext = useContext(DataContext);
-  let { group, data }: { group: any; data: any } =
+  const { group, data }: { group: any; data: any } =
     dataContext === null ? { group: null, data: null } : dataContext;
 
   return (
