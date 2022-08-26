@@ -129,21 +129,21 @@ const compareClasses = (p1: any, p2: any, onlyColor = false) => {
     "#008D39",
   ];
 
-  const p1Arr: Array<string> = [];
-  p1.blocks.map((i: any) => {
-    p1Arr.push(i.code);
-  });
+  console.log("P1", p1);
+  console.log("P2", p2);
+  const sameClasses = [];
 
-  const p2Arr: Array<string> = [];
-  p2.blocks.map((i: any) => {
-    p2Arr.push(i.code);
-  });
-
-  const intersection = p1Arr.filter((element) => p2Arr.includes(element));
-  if (onlyColor) {
-    return hexList[intersection.length];
+  for (let i = 0; i < p1.blocks.length; i++) {
+    if (p1.blocks[i] === p2.blocks[i]) {
+      sameClasses.push(p1.blocks[i].code);
+    }
   }
-  return intersection.length * 10 + "%"; // x10 to turn into percentage
+
+  if (onlyColor) {
+    return hexList[sameClasses.length];
+  }
+
+  return sameClasses.length * 10 + "%";
 };
 
 const AppIndex = () => {
