@@ -24,6 +24,10 @@ const Index = () => {
             min-height: 100%;
             background-color: #18181b;
           }
+          
+          body {
+            overflow: hidden;
+          }
         `}</style>
       </Helmet>
 
