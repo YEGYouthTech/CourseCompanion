@@ -75,7 +75,17 @@ const AppMain = (props: IAppMainProps) => {
               throw new Error(json?.error || 'Unknown error');
             }
             try {
-              timetables.push(JSON.parse(json?.timetable));
+              let timetable = JSON.parse(json?.timetable);
+              if (!timetable) {
+                throw new Error('Invalid timetable');
+              }
+              timetable = {
+                ...timetable,
+                uid: member,
+                name: json?.name,
+                profileImage: json?.profileImage,
+              };
+              timetables.push(timetable);
             } catch (e) {
               console.log(e);
             }

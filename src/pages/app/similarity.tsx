@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import styled, { css } from "styled-components";
+import { useContext } from 'react';
+import styled, { css } from 'styled-components';
 
-import { DataContext } from "@/templates/AppMain";
+import { DataContext } from '@/templates/AppMain';
 
 const Header = styled.h1<{ secondary?: boolean }>`
   font-size: 2rem;
@@ -119,17 +119,17 @@ const compareClasses = (p1: any, p2: any, onlyColor = false) => {
   }
   // colors for 0% - 100%
   const hexList = [
-    "#E33737",
-    "#DA5639",
-    "#FF5C28",
-    "#D7B04B",
-    "#C5C058",
-    "#B1D057",
-    "#89C65A",
-    "#5AC671",
-    "#41C05D",
-    "#21BD4D",
-    "#008D39",
+    '#E33737',
+    '#DA5639',
+    '#FF5C28',
+    '#D7B04B',
+    '#C5C058',
+    '#B1D057',
+    '#89C65A',
+    '#5AC671',
+    '#41C05D',
+    '#21BD4D',
+    '#008D39',
   ];
 
   const intersection: Array<number> = [];
@@ -183,13 +183,9 @@ const AppIndex = () => {
         </>
       ) : (
         <>
-          <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-gray-750">
+          <h1 className="mb-2 w-full pt-4 text-center font-display text-2xl font-bold text-gray-750">
             Please choose a group
           </h1>
-          <p className="mb-8 text-center font-body">
-            This is where the group will access every class its members take and
-            the members that are in each class.
-          </p>
         </>
       )}
     </div>

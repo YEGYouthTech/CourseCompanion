@@ -1,25 +1,62 @@
-const AppMutuals = () => (
-  <>
-    <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-gray-750">
-      Mutuals
-    </h1>
-    <p className="mb-8 text-center font-body">
-      This is where individuals may check their mutual classes with other
-      individuals in mutual groups.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione fuga
-      recusandae quidem. Quaerat molestiae blanditiis doloremque possimus labore
-      voluptatibus distinctio recusandae autem esse explicabo molestias officia
-      placeat, accusamus aut saepe.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione fuga
-      recusandae quidem. Quaerat molestiae blanditiis doloremque possimus labore
-      voluptatibus distinctio recusandae autem esse explicabo molestias officia
-      placeat, accusamus aut saepe.
-    </p>
-  </>
-);
+import { useContext } from 'react';
+
+import { DataContext } from '@/templates/AppMain';
+
+const AppMutuals = () => {
+  const dataContext = useContext(DataContext);
+  const { group, data } =
+    dataContext === null ? { group: null, data: null } : dataContext;
+  const listOfClasses = [
+    ...new Set(
+      [].concat.apply(
+        [],
+        data.map((timetable: any) =>
+          timetable.blocks.map(
+            (block: any, id: number) => `${block.code}_${id + 1}`
+          )
+        )
+      )
+    ),
+  ].sort();
+  const mutuals = listOfClasses.map((code: string) => {
+    const [courseCode, blockNumber] = code.split('_');
+    const mutuals = data
+      .map((timetable: any) => {
+        const block = timetable.blocks.find(
+          (block: any) => block.code === courseCode
+        );
+        if (block) {
+          return {
+            name: timetable.name,
+            profileImage: timetable.profileImage,
+          };
+        }
+        return null;
+      })
+      .filter((i: any) => i !== null);
+    return {
+      courseCode,
+      blockNumber,
+      mutuals,
+    };
+  });
+
+  return data && data.length !== 0 ? (
+    <div className="m-4">
+      <pre>
+        <code>{JSON.stringify(mutuals, null, 2)}</code>
+      </pre>
+      <pre>
+        <code>{JSON.stringify(data, null, 2)}</code>
+      </pre>
+    </div>
+  ) : (
+    <>
+      <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-gray-750">
+        Please choose a group
+      </h1>
+    </>
+  );
+};
 
 export default AppMutuals;
