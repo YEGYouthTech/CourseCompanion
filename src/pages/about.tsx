@@ -37,7 +37,7 @@ const About = () => (
                 </p>
               </div>
             </div>
-            <div className="mb-16 flex max-w-7xl flex-wrap justify-center">
+            <div className="mb-16 flex flex-wrap justify-center px-16">
               <TeamMember
                 name="Oliver Chen"
                 title="Project Manager"
