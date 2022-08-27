@@ -1,6 +1,6 @@
 export default function TeamMember({ name, title, image, socials }) {
   return (
-    <div className="mb-6 w-full px-6 sm:px-6 md:w-6/12 lg:w-3/12 lg:px-4">
+    <div className="mb-6 w-full px-6 sm:px-6 md:w-6/12 lg:w-4/12 lg:px-4">
       <div className="flex flex-col">
         <a href="#" className="mx-auto">
           <img

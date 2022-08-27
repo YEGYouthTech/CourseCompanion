@@ -37,7 +37,7 @@ const About = () => (
                 </p>
               </div>
             </div>
-            <div className="margin-auto mb-16 flex flex-wrap justify-center">
+            <div className="mb-16 flex max-w-7xl flex-wrap justify-center">
               <TeamMember
                 name="Oliver Chen"
                 title="Project Manager"
@@ -46,9 +46,9 @@ const About = () => (
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
               <TeamMember
-                name="Jason Li"
-                title="Information Architect"
-                image="https://images.unsplash.com/photo-1634896941598-b6b500a502a7?fit=clamp&w=400&h=400&q=80"
+                name="Evan Yin"
+                title="Art &amp; Design Manager"
+                image="/assets/images/team/Evan_Yin.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
               <TeamMember
@@ -58,23 +58,23 @@ const About = () => (
                 image="/assets/images/team/Elina_Ajamian.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
-              <div className="basis-full"></div>
-              <TeamMember
-                name="Evan Yin"
-                title="Art &amp; Design Manager"
-                image="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"
-                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
-              />
+              {/* <div className="basis-full"></div> */}
               <TeamMember
                 name="Heril Saha"
-                title="Programming Manager"
+                title="UX Manager"
                 image="/assets/images/team/Heril_Saha.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
               <TeamMember
                 name="Hao Cheng"
                 title="Lead Web Developer"
-                image="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"
+                image="/assets/images/team/Hao_Cheng.jpg"
+                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
+              />
+              <TeamMember
+                name="Jason Li"
+                title="Information Architect"
+                image="/assets/images/team/Jason_Li.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
             </div>
@@ -85,12 +85,32 @@ const About = () => (
                     🎨 Design Committee
                   </h1>
                   <TeamScroller
-                    members={Array(5).fill({
-                      name: 'John Doe',
-                      image:
-                        'https://images.unsplash.com/photo-1634896941598-b6b500a502a7?fit=clamp&w=400&h=400&q=80',
-                      title: 'Designer',
-                    })}
+                    members={[
+                      {
+                        name: 'Evan Yin',
+                        title: 'Cephalopoda Sapiens#1849',
+                        image:
+                          'https://cdn.discordapp.com/avatars/240264610551300098/ffeebf9cbd46db784ac40f7126989e57.webp',
+                      },
+                      {
+                        name: 'Heril Saha',
+                        title: 'segFault#8998',
+                        image:
+                          'https://cdn.discordapp.com/avatars/494667458737864708/ba1982aa9cade3aa056ba107671673d0.webp',
+                      },
+                      {
+                        name: 'Hao Cheng',
+                        title: 'pepeworm#5449',
+                        image:
+                          'https://cdn.discordapp.com/avatars/513899733752872979/f9510eaa948a3133f78394f514c466f5.webp',
+                      },
+                      {
+                        name: 'Edward Luo',
+                        image:
+                          'https://cdn.discordapp.com/avatars/975235340325498880/fa6df0e6d8effcc556230c82fbf3cc2f.webp',
+                        title: 'inlowik#0496',
+                      },
+                    ]}
                   />
                 </div>
               </div>
@@ -100,12 +120,38 @@ const About = () => (
                     🤝 Trust &amp; Safety Committee
                   </h1>
                   <TeamScroller
-                    members={Array(5).fill({
-                      name: 'John Doe',
-                      image:
-                        'https://images.unsplash.com/photo-1634896941598-b6b500a502a7?fit=clamp&w=400&h=400&q=80',
-                      title: 'Designer',
-                    })}
+                    members={[
+                      {
+                        name: 'Elina Ajamian',
+                        image:
+                          'https://cdn.discordapp.com/avatars/725461810634948718/f00b61f6471798271d4acfb01a3dc014.webp',
+                        title: 'elina#1384',
+                      },
+                      {
+                        name: 'Daniel Gong',
+                        image:
+                          'https://cdn.discordapp.com/avatars/675482506908401682/30784acbc5a035f97297b48ec4df04ce.webp',
+                        title: 'peeing#2873',
+                      },
+                      {
+                        name: 'Ada Janisz',
+                        image:
+                          'https://cdn.discordapp.com/avatars/689188022880829625/3c20083fb6c883d4f126a6dc0c5fb4c2.webp',
+                        title: 'Awameina#4566',
+                      },
+                      {
+                        name: 'Aahil Ansari',
+                        image:
+                          'https://cdn.discordapp.com/avatars/778824458910564373/8d00f3fa63f30d98a4e20349efec3782.webp',
+                        title: 'mountain#0707',
+                      },
+                      {
+                        name: 'Justin Qian',
+                        image:
+                          'https://cdn.discordapp.com/avatars/278974139048656898/3110b45e7f1bc48ade631d135e9b546b.webp',
+                        title: 'Justin#6667',
+                      },
+                    ]}
                   />
                 </div>
               </div>
@@ -121,9 +167,42 @@ const About = () => (
                   </h1>
                   <TeamScroller
                     maxHeight={400}
-                    members={Array(25).fill({
-                      name: 'John Doe',
-                    })}
+                    members={[
+                      { name: 'Alex Han' },
+                      { name: 'David Liu' },
+                      { name: 'Oliver Chen' },
+                      { name: 'Joshua Terry' },
+                      { name: 'Bayan Shayeb' },
+                      { name: 'Austin Bao' },
+                      { name: 'Jason Li' },
+                      { name: 'Hao Cheng' },
+                      { name: 'Aahil Ansari' },
+                      { name: 'Evan Yin' },
+                      { name: 'Justin Qian' },
+                      { name: 'Michelle Jiang' },
+                      { name: 'Nathan Zhao' },
+                      { name: 'Kevin Lu' },
+                      { name: 'Sunny Li' },
+                      { name: 'Madhav Desai' },
+                      { name: 'Maxwell Li' },
+                      { name: 'William Ma' },
+                      { name: 'Frank Li' },
+                      { name: 'David Zhang' },
+                      { name: 'Edwin Zhu' },
+                      { name: 'Elina Ajamian' },
+                      { name: 'Nathan Fei' },
+                      { name: 'Mira Zheng' },
+                      { name: 'Eric Qiu' },
+                      { name: 'Edward Luo' },
+                      { name: 'Tirth Ahir' },
+                      { name: 'Daniel Gong' },
+                      { name: 'Ada Janisz' },
+                      { name: 'Yoyo Liu' },
+                      { name: 'Alvin Goh' },
+                      { name: 'Andrew Yeh' },
+                      { name: 'Jackie Cai' },
+                      { name: 'Boris Wang' },
+                    ]}
                   />
                 </div>
               </div>
