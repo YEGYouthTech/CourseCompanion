@@ -6,7 +6,7 @@ import {
   HiSelector as SelectorIcon,
 } from 'react-icons/hi';
 
-export default function UserPicker({ selectedState, onSelect }) {
+export default function UserPicker({ selectedState, onSelect, showButton }) {
   const [selected, setSelected] = selectedState;
   const [query, setQuery] = useState('');
 
@@ -107,14 +107,16 @@ export default function UserPicker({ selectedState, onSelect }) {
             )}
           </Combobox.Options>
         </Transition>
-        <div className="flex items-center">
-          <button
-            onClick={() => onSelect(null)}
-            className="rounded-md border border-transparent bg-amber-600 py-2 px-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out hover:bg-amber-500 focus:border-amber-700 focus:outline-none focus:outline-amber-800 active:bg-amber-700"
-          >
-            <PlusCircleIcon className="h-5 w-5" aria-hidden="true" />
-          </button>
-        </div>
+        {showButton !== false && (
+          <div className="flex items-center">
+            <button
+              onClick={() => onSelect(null)}
+              className="rounded-md border border-transparent bg-amber-600 py-2 px-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out hover:bg-amber-500 focus:border-amber-700 focus:outline-none focus:outline-amber-800 active:bg-amber-700"
+            >
+              <PlusCircleIcon className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
+        )}
       </div>
     </Combobox>
   );
