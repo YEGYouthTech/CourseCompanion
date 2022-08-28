@@ -34,11 +34,11 @@ const AppMain = (props: IAppMainProps) => {
           Authorization: `${await user.getIdToken()}`,
         },
       });
-      if (request.status !== 200) {
-        throw new Error(
-          `Received error HTTP status code ${request.status} ${request.statusText}`
-        );
-      }
+      // if (request.status !== 200) {
+      //   throw new Error(
+      //     `Received error HTTP status code ${request.status} ${request.statusText}`
+      //   );
+      // }
       const json = await request.json();
       if (!request.ok || json?.error !== undefined) {
         throw new Error(json?.error || 'Unknown error');
@@ -65,11 +65,11 @@ const AppMain = (props: IAppMainProps) => {
                 },
               }
             );
-            if (request.status !== 200) {
-              throw new Error(
-                `Received error HTTP status code ${request.status} ${request.statusText}`
-              );
-            }
+            // if (request.status !== 200) {
+            //   throw new Error(
+            //     `Received error HTTP status code ${request.status} ${request.statusText}`
+            //   );
+            // }
             const json = await request.json();
             if (!request.ok || json?.error !== undefined) {
               throw new Error(json?.error || 'Unknown error');

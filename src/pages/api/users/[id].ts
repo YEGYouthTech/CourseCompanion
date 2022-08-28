@@ -31,9 +31,9 @@ export default async (req, res) => {
     let targetUser = (await User.where('uid').equals(id))[0] || null;
     if (!dbUser) {
       // You don't exist
-      return res
-        .status(400)
-        .json({ error: 'Your user was not found in the database' });
+      return res.status(400).json({
+        error: 'Go to the settings page to set your school and grade',
+      });
     }
     if (!targetUser) {
       // The target user doesn't exist

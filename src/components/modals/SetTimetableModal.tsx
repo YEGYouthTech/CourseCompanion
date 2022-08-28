@@ -56,11 +56,11 @@ async function saveTimetable(timetable: string[]): Promise<void> {
   try {
     json = await request.json();
   } catch (error) {
-    if (request.status !== 200) {
-      throw new Error(
-        `Received error HTTP status code ${request.status} ${request.statusText}`
-      );
-    }
+    // if (request.status !== 200) {
+    //   throw new Error(
+    //     `Received error HTTP status code ${request.status} ${request.statusText}`
+    //   );
+    // }
     throw new Error(error);
   }
   if (!request.ok || json?.error !== undefined) {
