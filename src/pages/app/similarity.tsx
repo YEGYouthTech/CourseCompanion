@@ -34,7 +34,6 @@ const TableWrapper = styled.div`
     padding-top: 1rem;
     padding-bottom: 0;
   }
-  width: min(100vw, 36rem);
 `;
 
 const Table = styled.table`

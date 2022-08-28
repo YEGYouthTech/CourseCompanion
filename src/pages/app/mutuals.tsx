@@ -34,7 +34,7 @@ const TableWrapper = styled.div`
     padding-top: 1rem;
     padding-bottom: 0;
   }
-  width: min(100vw, 60rem);
+  width: min(100vw, 50rem);
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
