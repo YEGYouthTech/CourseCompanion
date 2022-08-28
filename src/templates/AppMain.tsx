@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { createContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { HiCog as CogIcon } from 'react-icons/hi';
@@ -20,8 +21,11 @@ const AppMain = (props: IAppMainProps) => {
   const [groups, setGroups] = useState<any>([]);
   const [group, setGroup] = useState<any>(null);
   const [data, setData] = useState<any>([]);
+  const [userReady, setUserReady] = useState(true);
 
   const { user } = useAuth();
+
+  const router = useRouter();
 
   useUpdateEffect(() => {
     async function fetchGroups() {
@@ -45,7 +49,13 @@ const AppMain = (props: IAppMainProps) => {
       }
       setGroups(json.groups);
     }
-    fetchGroups();
+    fetchGroups().catch((err) => {
+      setUserReady(false);
+      if (router.pathname !== '/app') {
+        toast.error(err.message);
+        router.push('/profile');
+      }
+    });
   }, [user]);
 
   useUpdateEffect(() => {
@@ -109,28 +119,37 @@ const AppMain = (props: IAppMainProps) => {
 
   return (
     <Main meta={props.meta}>
-      <AppNav></AppNav>
-      <div className="flex">
-        <div className="grow"></div>
-        <GroupPicker
-          state={[group, setGroup]}
-          groupsState={[groups, setGroups]}
-        />
-        <button className="mx-2 flex items-center p-2 text-gray-500">
-          <CogIcon className="h-5 w-5" />
-        </button>
-      </div>
-      <DataContext.Provider value={{ group, data }}>
-        {group ? (
-          props.children
-        ) : (
-          <div>
-            <h1 className="mb-2 w-full pt-4 text-center font-display text-2xl font-bold text-gray-750">
-              Please choose a group
-            </h1>
+      {router.pathname === '/app' ? (
+        <>
+          {userReady ? <AppNav /> : <div className="mt-32"></div>}
+          {props.children}
+        </>
+      ) : (
+        <>
+          <AppNav />
+          <div className="flex">
+            <div className="grow"></div>
+            <GroupPicker
+              state={[group, setGroup]}
+              groupsState={[groups, setGroups]}
+            />
+            <button className="mx-2 flex items-center p-2 text-gray-500">
+              <CogIcon className="h-5 w-5" />
+            </button>
           </div>
-        )}
-      </DataContext.Provider>
+          <DataContext.Provider value={{ group, data }}>
+            {group ? (
+              props.children
+            ) : (
+              <div>
+                <h1 className="mb-2 w-full pt-4 text-center font-display text-2xl font-bold text-gray-750">
+                  Please choose a group
+                </h1>
+              </div>
+            )}
+          </DataContext.Provider>
+        </>
+      )}
     </Main>
   );
 };

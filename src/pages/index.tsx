@@ -29,7 +29,7 @@ const Index = () => {
 
       <div className="relative flex min-h-screen w-full flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:min-h-screen lg:p-8 lg:pt-32 xl:p-16 2xl:p-24">
         <div className="z-10 flex flex-col justify-center px-16 md:flex-row">
-          <div className="mr-8 mb-16 flex flex-col items-center justify-center lg:p-8 2xl:p-12">
+          <div className="mb-16 flex flex-col items-center justify-center md:mr-8 lg:p-8 2xl:p-12">
             <img src="/logo.png" className="block w-full max-w-sm" />
           </div>
           <div className="flex min-w-[300px] grow flex-col items-center justify-center gap-8">

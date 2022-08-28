@@ -165,7 +165,7 @@ body {
         #ffff00,
         #fb0094
     );
-    animation: animate 20s linear infinite;
+    animation: animate 8s linear infinite;
     background-size: 500%;
     border-radius: 9999px;
 }
@@ -185,7 +185,7 @@ body {
         #ffff00,
         #fb0094
     );
-    animation: animate 20s linear infinite;
+    animation: animate 8s linear infinite;
     background-size: 500%;
     filter: blur(20px);
 }
