@@ -1,39 +1,39 @@
 {
-  "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "search.exclude": {
-    "package-lock.json": true
-  },
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": [
-    "source.addMissingImports",
-    "source.fixAll.eslint"
-  ],
-  "jest.autoRun": {
-    "watch": true, // Start the jest with the watch flag
-    "onStartup": ["all-tests"] // Run all tests upon project launch
-  },
-  "jest.showCoverageOnLoad": true, // Show code coverage when the project is launched
-  "jest.showTerminalOnLaunch": false, // Don't automatically open test explorer terminal on launch
-  // Multiple language settings for json and jsonc files
-  "[json][jsonc]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[postcss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "search.exclude": {
+        "package-lock.json": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": [
+        "source.addMissingImports",
+        "source.fixAll.eslint"
+    ],
+    "jest.autoRun": {
+        "watch": true, // Start the jest with the watch flag
+        "onStartup": ["all-tests"] // Run all tests upon project launch
+    },
+    "jest.showCoverageOnLoad": true, // Show code coverage when the project is launched
+    "jest.showTerminalOnLaunch": false, // Don't automatically open test explorer terminal on launch
+    // Multiple language settings for json and jsonc files
+    "[json][jsonc]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[postcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
 }
