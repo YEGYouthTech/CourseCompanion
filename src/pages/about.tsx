@@ -52,6 +52,12 @@ const About = () => (
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
               <TeamMember
+                name="Justin Qian"
+                title="Information Architect"
+                image="/assets/images/team/Justin_Qian.jpg"
+                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
+              />
+              <TeamMember
                 name="Elina Ajamian"
                 title="Trust &amp; Safety Manager"
                 // image="https://images.unsplash.com/photo-1634193295627-1cdddf751ebf?fit=clamp&w=400&h=400&q=80"
@@ -69,12 +75,6 @@ const About = () => (
                 name="Hao Cheng"
                 title="Lead Web Developer"
                 image="/assets/images/team/Hao_Cheng.jpg"
-                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
-              />
-              <TeamMember
-                name="Jason Li"
-                title="Information Architect"
-                image="/assets/images/team/Jason_Li.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
             </div>
@@ -109,6 +109,12 @@ const About = () => (
                         image:
                           'https://cdn.discordapp.com/avatars/975235340325498880/fa6df0e6d8effcc556230c82fbf3cc2f.webp',
                         title: 'inlowik#0496',
+                      },
+                      {
+                        name: 'Jason Li',
+                        image:
+                          'https://cdn.discordapp.com/avatars/451871676494249984/ea0ec14de2ab492aa07c803917f8d1ac.webp',
+                        title: 'Bobbett#0208',
                       },
                     ]}
                   />
