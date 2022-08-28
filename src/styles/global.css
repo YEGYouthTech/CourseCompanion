@@ -141,6 +141,10 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    overflow-y: auto !important;
+}
+
 .loader {
     position: relative;
     width: 300px;

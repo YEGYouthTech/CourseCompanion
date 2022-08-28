@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
-import styled, { css } from "styled-components";
+import { useContext, useState } from 'react';
+import styled, { css } from 'styled-components';
 
-import { DataContext } from "@/templates/AppMain";
+import { DataContext } from '@/templates/AppMain';
 
-import UserPicker from "../../components/UserPicker";
+import UserPicker from '../../components/UserPicker';
 
 const Header = styled.h1<{ secondary?: boolean }>`
   font-size: 2rem;
@@ -133,12 +133,14 @@ const AppClasses = () => {
     if (!user1 || !user2) {
       return [];
     }
-    const intersection = user1.blocks.filter((block: any, bid: number) =>
-      user2.blocks.some(
-        (block2: any, bid2: number) =>
-          block2.code === block.code && bid === bid2
-      )
-    );
+    const intersection = user1.blocks
+      .map((block: any, index: number) => ({ ...block, bid: index + 1 } as any))
+      .filter((block: any, bid: number) =>
+        user2.blocks.some(
+          (block2: any, bid2: number) =>
+            block2.code === block.code && bid === bid2
+        )
+      );
     return intersection;
   };
 
@@ -168,7 +170,7 @@ const AppClasses = () => {
                 showButton={false}
               />
             </div>
-            <div className="flex gap-7 text-red-700 mt-2">
+            <div className="mt-2 flex gap-7 text-red-700">
               <span className="w-56 text-left text-xs">
                 {!data.find(
                   (timetable: any) => timetable.uid === selectedState1[0]?.uid
@@ -188,6 +190,7 @@ const AppClasses = () => {
           <Table>
             <Thead>
               <Tr>
+                <Th>Block</Th>
                 <Th>Class</Th>
                 <Th>Code</Th>
               </Tr>
@@ -196,13 +199,14 @@ const AppClasses = () => {
               {tableData.length > 0 ? (
                 tableData.map((i) => (
                   <Tr>
+                    <Td>{i.bid}</Td>
                     <Td>{i.name}</Td>
                     <Td>{i.code}</Td>
                   </Tr>
                 ))
               ) : (
                 <Tr>
-                  <Td colSpan={"2" as any}>No Data</Td>
+                  <Td colSpan={'3' as any}>No Data</Td>
                 </Tr>
               )}
             </Tbody>
