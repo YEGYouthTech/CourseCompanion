@@ -73,7 +73,7 @@ const About = () => (
               />
               <TeamMember
                 name="Hao Cheng"
-                title="Lead Web Developer"
+                title="Web Developer"
                 image="/assets/images/team/Hao_Cheng.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
