@@ -57,8 +57,7 @@ const Tr = styled.tr``;
 
 const Th = styled.th<{ left?: boolean; mono?: boolean }>`
   background-color: #4263eb;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding: 0.75rem;
   border-left: 1px solid #364fc7;
   border-right: 1px solid #364fc7;
   color: white;
