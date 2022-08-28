@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import styled, { css } from "styled-components";
+import { useContext } from 'react';
+import styled, { css } from 'styled-components';
 
-import { DataContext } from "@/templates/AppMain";
+import { DataContext } from '@/templates/AppMain';
 
 const Header = styled.h1<{ secondary?: boolean }>`
   font-size: 2rem;
@@ -184,7 +184,7 @@ const AppMutuals = () => {
     ),
   ].sort();
   const mutuals = listOfClasses.map((code: string) => {
-    const [courseCode, blockNumber] = code.split("_");
+    const [courseCode, blockNumber] = code.split('_');
     const mutuals = data
       .map((timetable: any) => {
         const block = timetable.blocks.find(
@@ -211,10 +211,10 @@ const AppMutuals = () => {
 
   const tooltipGen = (name: string, idx: number, len: number) => {
     if (idx > 2) {
-      return "";
+      return '';
     }
     if (idx === 2) {
-      return "...";
+      return '...';
     }
     if (idx === 1 || len === 1) {
       return name;
