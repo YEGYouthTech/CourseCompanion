@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { createContext, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { toast } from 'react-hot-toast';
 import { HiCog as CogIcon } from 'react-icons/hi';
 
@@ -141,11 +142,56 @@ const AppMain = (props: IAppMainProps) => {
             {group ? (
               props.children
             ) : (
-              <div>
-                <h1 className="mb-2 w-full pt-4 text-center font-display text-2xl font-bold text-gray-750">
-                  Please choose a group
-                </h1>
-              </div>
+              <>
+                <Helmet>
+                  <style>
+                    {`
+                    .neon {
+                      color: #fff;
+                      text-shadow:
+                        0 0 5px #fff,
+                        0 0 10px #fff,
+                        0 0 20px #fff,
+                        0 0 40px #0ff,
+                        0 0 80px #0ff,
+                        0 0 90px #0ff,
+                        0 0 100px #0ff,
+                        0 0 150px #0ff;
+                    }
+
+                    html, body {
+                      height: 100%;
+                      margin: 0;
+                    }
+
+                    body {
+                      background-color: #010a00;
+                      background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+                    }
+
+                    h1 {
+                      font-weight: 400;
+                      text-align: center;
+                      text-transform: uppercase;
+                      font-family: -apple-system,
+                        BlinkMacSystemFont,
+                        "Segoe UI",
+                        Roboto,
+                        Oxygen-Sans,
+                        Ubuntu,
+                        Cantarell,
+                        "Helvetica Neue",
+                        sans-serif;
+                    }
+                    `}
+                  </style>
+                </Helmet>
+                <div className="-mt-10">
+                  <h1 className="neon mb-2 w-full pt-4 text-center font-display text-xl font-bold text-gray-750">
+                    Please choose a group&nbsp;➜
+                  </h1>
+                </div>
+              </>
             )}
           </DataContext.Provider>
         </>
