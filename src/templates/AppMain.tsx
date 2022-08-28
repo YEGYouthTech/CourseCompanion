@@ -121,7 +121,15 @@ const AppMain = (props: IAppMainProps) => {
         </button>
       </div>
       <DataContext.Provider value={{ group, data }}>
-        {props.children}
+        {group ? (
+          props.children
+        ) : (
+          <div>
+            <h1 className="mb-2 w-full pt-4 text-center font-display text-2xl font-bold text-gray-750">
+              Please choose a group
+            </h1>
+          </div>
+        )}
       </DataContext.Provider>
     </Main>
   );

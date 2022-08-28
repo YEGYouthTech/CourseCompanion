@@ -131,56 +131,48 @@ const AppData = () => {
     dataContext === null ? { group: null, data: null } : dataContext;
   return (
     <div className="flex flex-wrap">
-      {data && data.length !== 0 ? (
-        data.map((i: any) => (
-          <>
-            <TableWrapper>
-              <Header>{i?.name}</Header>
-              <Header secondary>
-                {i?.school} &#8226; {i?.timePeriod}
-              </Header>
-              <Table>
-                <Thead>
-                  <Tr>
-                    <Th>Block</Th>
-                    <Th left>Course</Th>
-                    <Th>Code</Th>
-                    <Th left>Teacher</Th>
-                    <Th>Room</Th>
-                    {/* <Th>Duration</Th> */}
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {i?.blocks?.map((j: any, blockid: number) => (
-                    <Tr key={blockid}>
-                      <Td>{blockid + 1}</Td>
-                      <Td left>{j.name}</Td>
-                      <Td mono color={(blockid + 1) as any}>
-                        {j.code}
-                      </Td>
-                      <Td left green>
-                        {j.teacher ? j.teacher.name : 'N/A'}
-                      </Td>
-                      <Td mono blue>
-                        {j.room ? j.room : 'N/A'}
-                      </Td>
-                      {/* <Td>
+      {data.map((i: any) => (
+        <>
+          <TableWrapper>
+            <Header>{i?.name}</Header>
+            <Header secondary>
+              {i?.school} &#8226; {i?.timePeriod}
+            </Header>
+            <Table>
+              <Thead>
+                <Tr>
+                  <Th>Block</Th>
+                  <Th left>Course</Th>
+                  <Th>Code</Th>
+                  <Th left>Teacher</Th>
+                  <Th>Room</Th>
+                  {/* <Th>Duration</Th> */}
+                </Tr>
+              </Thead>
+              <Tbody>
+                {i?.blocks?.map((j: any, blockid: number) => (
+                  <Tr key={blockid}>
+                    <Td>{blockid + 1}</Td>
+                    <Td left>{j.name}</Td>
+                    <Td mono color={(blockid + 1) as any}>
+                      {j.code}
+                    </Td>
+                    <Td left green>
+                      {j.teacher ? j.teacher.name : 'N/A'}
+                    </Td>
+                    <Td mono blue>
+                      {j.room ? j.room : 'N/A'}
+                    </Td>
+                    {/* <Td>
                         {j.duration !== null ? `${j.duration} hrs` : 'N/A'}
                       </Td> */}
-                    </Tr>
-                  ))}
-                </Tbody>
-              </Table>
-            </TableWrapper>
-          </>
-        ))
-      ) : (
-        <>
-          <h1 className="mb-2 w-full pt-4 text-center font-display text-2xl font-bold text-gray-750">
-            Please choose a group
-          </h1>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </TableWrapper>
         </>
-      )}
+      ))}
     </div>
   );
 };

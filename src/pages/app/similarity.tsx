@@ -154,40 +154,30 @@ const AppIndex = () => {
 
   return (
     <div className="flex flex-wrap">
-      {data && data.length !== 0 ? (
-        <>
-          <TableWrapper>
-            <Table>
-              <Thead>
-                <Tr>
-                  <Th mono>Matrix</Th>
-                  {data.map((i: any) => (
-                    <Th>{i.name}</Th>
-                  ))}
-                </Tr>
-              </Thead>
-              <Tbody>
-                {data.map((i: any) => (
-                  <Tr>
-                    <Td blue>{i.name}</Td>
-                    {data.map((j: any) => (
-                      <Td mono color={compareClasses(i, j, true) as string}>
-                        {compareClasses(i, j)}
-                      </Td>
-                    ))}
-                  </Tr>
+      <TableWrapper>
+        <Table>
+          <Thead>
+            <Tr>
+              <Th mono>Matrix</Th>
+              {data.map((i: any) => (
+                <Th>{i.name}</Th>
+              ))}
+            </Tr>
+          </Thead>
+          <Tbody>
+            {data.map((i: any) => (
+              <Tr>
+                <Td blue>{i.name}</Td>
+                {data.map((j: any) => (
+                  <Td mono color={compareClasses(i, j, true) as string}>
+                    {compareClasses(i, j)}
+                  </Td>
                 ))}
-              </Tbody>
-            </Table>
-          </TableWrapper>
-        </>
-      ) : (
-        <>
-          <h1 className="mb-2 w-full pt-4 text-center font-display text-2xl font-bold text-gray-750">
-            Please choose a group
-          </h1>
-        </>
-      )}
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </TableWrapper>
     </div>
   );
 };

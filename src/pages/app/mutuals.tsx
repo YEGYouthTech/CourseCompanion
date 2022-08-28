@@ -222,7 +222,7 @@ const AppMutuals = () => {
     return `${name}, `;
   };
 
-  return data && data.length !== 0 ? (
+  return (
     <>
       <TableWrapper>
         <Table>
@@ -263,12 +263,6 @@ const AppMutuals = () => {
           </Tbody>
         </Table>
       </TableWrapper>
-    </>
-  ) : (
-    <>
-      <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-gray-750">
-        Please choose a group
-      </h1>
     </>
   );
 };
