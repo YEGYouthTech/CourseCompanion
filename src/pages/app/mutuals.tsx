@@ -73,7 +73,6 @@ const Th = styled.th<{ left?: boolean; mono?: boolean }>`
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     `}
-
   ${(props) =>
     props.mono &&
     css`
@@ -92,8 +91,6 @@ const Td = styled.td<{
   border-right: 1px solid gray;
   vertical-align: middle;
   text-align: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   min-width: 4rem;
@@ -111,6 +108,8 @@ const Td = styled.td<{
 `;
 
 const ImgWrapper = styled.div`
+  margin-bottom: -1rem;
+  margin-top: -1rem;
   transform: scale(0.4);
   -webkit-transform: scale(0.4);
   -moz-transform: scale(0.4);
@@ -189,7 +188,8 @@ const AppMutuals = () => {
     const mutuals = data
       .map((timetable: any) => {
         const block = timetable.blocks.find(
-          (block: any) => block.code === courseCode
+          (block: any, blockNum: number) =>
+            block.code === courseCode && blockNum + 1 === parseInt(blockNumber)
         );
         if (block) {
           return {
@@ -219,7 +219,7 @@ const AppMutuals = () => {
     if (idx === 1 || len === 1) {
       return name;
     }
-    return name + ", ";
+    return `${name}, `;
   };
 
   return data && data.length !== 0 ? (
@@ -243,7 +243,11 @@ const AppMutuals = () => {
                     <ImgWrapper>
                       {i.mutuals.map((j) => (
                         <ImgSpan>
-                          <PFP src={j.profileImage} alt={j.name} />
+                          <PFP
+                            src={j.profileImage}
+                            alt={j.name}
+                            title={j.name}
+                          />
                         </ImgSpan>
                       ))}
                     </ImgWrapper>
