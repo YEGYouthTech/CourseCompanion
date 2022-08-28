@@ -12,7 +12,7 @@ import ProtectedRoute from '../lib/ProtectedRoute';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-  const noAuthRequired = ['/'];
+  const noAuthRequired = ['/', '/about'];
   return (
     <>
       <Toaster position="bottom-right" />
