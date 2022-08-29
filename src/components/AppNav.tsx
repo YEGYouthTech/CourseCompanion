@@ -7,9 +7,9 @@ import AppNavItem from './AppNavItem';
 function AppNav() {
   return (
     <>
-      <nav className="nav fixed top-16 left-0 z-10 w-screen">
+      <nav className="nav fixed top-16 left-0 z-10 w-screen AppTopControlBar">
         <div className="mx-auto h-16 max-w-7xl overflow-x-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-16 items-center justify-between backdrop-blur-sm AppTopControlBarChild">
             <div className="flex items-center">
               <div className="md:block">
                 <div className="flex items-baseline space-x-4">
