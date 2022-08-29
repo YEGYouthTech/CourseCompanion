@@ -217,6 +217,7 @@ const About = () => (
         </div>
       </div>
     </div>
+    <p className="text-right text-white/90">julianna is cool btw</p>
   </Main>
 );
 
