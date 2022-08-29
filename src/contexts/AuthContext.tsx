@@ -2,7 +2,7 @@ import type { User } from 'firebase/auth';
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
-  signInWithRedirect,
+  signInWithPopup,
   signOut,
 } from 'firebase/auth';
 import { createContext, useContext, useEffect, useState } from 'react';
@@ -31,7 +31,7 @@ export function AuthContextProvider({ children }: IAuthContextProviderProps) {
   const [loading, setLoading] = useState<boolean>(true);
 
   const googleSignIn = () => {
-    signInWithRedirect(auth, new GoogleAuthProvider());
+    signInWithPopup(auth, new GoogleAuthProvider());
   };
 
   const logOut = () => {
