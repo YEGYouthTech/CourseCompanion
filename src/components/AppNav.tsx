@@ -7,7 +7,7 @@ import AppNavItem from './AppNavItem';
 function AppNav() {
   return (
     <>
-      <nav className="fixed top-16 left-0 z-10 w-screen bg-gray-300">
+      <nav className="nav fixed top-16 left-0 z-10 w-screen">
         <div className="mx-auto h-16 max-w-7xl overflow-x-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
