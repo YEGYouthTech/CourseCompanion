@@ -29,6 +29,10 @@ const GroupSchema = new mongoose.Schema({
     minLength: 0,
     maxLength: 256,
   },
+  public: {
+    type: Boolean,
+    required: false,
+  },
 });
 
 GroupSchema.methods.addUser = function (user: string) {

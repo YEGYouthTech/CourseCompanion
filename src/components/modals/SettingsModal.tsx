@@ -142,6 +142,56 @@ export default function SettingsModal({
         </span>
         <GradePicker state={gradeState} />
       </div>
+      <button
+        className="mt-4 inline-flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+        onClick={function () {
+          toast.promise(
+            (async () => {
+              const request = await fetch(`/api/groups/group`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `${await user.getIdToken()}`,
+                },
+                body: JSON.stringify({
+                  group: {
+                    'Old Scona Academic 10': '630c00e79ab6a85681669afe',
+                    'Old Scona Academic 11': '630c00f39ab6a85681669b07',
+                    'Old Scona Academic 12': '630c00f69ab6a85681669b10',
+                  }[`${schoolState[0]} ${gradeState[0]}`],
+                  user: user.uid,
+                  action: 'add',
+                }),
+              });
+              // if (request.status !== 200) {
+              //   throw new Error(
+              //     `Received error HTTP status code ${request.status} ${request.statusText}`
+              //   );
+              // }
+              const json = await request.json();
+              if (!request.ok || json?.error !== undefined) {
+                throw new Error(json?.error || 'Unknown error');
+              }
+              inviteModalState[1](false);
+              groupState[1](null);
+              reloadSettings();
+            })(),
+            {
+              loading: 'Joining group...',
+              success: <b>Joined group!</b>,
+              error: (error: Error) => <b>Join failed: {error.message}</b>,
+            }
+          );
+        }}
+      >
+        Join the Grade {gradeState[0]} {schoolState[0]} group
+      </button>
+      <div className="flex flex-col items-end">
+        <p className="mt-2 max-w-[75%] text-right text-xs text-gray-800">
+          Joining the group will allow all other members of the public group to
+          access your timetable.
+        </p>
+      </div>
     </BaseModal>
   );
 }

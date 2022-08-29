@@ -75,7 +75,7 @@ export default async (req, res) => {
       if (group.members.includes(userId)) {
         return res.status(400).json({ error: 'User is already in the group' });
       }
-      if (!dbUser.pendingInvites.includes(groupId)) {
+      if (!group.public && !dbUser.pendingInvites.includes(groupId)) {
         return res.status(400).json({
           error: `User is not invited to this group`,
         });
