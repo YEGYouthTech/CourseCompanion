@@ -28,7 +28,7 @@ export default function Profile(): React.ReactNode {
           }
         `}</style>
       </Helmet>
-      <div className="flex h-screen w-screen items-center justify-center">
+      <div className="mt-16 flex h-screen w-screen items-center justify-center">
         <div className="flex flex-col rounded-3xl bg-gray-100 p-16 shadow-xl">
           {user?.uid ? (
             <div>
