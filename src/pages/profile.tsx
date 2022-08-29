@@ -78,9 +78,6 @@ export default function Profile(): React.ReactNode {
                     Congratulations! 🥳{' '}
                   </span>
                   You&apos;re using your EPSB email.
-                  <hr className="mx-1 my-4 border-green-600" />
-                  This helps identify you as a legitimate EPSB student, not some
-                  creepy weirdo lurking on the interwebs 🥸
                 </p>
               )}
               <div className="mt-8 flex justify-end gap-2">
