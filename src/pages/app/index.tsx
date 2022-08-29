@@ -45,7 +45,8 @@ const AppIndex = () => {
       <Helmet>
         <style>{`
       html, body {
-        background: rgba(25,24,31,1);
+        // background: rgba(25,24,31,1);
+        background: #18181b;
       }
     `}</style>
       </Helmet>
