@@ -25,7 +25,7 @@ export default function ProtectedRoute({
       router.push('/signin');
     } else if (user && !requiresLogIn) {
       // Redirect
-      router.push('/profile');
+      router.push('/app');
     }
   }, [router, user]);
   return (
