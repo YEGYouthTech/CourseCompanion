@@ -33,7 +33,6 @@ export default function Profile(): React.ReactNode {
       <div className="mt-16 flex h-screen w-screen items-center justify-center">
         <div className="relative flex flex-col rounded-3xl bg-gray-100 p-16 shadow-xl">
           <div className="absolute inset-x-0 top-0 mx-14 my-8 flex flex-col items-end">
-            {/* help button */}
             <Link href="/app">
               <a className="flex h-12 w-12 items-center justify-center text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                 <QuestionMarkCircleIcon className="h-8 w-8" />
