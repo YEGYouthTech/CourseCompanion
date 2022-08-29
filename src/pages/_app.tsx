@@ -23,7 +23,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <ProtectedRoute requiresLogIn={router.pathname !== '/signin'}>
             {router.pathname.startsWith('/app') ? (
               <AppMain
-                meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}
+                meta={<Meta title="Dashboard | Course Companion" description="Dashboard | Course Companion" />}
               >
                 <Component {...pageProps} />
               </AppMain>

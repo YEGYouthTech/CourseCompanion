@@ -49,12 +49,6 @@ function Nav() {
                   rel="noreferrer"
                 >
                   Join us on Discord!
-                  <i
-                    className="icon-arrow-right"
-                    style={{ fontFamily: 'icomoon', marginLeft: '0.5rem' }}
-                  >
-                    
-                  </i>
                 </a>
                 {user?.uid ? (
                   <Link href="/profile">
@@ -168,12 +162,6 @@ function Nav() {
                   rel="noreferrer"
                 >
                   Join us on Discord!
-                  <i
-                    className="icon-arrow-right"
-                    style={{ fontFamily: 'icomoon', marginLeft: '0.5rem' }}
-                  >
-                    
-                  </i>
                 </a>
               </div>
             </div>

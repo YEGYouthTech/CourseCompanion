@@ -13,8 +13,8 @@ function AppNavItem({ href, children }: INavItemProps) {
       <a
         className={`${
           router.pathname === href
-            ? 'font-medium text-black hover:bg-gray-700 hover:text-white'
-            : 'text-gray-800 hover:bg-gray-700 hover:text-white'
+            ? 'font-medium text-teal-500 hover:bg-gray-700 hover:text-white'
+            : 'text-white hover:bg-gray-700 hover:text-white'
         } rounded-md px-3 py-2 text-sm`}
       >
         {children}

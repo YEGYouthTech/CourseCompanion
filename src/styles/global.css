@@ -33,6 +33,22 @@ body {
     min-height: 100vh;
 }
 
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 5px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #1fc196;
+  margin-bottom: 10px;
+}
+
 /*
 a {
   @apply text-blue-700;

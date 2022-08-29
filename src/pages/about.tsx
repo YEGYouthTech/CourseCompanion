@@ -107,7 +107,7 @@ const About = () => (
                       {
                         name: 'Edward Luo',
                         image:
-                          'https://cdn.discordapp.com/avatars/975235340325498880/fa6df0e6d8effcc556230c82fbf3cc2f.webp',
+                          'https://cdn.discordapp.com/avatars/704069756717629472/a90bedb744687f7b11fd48b88c9a7f14.webp',
                         title: 'inlowik#0496',
                       },
                       {
