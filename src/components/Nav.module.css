@@ -41,3 +41,13 @@
   flex-direction: column;
 }
 
+.AppTopControlBar {
+  margin-top: 9px
+}
+
+.AppTopControlBarChild {
+  background-color: rgb(66, 99, 235, 0.7);
+  padding: 0 15px;
+  border-radius: 46px;
+  margin-top: 0px;
+}
