@@ -45,6 +45,8 @@ function Nav() {
                 <a
                   className="rounded-md bg-gray-700 px-3 py-2 text-sm font-medium text-text-500 hover:shadow-xl"
                   href="https://discord.gg/szjzhYkT9e"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Join us on Discord!
                   <i
@@ -162,6 +164,8 @@ function Nav() {
                 <a
                   className="block rounded-md px-3 py-2 text-right text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white hover:shadow-xl"
                   href="https://discord.gg/szjzhYkT9e"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Join us on Discord!
                   <i
