@@ -33,6 +33,10 @@ body {
     min-height: 100vh;
 }
 
+* {
+  transition: all 0.2s ease-in-out;
+}
+
 ::-webkit-scrollbar {
   width: 16px;
 }
