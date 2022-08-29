@@ -21,7 +21,7 @@ const Index = () => {
       <Helmet>
         <style>{`
           html, body {
-            min-height: 100%;
+            overflow: hidden;
             background-color: #18181b;
           }
         `}</style>
