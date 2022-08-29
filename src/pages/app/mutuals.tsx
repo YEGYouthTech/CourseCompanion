@@ -247,6 +247,7 @@ const AppMutuals = () => {
                             src={j.profileImage}
                             alt={j.name}
                             title={j.name}
+                            referrerPolicy="no-referrer"
                           />
                         </ImgSpan>
                       ))}
