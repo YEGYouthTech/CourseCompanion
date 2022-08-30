@@ -55,7 +55,7 @@ export default function GroupPicker({ state, groupsState }) {
                       >
                         {group.name}
                       </span>
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-emerald-400">
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-emerald-500">
                         <img
                           src={
                             group.profileImage ||
@@ -63,12 +63,12 @@ export default function GroupPicker({ state, groupsState }) {
                           }
                           alt={group.name}
                           className={`h-8 w-8 rounded-full ${
-                            selected && "opacity-20"
+                            selected && "opacity-5"
                           }`}
                         />
                         {selected ? (
                           <CheckIcon
-                            className="-ml-8 h-8 w-8 rounded-full border-2 border-emerald-400 bg-white/25"
+                            className="-ml-8 h-8 w-8 rounded-full border-2 border-emerald-500 bg-white/25"
                             aria-hidden="true"
                           />
                         ) : null}
