@@ -176,7 +176,27 @@ export default function SetTimetableModal({
               ) : (
                 <XCircleIcon className="mr-2 h-4 min-w-[1rem] fill-current" />
               )}
-              <span>{status.reason}</span>
+              <span>
+                {!status.success && (
+                  <>
+                    Oops! We couldn&apos;t parse your timetable. This usually
+                    happens because you didn&apos;t copy the entire timetable or
+                    use the link we provided. If you need help, please join our
+                    Discord server!{' '}
+                    <a
+                      href="https://discord.gg/szjzhYkT9e"
+                      className="underline"
+                    >
+                      https://discord.gg/szjzhYkT9e
+                    </a>
+                    <br />
+                    <br />
+                    Technical details:
+                    <br />
+                  </>
+                )}
+                {status.reason}
+              </span>
             </div>
           </div>
           <div className="mt-8 flex">
