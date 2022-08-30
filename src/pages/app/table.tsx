@@ -122,7 +122,7 @@ const AppTable = () => {
   const dataContext = useContext(DataContext);
   const { group, data } =
     dataContext === null ? { group: null, data: null } : dataContext;
-  console.log(data);
+
   return (
     <>
       <TableWrapper>
@@ -130,16 +130,16 @@ const AppTable = () => {
           <Thead>
             <Tr>
               <Th>Name</Th>
-              <Th>0</Th>
-              <Th>1</Th>
-              <Th>2</Th>
-              <Th>3</Th>
-              <Th>4</Th>
-              <Th>5</Th>
-              <Th>6</Th>
-              <Th>7</Th>
-              <Th>8</Th>
-              <Th>9</Th>
+              <Th>Block 1</Th>
+              <Th>Block 2</Th>
+              <Th>Block 3</Th>
+              <Th>Block 4</Th>
+              <Th>Block 5</Th>
+              <Th>Block 6</Th>
+              <Th>Block 7</Th>
+              <Th>Block 8</Th>
+              <Th>Block 9</Th>
+              <Th>Block 10</Th>
             </Tr>
           </Thead>
           <Tbody>
