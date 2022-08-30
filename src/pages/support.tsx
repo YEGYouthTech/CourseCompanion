@@ -2,7 +2,6 @@ import { Disclosure } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { HiChevronUp as ChevronUpIcon } from 'react-icons/hi';
-import { TbCalendarPlus, TbSettings, TbUserSearch } from 'react-icons/tb';
 
 import { useAuth } from '@/contexts/AuthContext';
 import { Meta } from '@/layouts/Meta';
@@ -74,73 +73,8 @@ const Support = () => {
             We love helping you.
           </p>
         </div>
-        <div className="mx-auto mt-12 grid max-w-xl gap-10 text-black lg:mt-16 lg:max-w-none lg:grid-cols-3">
-          <div className="w-full">
-            <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-r from-[#333139] to-[#23202a] shadow-sm">
-              <TbSettings className="block h-10 w-10 align-middle text-gray-400" />
-            </span>
-            <h3 className="mx-0 mt-5 mb-0 text-center text-2xl font-semibold leading-8 text-white">
-              1. Settings
-            </h3>
-            <p className="mx-0 mt-2 mb-0 text-center text-lg leading-relaxed text-gray-400">
-              Go to the{' '}
-              <a href="/profile" className="text-primary-500 underline">
-                settings page
-              </a>{' '}
-              to set your{' '}
-              <span className="font-bold text-yellow-500/[.87]">school</span>{' '}
-              and <span className="font-bold text-yellow-500/[.87]">grade</span>
-              . You must be from{' '}
-              <span className="font-bold text-white/[.87]">
-                Old Scona Academic
-              </span>
-              . The app will not be operational until you do this.
-            </p>
-          </div>
-          <div className="w-full">
-            <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-r from-[#333139] to-[#23202a] shadow-sm">
-              <TbCalendarPlus className="block h-10 w-10 align-middle text-gray-400" />
-            </span>
-            <h3 className="mx-0 mt-5 mb-0 text-center text-2xl font-semibold leading-8 text-white">
-              2. Timetable
-            </h3>
-            <p className="mx-0 mt-2 mb-0 text-center text-lg leading-relaxed text-gray-400">
-              Go to the{' '}
-              <a href="/profile" className="text-primary-500 underline">
-                timetable page
-              </a>{' '}
-              to set your{' '}
-              <span className="font-bold text-yellow-500/[.87]">timetable</span>
-              . Follow{' '}
-              <a
-                href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,22&daylist=false"
-                className="text-primary-500 underline"
-              >
-                the link
-              </a>{' '}
-              to your complete timetable on SchoolZone. Select all the text and
-              copy paste it into the text box. Your timetable will be
-              automatically processed.
-            </p>
-          </div>
-          <div className="w-full">
-            <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-r from-[#333139] to-[#23202a] shadow-sm">
-              <TbUserSearch className="block h-10 w-10 align-middle text-gray-400" />
-            </span>
-            <h3 className="mx-0 mt-5 mb-0 text-center text-2xl font-semibold leading-8 text-white">
-              3. Groups
-            </h3>
-            <p className="mx-0 mt-2 mb-0 text-center text-lg leading-relaxed text-gray-400">
-              To compare timetables, join any{' '}
-              <span className="font-bold text-yellow-500/[.87]">group</span>{' '}
-              that you've been invited to, or create a new group and invite your
-              friends. You can use the app to select which group you want to
-              compare timetables with.
-            </p>
-          </div>
-        </div>
       </section>
-      <section className="my-16">
+      <section className="mt-16 bg-[#1e1b24] py-16">
         <div className="flex flex-col items-center gap-4">
           <h2 className="text-2xl font-bold text-white">
             Frequently Asked Questions
@@ -433,6 +367,36 @@ const Support = () => {
                   </>
                 )}
               </Disclosure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="mx-auto max-w-screen-xl py-12 px-4 leading-6 text-black sm:px-6 md:py-16 lg:px-8">
+        <div className="relative rounded-3xl bg-[#23202a] py-16 text-black lg:py-20">
+          <svg
+            className="absolute inset-y-0 right-1/4 z-20 block h-full w-1/4 align-middle text-[#23202a]"
+            preserveAspectRatio="none"
+            viewBox="0 0 100 100"
+            fill="currentcolor"
+          >
+            <polygon points="0,0 100,0 0,100" className=""></polygon>
+          </svg>
+          <div className="absolute inset-y-0 left-1/2 z-10 h-full w-1/2 bg-[#1e1b24]"></div>
+          <div className="relative z-30 mx-auto flex flex-col items-center justify-center px-4 text-center sm:px-16 lg:flex-row lg:text-left">
+            <div className="max-w-lg text-2xl font-bold leading-8 sm:text-4xl sm:leading-10 lg:w-1/2">
+              <h5 className="m-0 text-4xl font-extrabold leading-10 tracking-tight text-white sm:text-5xl sm:leading-none">
+                Still need help?
+              </h5>
+            </div>
+            <div className="mt-10 flex max-w-lg justify-center lg:mt-0 lg:w-1/2 lg:justify-end">
+              <a
+                className="flex h-12 w-auto cursor-pointer items-center justify-center rounded-full bg-white py-4 px-8 text-base font-semibold leading-snug text-gray-900 ease-in-out hover:bg-gray-900 hover:text-white"
+                href="https://discord.gg/szjzhYkT9e"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join our Discord server
+              </a>
             </div>
           </div>
         </div>
