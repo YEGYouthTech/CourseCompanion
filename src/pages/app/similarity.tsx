@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import ScrollContainer from 'react-indiana-drag-scroll';
 import styled, { css } from 'styled-components';
 
 import { DataContext } from '@/templates/AppMain';
@@ -18,23 +19,6 @@ const Header = styled.h1<{ secondary?: boolean }>`
   @media (max-width: 850px) {
     padding-left: 1.25rem;
   }
-`;
-
-const TableWrapper = styled.div`
-  padding-right: 3rem;
-  padding-left: 3rem;
-  font-family: Gilroy, sans-serif;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  overflow-x: auto;
-  @media (max-width: 600px) {
-    padding-right: 0rem;
-    padding-left: 0rem;
-    width: 100%;
-    padding-bottom: 0;
-  }
-  margin-left: auto;
-  margin-right: auto;
 `;
 
 const Table = styled.table`
@@ -156,7 +140,7 @@ const AppIndex = () => {
 
   return (
     <div className="flex flex-wrap">
-      <TableWrapper>
+      <ScrollContainer className="mx-auto px-12 py-4 font-display">
         <Table>
           <Thead>
             <Tr>
@@ -181,7 +165,7 @@ const AppIndex = () => {
             ))}
           </Tbody>
         </Table>
-      </TableWrapper>
+      </ScrollContainer>
     </div>
   );
 };
