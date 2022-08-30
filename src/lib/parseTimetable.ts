@@ -80,6 +80,25 @@ function parseTimetable(content: string) {
   if (lines.length < 2) {
     throw new Error("Your timetable doesn't have a header");
   }
+  if (
+    /^Timetable for (.+?) at (.+?) (Janurary|February|March|April|May|June|July|August|September|October|November|December) (\d{4})$/.test(
+      lines[0]
+    )
+  ) {
+    const weird = lines[0];
+    console.log('phone');
+    lines.unshift(
+      weird.replace(
+        /^Timetable for (.+?) at (.+?) (Janurary|February|March|April|May|June|July|August|September|October|November|December) (\d{4})$/,
+        'Timetable for $1 at $2'
+      )
+    );
+    lines[1] = weird.replace(
+      /^Timetable for (.+?) at (.+?) (Janurary|February|March|April|May|June|July|August|September|October|November|December) (\d{4})$/,
+      '$3 $4'
+    );
+    console.log(lines);
+  }
   const [name, school] = lines
     .shift()
     ?.match(/^Timetable for (.+) at (.+)$/)!
@@ -89,7 +108,7 @@ function parseTimetable(content: string) {
   }
   console.log('Name:', name);
   console.log('School:', school);
-  const timePeriod = lines.shift()?.trim();
+  const timePeriod = lines.shift()?.trim() || '';
   if (
     !timePeriod ||
     !/^(Janurary|February|March|April|May|June|July|August|September|October|November|December) \d{4}$/.test(
