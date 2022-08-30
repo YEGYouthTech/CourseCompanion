@@ -148,7 +148,7 @@ const Support = () => {
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>What is a block and what is a period?</span>
                       <ChevronUpIcon
                         className={`${
@@ -166,7 +166,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>My timetable changed! What should I do?</span>
                       <ChevronUpIcon
                         className={`${
@@ -184,7 +184,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>Can anyone see my information?</span>
                       <ChevronUpIcon
                         className={`${
@@ -202,7 +202,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>I'm from a school other than OSA. Can I still use the app?</span>
                       <ChevronUpIcon
                         className={`${
@@ -221,7 +221,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="text-left flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>I have a course in my timetable that is not supported by YEGYouth.tech. What should I do?</span>
                       <ChevronUpIcon
                         className={`${
@@ -239,7 +239,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>Are you stealing my data?</span>
                       <ChevronUpIcon
                         className={`${
@@ -257,7 +257,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>When is the full version coming out?</span>
                       <ChevronUpIcon
                         className={`${
@@ -275,7 +275,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>My timetable is not being accepted. Help!</span>
                       <ChevronUpIcon
                         className={`${
@@ -293,7 +293,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="text-left flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>It says that my timetable does not have a valid date line. What should I do?</span>
                       <ChevronUpIcon
                         className={`${
@@ -314,7 +314,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>How do I join a group?</span>
                       <ChevronUpIcon
                         className={`${
@@ -332,7 +332,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>How can I join the team?</span>
                       <ChevronUpIcon
                         className={`${
@@ -350,7 +350,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>How can I report bugs?</span>
                       <ChevronUpIcon
                         className={`${
@@ -368,7 +368,7 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>How can I request features?</span>
                       <ChevronUpIcon
                         className={`${
