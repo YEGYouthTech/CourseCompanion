@@ -105,9 +105,16 @@ const AppIndex = () => {
               </a>{' '}
               to set your{' '}
               <span className="font-bold text-yellow-500/[.87]">timetable</span>
-              . Follow the link to your complete timetable on SchoolZone. Select
-              all the text and copy paste it into the text box. Your timetable
-              will be automatically processed.
+              . Follow{' '}
+              <a
+                href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,22&daylist=false"
+                className="text-primary-500 underline"
+              >
+                the link
+              </a>{' '}
+              to your complete timetable on SchoolZone. Select all the text and
+              copy paste it into the text box. Your timetable will be
+              automatically processed.
             </p>
           </div>
           <div className="w-full">
