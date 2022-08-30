@@ -146,6 +146,9 @@ const AppMain = (props: IAppMainProps) => {
                 <Helmet>
                   <style>
                     {`
+                    body {
+                      background-color: #18181b;
+                    }
                     .neon {
                       color: #fff;
                       text-shadow:
@@ -165,8 +168,7 @@ const AppMain = (props: IAppMainProps) => {
                     }
 
                     body {
-                      background-color: #010a00;
-                      background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+                      background-color: #18181b;
                     }
 
                     h1 {
@@ -187,9 +189,31 @@ const AppMain = (props: IAppMainProps) => {
                   </style>
                 </Helmet>
                 <div className="-mt-10">
-                  <h1 className="neon mb-2 w-full pt-4 text-center font-display text-xl font-bold text-gray-750">
-                    Please choose a group&nbsp;➜
-                  </h1>
+                  <img
+                      className='sm:rotate-90'
+                      style={{
+                        width: '250px',
+                        position: 'absolute',
+                        top: '12%',
+                        right: '20%',
+                        transform: 'rotate(-17deg)'
+                      }}
+                      src="/arrow.png"
+                      alt="arrow"
+                    />
+                    <h1
+                      className='animate-gradient-slow bg-gradient-to-r sm:text-3xl font-bold from-primary-500 via-blue-500 to-primary-500 bg-clip-text !text-transparent'
+                      style={{
+                        color: 'white',
+                        position: 'absolute',
+                        top: '38%',
+                        right: '28%',
+                        textTransform: 'capitalize',
+                        textAlign: 'right',
+                      }}
+                    >
+                      Get started!
+                    </h1>
                 </div>
               </>
             )}
