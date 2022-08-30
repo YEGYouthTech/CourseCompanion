@@ -1,7 +1,6 @@
-import { Dialog, Transition } from "@headlessui/react";
-import { setUncaughtExceptionCaptureCallback } from "process";
-import type { Dispatch, SetStateAction } from "react";
-import { Fragment, useRef } from "react";
+import { Dialog, Transition } from '@headlessui/react';
+import type { Dispatch, SetStateAction } from 'react';
+import { Fragment, useRef } from 'react';
 // import { ExclamationIcon } from '@heroicons/react/outline';
 
 type IBaseModalProps = {
@@ -77,7 +76,7 @@ export default function BaseModal({
                     <div
                       className={
                         `bg-${color}-100` +
-                        " mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full sm:mx-0 sm:h-10 sm:w-10"
+                        ' mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full sm:mx-0 sm:h-10 sm:w-10'
                       }
                     >
                       {/* <ExclamationIcon
@@ -111,7 +110,7 @@ export default function BaseModal({
                       type="button"
                       className={
                         `bg-${color}-600 hover:bg-${color}-700 focus:ring-${color}-500` +
-                        "inline-flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                        'inline-flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm'
                       }
                       onClick={() => {
                         (btn1handler || (() => {}))();
