@@ -28,6 +28,9 @@ export default function SettingsModal({
   const groupSettingsModalGroup = useState(null);
   console.log(user);
   function reloadSettings(): void {
+    if (!modalState[0]) {
+      return;
+    }
     async function updateDbUser() {
       if (!user) {
         throw new Error('Not logged in');
@@ -71,7 +74,7 @@ export default function SettingsModal({
       }
     );
   }
-  useUpdateEffect(reloadSettings, [user]);
+  useUpdateEffect(reloadSettings, [user, modalState[0]]);
   useUpdateEffect(() => {
     addEventListener('focus', reloadSettings);
     return () => {
