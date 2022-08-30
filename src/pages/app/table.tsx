@@ -1,29 +1,9 @@
-import { useContext } from "react";
-import { Tooltip } from "react-tippy";
-import { DataContext } from "@/templates/AppMain";
+import { useContext } from 'react';
+import ScrollContainer from 'react-indiana-drag-scroll';
+import { Tooltip } from 'react-tippy';
+import styled, { css } from 'styled-components';
 
-import styled, { css } from "styled-components";
-
-const TableWrapper = styled.div`
-  padding-right: 3rem;
-  padding-left: 3rem;
-  font-family: Gilroy, sans-serif;
-  padding-bottom: 1rem;
-  padding-top: 0rem;
-  @media (max-width: 1340px) {
-    padding-right: 0rem;
-    padding-left: 0rem;
-    width: 100%;
-    overflow-x: auto;
-    padding-top: 1rem;
-    padding-bottom: 0;
-  }
-  max-width: 100rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1rem;
-  overflow: hidden;
-`;
+import { DataContext } from '@/templates/AppMain';
 
 const Table = styled.table`
   position: relative;
@@ -105,18 +85,18 @@ const Td = styled.td<{
 
 const AppTable = () => {
   const rainbowColors = [
-    "#fecaca",
-    "#fed7aa",
-    "#fde68a",
-    "#fde047",
-    "#d9f99d",
-    "#bbf7d0",
-    "#a7f3d0",
-    "#99f6e4",
-    "#a5f3fc",
-    "#bae6fd",
-    "#bfdbfe",
-    "#c7d2fe",
+    '#fecaca',
+    '#fed7aa',
+    '#fde68a',
+    '#fde047',
+    '#d9f99d',
+    '#bbf7d0',
+    '#a7f3d0',
+    '#99f6e4',
+    '#a5f3fc',
+    '#bae6fd',
+    '#bfdbfe',
+    '#c7d2fe',
   ];
 
   const dataContext = useContext(DataContext);
@@ -125,7 +105,7 @@ const AppTable = () => {
 
   return (
     <>
-      <TableWrapper>
+      <ScrollContainer className="mx-auto mt-4 px-12 pb-4 font-display">
         <Table>
           <Thead>
             <Tr>
@@ -155,7 +135,7 @@ const AppTable = () => {
             ))}
           </Tbody>
         </Table>
-      </TableWrapper>
+      </ScrollContainer>
     </>
   );
 };
