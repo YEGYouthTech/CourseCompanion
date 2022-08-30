@@ -39,11 +39,11 @@ export default function TeamScroller({
             <span className="block text-xl font-medium text-white/95">
               {member.name}
             </span>
-            {member.title && (
+            {/* {member.title && (
               <span className="block text-base font-normal text-white/75">
                 {member.title}
               </span>
-            )}
+            )} */}
           </div>
         </div>
       ))}
