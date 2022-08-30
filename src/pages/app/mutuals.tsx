@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { Tooltip } from "react-tippy";
-import styled, { css } from "styled-components";
+import { useContext } from 'react';
+import { Tooltip } from 'react-tippy';
+import styled, { css } from 'styled-components';
 
-import { DataContext } from "@/templates/AppMain";
+import { DataContext } from '@/templates/AppMain';
 
 const TableWrapper = styled.div`
   padding-right: 3rem;
@@ -122,7 +122,7 @@ const AppMutuals = () => {
     ),
   ].sort();
   const mutuals = listOfClasses.map((code: string) => {
-    const [courseCode, blockNumber] = code.split("_");
+    const [courseCode, blockNumber] = code.split('_');
     const mutuals = data
       .map((timetable: any) => {
         const block = timetable.blocks.find(
@@ -151,7 +151,7 @@ const AppMutuals = () => {
         <Table>
           <Thead>
             <Tr>
-              <Th>Block #</Th>
+              <Th>Blk</Th>
               <Th>Course</Th>
               <Th>Mutuals</Th>
             </Tr>
@@ -162,12 +162,12 @@ const AppMutuals = () => {
                 <Td mono>{i.blockNumber}</Td>
                 <Td mono>{i.courseCode}</Td>
                 <Td mono icon>
-                  <div className="-gap-2 my-4 -mt-6 flex flex-row justify-center">
+                  <div className="my-4 -mt-6 ml-4 flex flex-row flex-wrap justify-center">
                     {i.mutuals.map((j) => (
                       <span className="-ml-4" key={j.name}>
                         <Tooltip title={j.name}>
                           <img
-                            className="mt-8 inline-block h-12 w-12 max-w-full rounded-full border-2 border-gray-200 bg-gray-300 shadow-xl hover:-translate-y-1 dark:border-gray-700 dark:bg-gray-900"
+                            className="mt-8 inline-block h-8 w-8 max-w-full rounded-full border-2 border-gray-200 bg-gray-300 shadow-xl hover:-translate-y-1 dark:border-gray-700 dark:bg-gray-900 md:h-12 md:w-12"
                             src={j.profileImage}
                             alt={j.name}
                             title={j.name}
