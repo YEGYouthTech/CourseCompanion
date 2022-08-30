@@ -79,7 +79,7 @@ const Support = () => {
           <h2 className="text-2xl font-bold text-white">
             Frequently Asked Questions
           </h2>
-          <div className="grid w-max grid-cols-3 px-4">
+          <div className="grid w-max grid-cols-1 px-4 lg:grid-cols-2 xl:grid-cols-3">
             <div className="mx-0 w-full max-w-md rounded-2xl bg-transparent p-2">
               <Disclosure>
                 {({ open }) => (
