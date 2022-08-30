@@ -150,12 +150,12 @@ const AppMutuals = () => {
                 <Td mono>{i.blockNumber}</Td>
                 <Td mono>{i.courseCode}</Td>
                 <Td mono icon>
-                  <div className="-gap-2 my-4 flex flex-row justify-center">
+                  <div className="-gap-2 my-4 -mt-6 flex flex-row justify-center">
                     {i.mutuals.map((j) => (
                       <span className="-ml-4" key={j.name}>
                         <Tooltip title={j.name}>
                           <img
-                            className="inline-block h-12 w-12 max-w-full rounded-full border-2 border-gray-200 bg-gray-300 shadow-xl hover:-translate-y-1 dark:border-gray-700 dark:bg-gray-900"
+                            className="mt-8 inline-block h-12 w-12 max-w-full rounded-full border-2 border-gray-200 bg-gray-300 shadow-xl hover:-translate-y-1 dark:border-gray-700 dark:bg-gray-900"
                             src={j.profileImage}
                             alt={j.name}
                             title={j.name}
