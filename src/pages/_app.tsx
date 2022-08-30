@@ -2,6 +2,7 @@ import '../styles/global.css';
 
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { Helmet } from 'react-helmet';
 import { Toaster } from 'react-hot-toast';
 
 import { Meta } from '@/layouts/Meta';
@@ -15,6 +16,17 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const noAuthRequired = ['/', '/about'];
   return (
     <>
+      <Helmet>
+        <style>
+          {
+            `
+              body {
+                background-color: #18181b;
+              }
+            `
+          }
+        </style>
+      </Helmet>
       <Toaster position="bottom-right" />
       <AuthContextProvider>
         {noAuthRequired.includes(router.pathname) ? (
@@ -23,7 +35,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <ProtectedRoute requiresLogIn={router.pathname !== '/signin'}>
             {router.pathname.startsWith('/app') ? (
               <AppMain
-                meta={<Meta title="Dashboard | Course Companion" description="Dashboard | Course Companion" />}
+                meta={<Meta title="Dashboard | Course Companion
+                " description="Dashboard | Course Companion" />}
               >
                 <Component {...pageProps} />
               </AppMain>

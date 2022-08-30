@@ -11,7 +11,7 @@ const Header = styled.h1<{ secondary?: boolean }>`
   margin: 0;
   ${(props) =>
     props.secondary &&
-    css`
+    css`#1fc196
       margin-top: -0.5rem;
       font-size: 1.1rem;
       font-weight: normal;
@@ -45,28 +45,29 @@ const TableWrapper = styled.div`
 const Table = styled.table`
   position: relative;
   width: 100%;
-  border-collapse: collapse;
   border-style: hidden;
-  border-radius: 5px;
-  box-shadow: 0 0 0 1px #666;
   margin-top: 1rem;
   @media (max-width: 850px) {
     border-radius: 0px;
   }
 `;
 
-const Tbody = styled.tbody``;
+const Tbody = styled.tbody`
+  background-color: rgba(31, 193, 150, 0.6);
+  border-style: hidden;
+  border-radius: 10px;
+`;
 
 const Thead = styled.thead``;
 
 const Tr = styled.tr``;
 
 const Th = styled.th<{ left?: boolean; mono?: boolean }>`
-  background-color: #4263eb;
+  background-color: #1fc196;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  border-left: 1px solid #364fc7;
-  border-right: 1px solid #364fc7;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   color: white;
   ${(props) =>
     props.left &&
@@ -89,10 +90,11 @@ const Td = styled.td<{
   icon?: boolean;
   colSpan?: string;
 }>`
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  color: white;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   vertical-align: middle;
   text-align: center;
   padding-top: 0.5rem;
@@ -152,7 +154,7 @@ const AppClasses = () => {
   console.log(tableData);
   return (
     <>
-      <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-gray-750">
+      <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-white">
         Classes
       </h1>
       <div className="flex flex-col">
@@ -170,7 +172,7 @@ const AppClasses = () => {
                 showButton={false}
               />
             </div>
-            <div className="mt-2 flex gap-7 text-red-700">
+            <div className="mt-2 flex gap-7 text-red-400 font-bold">
               <span className="w-56 text-left text-xs">
                 {!data.find(
                   (timetable: any) => timetable.uid === selectedState1[0]?.uid
