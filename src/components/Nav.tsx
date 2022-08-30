@@ -21,12 +21,13 @@ function Nav() {
                   <a>
                     <img
                       className="h-8 w-8"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                      alt="Workflow"
-                      style={{
-                        filter:
-                          'hue-rotate(275deg) brightness(1.35) saturate(.8)',
-                      }}
+                      // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                      src="/manual/favicon.png"
+                      alt="Course Companion"
+                      // style={{
+                      //   filter:
+                      //     'hue-rotate(275deg) brightness(1.35) saturate(.8)',
+                      // }}
                     />
                   </a>
                 </Link>
