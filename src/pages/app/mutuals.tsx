@@ -91,28 +91,6 @@ const Td = styled.td<{
     `}
 `;
 
-const ImgWrapper = styled.div`
-  margin-bottom: -1rem;
-  margin-top: -1rem;
-`;
-
-const ImgSpan = styled.span`
-  position: relative;
-  display: inline-block;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 40px;
-  &:not(:first-child) {
-    margin-left: -60px;
-    -webkit-mask: radial-gradient(
-      circle 55px at 5px 50%,
-      transparent 99%,
-      #fff 100%
-    );
-    mask: radial-gradient(circle 60px at 5px 50%, transparent 99%, #fff 100%);
-  }
-`;
-
 const AppMutuals = () => {
   const dataContext = useContext(DataContext);
   const { group, data } =
@@ -172,21 +150,21 @@ const AppMutuals = () => {
                 <Td mono>{i.blockNumber}</Td>
                 <Td mono>{i.courseCode}</Td>
                 <Td mono icon>
-                  <ImgWrapper>
+                  <div className="-gap-2 my-4 -mt-6 flex flex-row justify-center">
                     {i.mutuals.map((j) => (
-                      <ImgSpan>
+                      <span className="-ml-4" key={j.name}>
                         <Tooltip title={j.name}>
                           <img
-                            className="block w-full"
+                            className="mt-8 inline-block h-12 w-12 max-w-full rounded-full border-2 border-gray-200 bg-gray-300 shadow-xl hover:-translate-y-1 dark:border-gray-700 dark:bg-gray-900"
                             src={j.profileImage}
                             alt={j.name}
                             title={j.name}
                             referrerPolicy="no-referrer"
                           />
                         </Tooltip>
-                      </ImgSpan>
+                      </span>
                     ))}
-                  </ImgWrapper>
+                  </div>
                 </Td>
               </Tr>
             ))}
