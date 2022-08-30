@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
-import styled, { css } from "styled-components";
+import { useContext, useState } from 'react';
+import styled, { css } from 'styled-components';
 
-import { DataContext } from "@/templates/AppMain";
+import { DataContext } from '@/templates/AppMain';
 
-import UserPicker from "../../components/UserPicker";
+import UserPicker from '../../components/UserPicker';
 
 const TableWrapper = styled.div`
   padding-right: 3rem;
@@ -147,28 +147,27 @@ const AppClasses = () => {
       <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-white">
         Classes
       </h1>
-      <div className="flex flex-col">
+      <div className="flex max-w-full flex-col">
         <Center>
           <div>
-            <div className="flex gap-5">
+            <div className="flex flex-wrap justify-center">
               <UserPicker
                 selectedState={selectedState1}
                 onSelect={() => {}}
                 showButton={false}
               />
+              <span className="xs:hidden flex w-56 items-center text-left text-xs font-bold text-red-400">
+                {!data.find(
+                  (timetable: any) => timetable.uid === selectedState1[0]?.uid
+                )?.blocks?.length && "User's timetable not found in group"}
+              </span>
+              <div className="basis-full"></div>
               <UserPicker
                 selectedState={selectedState2}
                 onSelect={() => {}}
                 showButton={false}
               />
-            </div>
-            <div className="mt-2 flex gap-7 text-red-400 font-bold">
-              <span className="w-56 text-left text-xs">
-                {!data.find(
-                  (timetable: any) => timetable.uid === selectedState1[0]?.uid
-                )?.blocks?.length && "User's timetable not found in group"}
-              </span>
-              <span className="w-56 text-left text-xs">
+              <span className="xs:hidden flex w-56 items-center text-left text-xs font-bold text-red-400">
                 {!data.find(
                   (timetable: any) => timetable.uid === selectedState2[0]?.uid
                 )?.blocks?.length && "User's timetable not found in group"}
@@ -198,7 +197,7 @@ const AppClasses = () => {
                 ))
               ) : (
                 <Tr>
-                  <Td colSpan={"3" as any}>No Data</Td>
+                  <Td colSpan={'3' as any}>No Data</Td>
                 </Tr>
               )}
             </Tbody>
