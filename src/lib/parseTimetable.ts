@@ -58,6 +58,12 @@ export type ICourse = {
 };
 
 function parseTimetable(content: string) {
+  if (content.includes('Jan 28')) {
+    throw new Error(
+      'Timetable is for the wrong semester. You definitely copied from the wrong link.'
+    );
+  }
+
   const lines = content
     .replace(/\r/g, '')
     .replace(/\t/g, ' ')
@@ -143,6 +149,9 @@ function parseTimetable(content: string) {
       const period = getPeriodFromTimeString(
         line.match(/^\d\d?:\d\d? [AP]M - \d\d?:\d\d? [AP]M/)![0] || ''
       );
+      if (period === -1) {
+        return;
+      }
       line =
         line
           .split(/^\d\d?:\d\d(?: [AP]M)? - \d\d?:\d\d(?: [AP]M)?/)[1]
