@@ -188,32 +188,32 @@ const AppMain = (props: IAppMainProps) => {
                     `}
                   </style>
                 </Helmet>
-                <div className="-mt-10">
+                <div className="-mt-10 hidden md:block">
                   <img
-                      className='sm:rotate-90'
-                      style={{
-                        width: '250px',
-                        position: 'absolute',
-                        top: '12%',
-                        right: '20%',
-                        transform: 'rotate(-17deg)'
-                      }}
-                      src="/arrow.png"
-                      alt="arrow"
-                    />
-                    <h1
-                      className='animate-gradient-slow bg-gradient-to-r sm:text-3xl font-bold from-primary-500 via-blue-500 to-primary-500 bg-clip-text !text-transparent'
-                      style={{
-                        color: 'white',
-                        position: 'absolute',
-                        top: '38%',
-                        right: '28%',
-                        textTransform: 'capitalize',
-                        textAlign: 'right',
-                      }}
-                    >
-                      Get started!
-                    </h1>
+                    className="sm:rotate-90"
+                    style={{
+                      width: '250px',
+                      position: 'absolute',
+                      top: '5.5rem',
+                      right: '21rem',
+                      transform: 'rotate(-17deg)',
+                    }}
+                    src="/arrow.png"
+                    alt="arrow"
+                  />
+                  <h1
+                    className="animate-gradient-slow bg-gradient-to-r from-primary-500 via-blue-500 to-primary-500 bg-clip-text font-bold !text-transparent sm:text-3xl"
+                    style={{
+                      color: 'white',
+                      position: 'absolute',
+                      top: '18rem',
+                      right: '30rem',
+                      textTransform: 'capitalize',
+                      textAlign: 'right',
+                    }}
+                  >
+                    Get started!
+                  </h1>
                 </div>
               </>
             )}
