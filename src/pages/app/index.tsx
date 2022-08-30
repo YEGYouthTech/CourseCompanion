@@ -4,6 +4,8 @@ import { TbCalendarPlus, TbSettings, TbUserSearch } from 'react-icons/tb';
 
 import { useAuth } from '@/contexts/AuthContext';
 
+import Loader from '../../components/Loader';
+
 const AppIndex = () => {
   const [readyState, setReadyState] = useState(0);
 
@@ -144,7 +146,7 @@ const AppIndex = () => {
                     : 'w-full'
                 }
               >
-                <div className="loader !w-full"></div>
+                <Loader full={true} />
               </div>
             </div>
           </div>
