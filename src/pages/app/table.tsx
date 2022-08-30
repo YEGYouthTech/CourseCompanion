@@ -1,8 +1,8 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
-import { DataContext } from '@/templates/AppMain';
+import { DataContext } from "@/templates/AppMain";
 
-import { Block, Blocks } from '../../components/vis/Blocks';
+import { Block, Blocks } from "../../components/vis/Blocks";
 
 const AppTable = () => {
   const dataContext = useContext(DataContext);
@@ -10,9 +10,6 @@ const AppTable = () => {
     dataContext === null ? { group: null, data: null } : dataContext;
   return (
     <>
-      {/* <pre>
-        <code>{JSON.stringify(data, null, 2)}</code>
-      </pre> */}
       <div className="m-4">
         <div className="-mt-20 overflow-x-auto px-4 pt-20">
           <div className="w-[928px] text-sm">
