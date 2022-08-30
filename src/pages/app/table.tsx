@@ -57,8 +57,9 @@ const Td = styled.td<{
 }>`
   vertical-align: middle;
   text-align: left;
-  padding-top: 0.65rem;
-  padding-bottom: 0.65rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  white-space: nowrap;
   border-left: 1px solid #064e3b;
   border-right: 1px solid #064e3b;
   border-top: 1px solid #064e3b;
