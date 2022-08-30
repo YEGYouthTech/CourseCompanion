@@ -143,20 +143,20 @@ const Support = () => {
       <section className="my-16">
         <div className="flex flex-col items-center gap-4">
           <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
-          <div className="w-full px-4">
-            <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+          <div className="w-max px-4 grid grid-cols-3">
+            <div className="mx-0 w-full max-w-md rounded-2xl bg-transparent p-2">
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>What is a block and what is a period?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       A block is when courses can be scheduled. A period is when the blocks are. It is easier to explain with an example. At OSA, there are 12 blocks. Say that you have block 1, you take French 10. Block 1 is on 1st period Mondays and Wednesdays. So, on the 1st period of Mondays and Wednesdays, you will be attending French 10.
                     </Disclosure.Panel>
                   </>
@@ -166,15 +166,15 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>My timetable changed! What should I do?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       If your timetable changes, you can resubmit your timetable and everything will update.
                     </Disclosure.Panel>
                   </>
@@ -184,15 +184,15 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>Can anyone see my information?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       Only people in your group will see your timetable. If you want to share your timetable with other people, you must join or create a group with them. Furthermore, the YegYouth.Tech team will not be able to see your data as it is encrypted. I think.
                     </Disclosure.Panel>
                   </>
@@ -202,51 +202,34 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                      <span>Can anyone see my information?</span>
-                      <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
-                      />
-                    </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                      Only people in your group will see your timetable. If you want to share your timetable with other people, you must join or create a group with them. Furthermore, the YegYouth.Tech team will not be able to see your data as it is encrypted. I think.
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-
-              <Disclosure as="div" className="mt-2">
-                {({ open }) => (
-                  <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>I'm from a school other than OSA. Can I still use the app?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       Unfortunately, only OSA is supported currently, but there are plans to add more schools.
                     </Disclosure.Panel>
                   </>
                 )}
               </Disclosure>
-
+            </div>
+            <div className="mx-0 w-full max-w-md rounded-2xl bg-transparent p-2">
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>I have a course in my timetable that is not supported by YEGYouth.tech. What should I do?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       Courses that are not in our database are shown as “EDGE” classes. They will be added later on. If you have a course that is not in our database, you can contact Oliver at o.chen@share.epsb.ca.  
                     </Disclosure.Panel>
                   </>
@@ -256,33 +239,15 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                      <span>I have a course in my timetable that is not supported by YEGYouth.tech. What should I do?</span>
-                      <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
-                      />
-                    </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                      Courses that are not in our database are shown as “EDGE” classes. They will be added later on. If you have a course that is not in our database, you can contact Oliver at o.chen@share.epsb.ca.  
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-
-              <Disclosure as="div" className="mt-2">
-                {({ open }) => (
-                  <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>Are you stealing my data?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                         The person writing this FAQ does not know, but he can probably guess that the answer is no.
                     </Disclosure.Panel>
                   </>
@@ -292,15 +257,15 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>When is the full version coming out?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       Soon, babe. :)
                     </Disclosure.Panel>
                   </>
@@ -310,15 +275,15 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>My timetable is not being accepted. Help!</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       Make sure you are copy pasting everything in the pdf the link directed you to, and try again. If that does not work, try contacting Oliver at o.chen@share.epsb.ca. Timetables will be checked to make sure that it is for the right semester and that they are valid.
                     </Disclosure.Panel>
                   </>
@@ -328,33 +293,36 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>It says that my timetable does not have a valid date line. What should I do?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       You could try inserting an “enter” right after the name of your school. That should fix it, but you could also try recopying and repasting the timetable.
                     </Disclosure.Panel>
                   </>
                 )}
               </Disclosure>
+            </div>
+            <div className="mx-auto w-full max-w-md rounded-2xl bg-transparent p-2">
+          
 
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>How do I join a group?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                         You can either accept invitations from other people or create your own group. To create a group, go into your profile and press ‘Groups’, and then press “Create Group”. 
                     </Disclosure.Panel>
                   </>
@@ -364,15 +332,15 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>How can I join the team?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       Email Oliver at o.chen@share.epsb.ca if you are interested.
                     </Disclosure.Panel>
                   </>
@@ -382,15 +350,15 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>How can I report bugs?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       Email Oliver at o.chen@share.epsb.ca if you have found a bug.
                     </Disclosure.Panel>
                   </>
@@ -400,15 +368,15 @@ const Support = () => {
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-center text-sm font-medium text-teal-1000 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 my-4">
                       <span>How can I request features?</span>
                       <ChevronUpIcon
                         className={`${
                           open ? 'rotate-180' : ''
-                        } h-5 w-5 text-purple-500`}
+                        } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    <Disclosure.Panel className="px-4 pt-2 pb-2 text-sm text-teal-1000 bg-teal-100 rounded-lg mt-1">
                       Email Oliver at o.chen@share.epsb.ca if you have any suggestions.
                     </Disclosure.Panel>
                   </>
