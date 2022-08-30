@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react';
-import styled, { css } from 'styled-components';
+import { useContext, useState } from "react";
+import styled, { css } from "styled-components";
 
-import { DataContext } from '@/templates/AppMain';
+import { DataContext } from "@/templates/AppMain";
 
-import UserPicker from '../../components/UserPicker';
+import UserPicker from "../../components/UserPicker";
 
 const Header = styled.h1<{ secondary?: boolean }>`
   font-size: 2rem;
@@ -39,13 +39,16 @@ const TableWrapper = styled.div`
   width: min(100vw, 60rem);
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  overflow: hidden;
 `;
 
 const Table = styled.table`
   position: relative;
   width: 100%;
   border-style: hidden;
+  border-radius: 10px;
+  overflow: hidden;
   margin-top: 1rem;
   @media (max-width: 850px) {
     border-radius: 0px;
@@ -53,22 +56,29 @@ const Table = styled.table`
 `;
 
 const Tbody = styled.tbody`
-  background-color: rgba(31, 193, 150, 0.6);
   border-style: hidden;
   border-radius: 10px;
 `;
 
 const Thead = styled.thead``;
 
-const Tr = styled.tr``;
+const Tr = styled.tr<{ secondary?: boolean }>`
+  background-color: #a7f3d0;
+  color: #065f46;
+  ${(props) =>
+    props.secondary &&
+    css`
+      background-color: #d1fae5;
+    `}
+`;
 
 const Th = styled.th<{ left?: boolean; mono?: boolean }>`
-  background-color: #1fc196;
+  background-color: #065f46;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
-  color: white;
+  border-left: 1px solid #064e3b;
+  border-right: 1px solid #064e3b;
+  color: #d1fae5;
   ${(props) =>
     props.left &&
     css`
@@ -90,11 +100,8 @@ const Td = styled.td<{
   icon?: boolean;
   colSpan?: string;
 }>`
-  color: white;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  border-left: 1px solid #6ee7b7;
+  border-right: 1px solid #6ee7b7;
   vertical-align: middle;
   text-align: center;
   padding-top: 0.5rem;
@@ -103,6 +110,7 @@ const Td = styled.td<{
   padding-right: 0.5rem;
   min-width: 4rem;
   background-color: ${(props) => props.color && props.color};
+  font-weight: 500;
   ${(props) =>
     props.mono &&
     css`
@@ -151,7 +159,6 @@ const AppClasses = () => {
     selectedState2[0]?.uid
   );
 
-  console.log(tableData);
   return (
     <>
       <h1 className="mb-2 pt-4 text-center font-display text-2xl font-bold text-white">
@@ -199,16 +206,16 @@ const AppClasses = () => {
             </Thead>
             <Tbody>
               {tableData.length > 0 ? (
-                tableData.map((i) => (
-                  <Tr>
-                    <Td>{i.bid}</Td>
+                tableData.map((i: any, idx: number) => (
+                  <Tr secondary={idx % 2 === 0}>
+                    <Td mono>{i.bid}</Td>
                     <Td>{i.name}</Td>
-                    <Td>{i.code}</Td>
+                    <Td mono>{i.code}</Td>
                   </Tr>
                 ))
               ) : (
                 <Tr>
-                  <Td colSpan={'3' as any}>No Data</Td>
+                  <Td colSpan={"3" as any}>No Data</Td>
                 </Tr>
               )}
             </Tbody>

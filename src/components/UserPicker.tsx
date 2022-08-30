@@ -1,17 +1,17 @@
-import { Combobox, Transition } from '@headlessui/react';
-import { Fragment, useEffect, useState } from 'react';
+import { Combobox, Transition } from "@headlessui/react";
+import { Fragment, useEffect, useState } from "react";
 import {
   HiCheck as CheckIcon,
   HiOutlinePlusCircle as PlusCircleIcon,
   HiSelector as SelectorIcon,
-} from 'react-icons/hi';
+} from "react-icons/hi";
 
 export default function UserPicker({ selectedState, onSelect, showButton }) {
   const [selected, setSelected] = selectedState;
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const [filteredPeople, setFilteredPeople] = useState([]);
-  let lastQuery = '';
+  let lastQuery = "";
   useEffect(() => {
     if (query?.length < 3 || query === lastQuery) {
       setFilteredPeople([]);
@@ -26,9 +26,9 @@ export default function UserPicker({ selectedState, onSelect, showButton }) {
   return (
     <Combobox value={selected} onChange={setSelected}>
       <div className="relative mt-1 flex gap-4">
-        <div className="relative grow cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+        <div className="relative grow cursor-default overflow-hidden rounded-lg bg-zinc-800 text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
           <Combobox.Input
-            className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 outline-none focus:ring-0"
+            className="bg-zinc-800 w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-200 outline-none focus:ring-0"
             displayValue={(person) => person?.name}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search for a user to add"
@@ -47,15 +47,15 @@ export default function UserPicker({ selectedState, onSelect, showButton }) {
           leave="transition ease-in duration-100"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
-          afterLeave={() => setQuery('')}
+          afterLeave={() => setQuery("")}
         >
-          <Combobox.Options className="absolute mt-10 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+          <Combobox.Options className="absolute mt-10 max-h-60 w-full overflow-auto rounded-md bg-zinc-800 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50">
             {/*   eslint-disable-next-line no-nested-ternary */}
             {query?.length < 3 ? (
-              <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+              <div className="relative cursor-default select-none py-2 px-4 text-gray-500">
                 Type 3+ characters to begin searching.
               </div>
-            ) : filteredPeople.length === 0 && query !== '' ? (
+            ) : filteredPeople.length === 0 && query !== "" ? (
               <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                 Nothing found.
               </div>
@@ -65,7 +65,7 @@ export default function UserPicker({ selectedState, onSelect, showButton }) {
                   key={person.uid}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? 'bg-amber-600 text-white' : 'text-gray-900'
+                      active ? "bg-emerald-100 text-emerald-900" : "text-white"
                     }`
                   }
                   value={person}
@@ -74,7 +74,7 @@ export default function UserPicker({ selectedState, onSelect, showButton }) {
                     <>
                       <span
                         className={`block truncate ${
-                          selected ? 'font-medium' : 'font-normal'
+                          selected ? "font-medium" : "font-normal"
                         }`}
                       >
                         {person?.name}
@@ -82,7 +82,7 @@ export default function UserPicker({ selectedState, onSelect, showButton }) {
                       {selected && false ? (
                         <span
                           className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                            active ? 'text-white' : 'text-amber-600'
+                            active ? "text-white" : "text-amber-600"
                           }`}
                         >
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -90,7 +90,7 @@ export default function UserPicker({ selectedState, onSelect, showButton }) {
                       ) : null}
                       <span
                         className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                          active ? 'text-white' : 'text-amber-600'
+                          active ? "text-white" : "text-amber-600"
                         }`}
                       >
                         <img

@@ -1,12 +1,12 @@
-import { Listbox, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Listbox, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 // import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import {
   HiCheck as CheckIcon,
   HiSelector as SelectorIcon,
-} from 'react-icons/hi';
+} from "react-icons/hi";
 
-const schools = ['Old Scona Academic', 'Lillian Osborne', 'Harry Ainlay'];
+const schools = ["Old Scona Academic", "Lillian Osborne", "Harry Ainlay"];
 
 type ISchoolPickerProps = {
   state: [string | null, React.Dispatch<React.SetStateAction<string | null>>];
@@ -20,7 +20,7 @@ export default function SchoolPicker({ state }: ISchoolPickerProps) {
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-            <span className="block truncate">{selected || 'None'}</span>
+            <span className="block truncate">{selected || "None"}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <SelectorIcon
                 className="h-5 w-5 text-gray-400"
@@ -40,7 +40,7 @@ export default function SchoolPicker({ state }: ISchoolPickerProps) {
                   key={schoolIdx}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
+                      active ? "bg-amber-100 text-amber-900" : "text-gray-900"
                     }`
                   }
                   value={school}
@@ -49,7 +49,7 @@ export default function SchoolPicker({ state }: ISchoolPickerProps) {
                     <>
                       <span
                         className={`block truncate ${
-                          selected ? 'font-medium' : 'font-normal'
+                          selected ? "font-medium" : "font-normal"
                         }`}
                       >
                         {school}
