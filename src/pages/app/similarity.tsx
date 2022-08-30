@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import styled, { css } from "styled-components";
+import { useContext } from 'react';
+import styled, { css } from 'styled-components';
 
-import { DataContext } from "@/templates/AppMain";
+import { DataContext } from '@/templates/AppMain';
 
 const Header = styled.h1<{ secondary?: boolean }>`
   font-size: 2rem;
@@ -26,11 +26,11 @@ const TableWrapper = styled.div`
   font-family: Gilroy, sans-serif;
   padding-bottom: 1rem;
   padding-top: 1rem;
+  overflow-x: auto;
   @media (max-width: 600px) {
     padding-right: 0rem;
     padding-left: 0rem;
     width: 100%;
-    overflow-x: auto;
     padding-bottom: 0;
   }
   margin-left: auto;
@@ -121,17 +121,17 @@ const compareClasses = (p1: any, p2: any, onlyColor = false) => {
   }
   // colors for 0% - 100%
   const hexList = [
-    "#E33737",
-    "#DA5639",
-    "#FF5C28",
-    "#D7B04B",
-    "#C5C058",
-    "#B1D057",
-    "#89C65A",
-    "#5AC671",
-    "#41C05D",
-    "#21BD4D",
-    "#008D39",
+    '#E33737',
+    '#DA5639',
+    '#FF5C28',
+    '#D7B04B',
+    '#C5C058',
+    '#B1D057',
+    '#89C65A',
+    '#5AC671',
+    '#41C05D',
+    '#21BD4D',
+    '#008D39',
   ];
 
   const intersection: Array<number> = [];
