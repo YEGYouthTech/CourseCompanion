@@ -1,41 +1,8 @@
-import { useContext } from 'react';
-import styled, { css } from 'styled-components';
+import { useContext } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
+import styled, { css } from "styled-components";
 
-import { DataContext } from '@/templates/AppMain';
-
-const Header = styled.h1<{ secondary?: boolean }>`
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0;
-  ${(props) =>
-    props.secondary &&
-    css`
-      margin-top: -0.5rem;
-      font-size: 1.1rem;
-      font-weight: normal;
-    `}
-  padding-left: 0rem;
-  @media (max-width: 850px) {
-    padding-left: 1.25rem;
-  }
-`;
-
-const TableWrapper = styled.div`
-  padding-right: 3rem;
-  padding-left: 3rem;
-  font-family: Gilroy, sans-serif;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  overflow-x: auto;
-  @media (max-width: 600px) {
-    padding-right: 0rem;
-    padding-left: 0rem;
-    width: 100%;
-    padding-bottom: 0;
-  }
-  margin-left: auto;
-  margin-right: auto;
-`;
+import { DataContext } from "@/templates/AppMain";
 
 const Table = styled.table`
   position: relative;
@@ -121,17 +88,17 @@ const compareClasses = (p1: any, p2: any, onlyColor = false) => {
   }
   // colors for 0% - 100%
   const hexList = [
-    '#E33737',
-    '#DA5639',
-    '#FF5C28',
-    '#D7B04B',
-    '#C5C058',
-    '#B1D057',
-    '#89C65A',
-    '#5AC671',
-    '#41C05D',
-    '#21BD4D',
-    '#008D39',
+    "#E33737",
+    "#DA5639",
+    "#FF5C28",
+    "#D7B04B",
+    "#C5C058",
+    "#B1D057",
+    "#89C65A",
+    "#5AC671",
+    "#41C05D",
+    "#21BD4D",
+    "#008D39",
   ];
 
   const intersection: Array<number> = [];
@@ -156,7 +123,7 @@ const AppIndex = () => {
 
   return (
     <div className="flex flex-wrap">
-      <TableWrapper>
+      <ScrollContainer className="mx-auto px-12 py-4 font-display">
         <Table>
           <Thead>
             <Tr>
@@ -181,7 +148,7 @@ const AppIndex = () => {
             ))}
           </Tbody>
         </Table>
-      </TableWrapper>
+      </ScrollContainer>
     </div>
   );
 };

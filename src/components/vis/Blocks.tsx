@@ -39,7 +39,7 @@ export function Block({ header, index, course, rainbow }: IBlockProps) {
   return (
     <>
       <div
-        className={`font-mono relative inline-block h-[37px] w-20 ${
+        className={`relative inline-block h-[37px] w-[90px] font-mono ${
           header ? "p-1" : "p-2"
         } ${rainbow ? rainbowColors[index % rainbowColors.length] : ""}`}
         data-tip={!header ? course?.name || "[ERROR]" : undefined}
@@ -50,10 +50,14 @@ export function Block({ header, index, course, rainbow }: IBlockProps) {
           showTooltip(false);
         }}
       >
-        {header ? `Block ${index + 1}` : course?.code}
+        {header ? (
+          <span className="font-display font-semibold">Block {index + 1}</span>
+        ) : (
+          course?.code
+        )}
         {course?.name ? (
           <div
-            className={`absolute top-0 left-1/2 z-[999] hidden w-32 -translate-x-1/2 -translate-y-full whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 text-sm font-normal text-white focus:outline-none ${
+            className={`absolute top-0 left-1/2 z-[999] hidden -translate-x-1/2 -translate-y-full whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 text-sm font-normal text-white focus:outline-none ${
               !header && tooltip && "!block"
             }`}
           >
@@ -76,7 +80,7 @@ export function Blocks({ blocks, hideHeader, nameHeader }: IBlocksProps) {
         blocks.map((_, i) => (
           <>
             {nameHeader && i === 0 && (
-              <div className="relative inline-block w-32 p-1 ">
+              <div className="relative inline-block  p-1 ">
                 <div className="font-body text-sm"></div>
               </div>
             )}
@@ -87,8 +91,8 @@ export function Blocks({ blocks, hideHeader, nameHeader }: IBlocksProps) {
       {blocks.map((course, i) => (
         <>
           {nameHeader && i === 0 && (
-            <div className="relative inline-block w-32 p-1 ">
-              <div className="font-body text-sm text-white font-semibold">
+            <div className="relative inline-block  p-1 ">
+              <div className="font-body text-sm font-semibold">
                 {nameHeader}
               </div>
             </div>

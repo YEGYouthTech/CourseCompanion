@@ -145,8 +145,6 @@ const AppMutuals = () => {
     };
   });
 
-  console.log(mutuals);
-
   return (
     <>
       <TableWrapper>
