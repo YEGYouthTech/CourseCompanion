@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import ScrollContainer from 'react-indiana-drag-scroll';
 
 import { DataContext } from '@/templates/AppMain';
 
@@ -14,8 +15,8 @@ const AppTable = () => {
         <code>{JSON.stringify(data, null, 2)}</code>
       </pre> */}
       <div className="m-4">
-        <div className="-mt-20 overflow-x-auto px-4 pt-20">
-          <div className="w-[928px] text-sm">
+        <ScrollContainer className="-mt-20 px-4 pt-20">
+          <div className="w-[928px] rounded-lg bg-white text-sm">
             {Array(10).map((_, i) => (
               <Block key={`blocksHeader${i}`} header={true} index={i} />
             ))}
@@ -26,7 +27,7 @@ const AppTable = () => {
                     <>
                       <Blocks
                         blocks={timetable.blocks}
-                        hideHeader={true}
+                        hideHeader={index !== 0}
                         nameHeader={timetable.name}
                       />
                     </>
@@ -35,7 +36,7 @@ const AppTable = () => {
               );
             })}
           </div>
-        </div>
+        </ScrollContainer>
       </div>
     </>
   );
