@@ -56,7 +56,7 @@ export default function SettingsModal({
     });
   }
   useUpdateEffect(reloadSettings, [user]);
-  function submitSettings(): void {
+  async function submitSettings() {
     async function updateDbUser() {
       if (!user) {
         throw new Error('Not logged in');
@@ -82,15 +82,11 @@ export default function SettingsModal({
         throw new Error(json?.error || 'Unknown error');
       }
     }
-    if (schoolState[0] || gradeState[0]) {
-      toast.promise(updateDbUser(), {
-        loading: 'Saving settings...',
-        success: <b>Settings saved!</b>,
-        error: (error: Error) => (
-          <b>Settings failed to save: {error.message}</b>
-        ),
-      });
-    }
+    await toast.promise(updateDbUser(), {
+      loading: 'Saving settings...',
+      success: <b>Settings saved!</b>,
+      error: (error: Error) => <b>Settings failed to save: {error.message}</b>,
+    });
   }
   return (
     <BaseModal
@@ -149,6 +145,7 @@ export default function SettingsModal({
             onClick={function () {
               toast.promise(
                 (async () => {
+                  await submitSettings();
                   const request = await fetch(`/api/groups/group`, {
                     method: 'POST',
                     headers: {
