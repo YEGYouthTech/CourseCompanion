@@ -172,8 +172,6 @@ export default function SettingsModal({
               if (!request.ok || json?.error !== undefined) {
                 throw new Error(json?.error || 'Unknown error');
               }
-              inviteModalState[1](false);
-              groupState[1](null);
               reloadSettings();
             })(),
             {
