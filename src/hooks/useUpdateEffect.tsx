@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 /**
  * A custom useEffect hook that only triggers on updates, not on initial mount
@@ -6,14 +6,18 @@ import { useEffect, useRef } from 'react';
  * @param {Function} effect
  * @param {Array<any>} dependencies
  */
-export default function useUpdateEffect(effect, dependencies = []) {
-  const isInitialMount = useRef(true);
+// export default function useUpdateEffect(effect, dependencies = []) {
+//   const isInitialMount = useRef(true);
 
-  useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      return effect();
-    }
-  }, dependencies);
-}
+//   useEffect(() => {
+//     if (isInitialMount.current) {
+//       isInitialMount.current = false;
+//     } else {
+//       return effect();
+//     }
+//   }, dependencies);
+// }
+
+const useUpdateEffect = useEffect;
+
+export default useUpdateEffect;
