@@ -1,7 +1,7 @@
-import { useContext } from 'react';
-import styled, { css } from 'styled-components';
+import { useContext } from "react";
+import styled, { css } from "styled-components";
 
-import { DataContext } from '@/templates/AppMain';
+import { DataContext } from "@/templates/AppMain";
 
 const Header = styled.h1<{ secondary?: boolean }>`
   font-size: 2rem;
@@ -25,15 +25,16 @@ const TableWrapper = styled.div`
   padding-left: 3rem;
   font-family: Gilroy, sans-serif;
   padding-bottom: 1rem;
-  padding-top: 0rem;
+  padding-top: 1rem;
   @media (max-width: 600px) {
     padding-right: 0rem;
     padding-left: 0rem;
     width: 100%;
     overflow-x: auto;
-    padding-top: 1rem;
     padding-bottom: 0;
   }
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const Table = styled.table`
@@ -41,8 +42,8 @@ const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-style: hidden;
-  border-radius: 5px;
-  box-shadow: 0 0 0 1px #666;
+  border-radius: 10px;
+  overflow: hidden;
   margin-top: 1rem;
   @media (max-width: 850px) {
     border-radius: 0px;
@@ -55,12 +56,17 @@ const Thead = styled.thead``;
 
 const Tr = styled.tr``;
 
-const Th = styled.th<{ left?: boolean; mono?: boolean }>`
-  background-color: #4263eb;
+const Th = styled.th<{ left?: boolean; mono?: boolean; white?: boolean }>`
+  background-color: #065f46;
   padding: 0.75rem;
-  border-left: 1px solid #364fc7;
-  border-right: 1px solid #364fc7;
-  color: white;
+  border-left: 1px solid #064e3b;
+  border-right: 1px solid #064e3b;
+  color: #d1fae5;
+  ${(props) =>
+    props.white &&
+    css`
+      color: white;
+    `}
   ${(props) =>
     props.left &&
     css`
@@ -78,17 +84,17 @@ const Th = styled.th<{ left?: boolean; mono?: boolean }>`
 
 const Td = styled.td<{
   mono?: boolean;
-  blue?: boolean;
+  green?: boolean;
   color?: string;
 }>`
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
   vertical-align: middle;
   text-align: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  border-left: 1px solid #064e3b;
+  border-right: 1px solid #064e3b;
+  border-top: 1px solid #064e3b;
+  border-bottom: 1px solid #064e3b;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   min-width: 4rem;
@@ -101,12 +107,10 @@ const Td = styled.td<{
     `}
 
   ${(props) =>
-    props.blue &&
+    props.green &&
     css`
-      border-top: 1px solid #364fc7;
-      border-bottom: 1px solid #364fc7;
-      background-color: #4263eb;
-      color: white;
+      background-color: #065f46;
+      color: #d1fae5;
       font-weight: bold;
     `}
 `;
@@ -117,17 +121,17 @@ const compareClasses = (p1: any, p2: any, onlyColor = false) => {
   }
   // colors for 0% - 100%
   const hexList = [
-    '#E33737',
-    '#DA5639',
-    '#FF5C28',
-    '#D7B04B',
-    '#C5C058',
-    '#B1D057',
-    '#89C65A',
-    '#5AC671',
-    '#41C05D',
-    '#21BD4D',
-    '#008D39',
+    "#E33737",
+    "#DA5639",
+    "#FF5C28",
+    "#D7B04B",
+    "#C5C058",
+    "#B1D057",
+    "#89C65A",
+    "#5AC671",
+    "#41C05D",
+    "#21BD4D",
+    "#008D39",
   ];
 
   const intersection: Array<number> = [];
@@ -156,7 +160,9 @@ const AppIndex = () => {
         <Table>
           <Thead>
             <Tr>
-              <Th mono>Matrix</Th>
+              <Th mono white>
+                Matrix
+              </Th>
               {data.map((i: any) => (
                 <Th>{i.name}</Th>
               ))}
@@ -165,7 +171,7 @@ const AppIndex = () => {
           <Tbody>
             {data.map((i: any) => (
               <Tr>
-                <Td blue>{i.name}</Td>
+                <Td green>{i.name}</Td>
                 {data.map((j: any) => (
                   <Td mono color={compareClasses(i, j, true) as string}>
                     {compareClasses(i, j)}

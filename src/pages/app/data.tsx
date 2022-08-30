@@ -1,17 +1,13 @@
-import { useContext } from 'react';
-import styled, { css } from 'styled-components';
+import { useContext } from "react";
+import styled, { css } from "styled-components";
 
-import { DataContext } from '@/templates/AppMain';
-
-const genHSL = (idx: number) => {
-  const hslVal = idx / 10;
-  return `hsla(${~~(360 * hslVal)},` + `70%,` + `80%,1)`;
-};
+import { DataContext } from "@/templates/AppMain";
 
 const Header = styled.h1<{ secondary?: boolean }>`
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
+  color: white;
   ${(props) =>
     props.secondary &&
     css`
@@ -39,89 +35,82 @@ const TableWrapper = styled.div`
     padding-top: 1rem;
     padding-bottom: 0;
   }
-  width: min(100vw, 36rem);
+  width: min(100vw, 60rem);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  overflow: hidden;
 `;
 
 const Table = styled.table`
   position: relative;
   width: 100%;
-  border-collapse: collapse;
   border-style: hidden;
-  border-radius: 5px;
-  box-shadow: 0 0 0 1px #666;
+  border-radius: 10px;
+  overflow: hidden;
   margin-top: 1rem;
   @media (max-width: 850px) {
     border-radius: 0px;
   }
 `;
 
-const Tbody = styled.tbody``;
+const Tbody = styled.tbody`
+  border-style: hidden;
+  border-radius: 10px;
+`;
 
 const Thead = styled.thead``;
 
-const Tr = styled.tr`
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+const Tr = styled.tr<{ secondary?: boolean }>`
+  background-color: #a7f3d0;
+  color: #065f46;
+  ${(props) =>
+    props.secondary &&
+    css`
+      background-color: #d1fae5;
+    `}
 `;
 
-const Th = styled.th<{ left?: boolean }>`
-  background-color: #4263eb;
+const Th = styled.th<{ left?: boolean; mono?: boolean }>`
+  background-color: #065f46;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  border-left: 1px solid #364fc7;
-  border-right: 1px solid #364fc7;
-  color: white;
-  ${(props) =>
-    props.left &&
-    css`
-      text-align: left;
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
-    `}
-`;
-
-const Td = styled.td<{
-  left?: boolean;
-  mono?: boolean;
-  color?: number;
-  green?: boolean;
-  blue?: boolean;
-}>`
-  vertical-align: middle;
-  text-align: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  min-width: 4rem;
-  ${(props) =>
-    props.left &&
-    css`
-      text-align: left;
-      width: 500px;
-    `}
+  border-left: 1px solid #064e3b;
+  border-right: 1px solid #064e3b;
+  color: #d1fae5;
   ${(props) =>
     props.mono &&
     css`
       font-family: Space Mono, monospace;
     `}
-    ${(props) =>
-    props.color &&
-    css`
-      background-color: ${genHSL(props.color)};
-    `};
-  ${(props) =>
-    props.green &&
-    css`
-      color: #006748;
-    `}
+`;
 
+const Td = styled.td<{
+  mono?: boolean;
+  color?: string;
+  icon?: boolean;
+  colSpan?: string;
+}>`
+  border-left: 1px solid #6ee7b7;
+  border-right: 1px solid #6ee7b7;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  min-width: 4rem;
+  background-color: ${(props) => props.color && props.color};
+  font-weight: 500;
   ${(props) =>
-    props.blue &&
+    props.mono &&
     css`
-      color: #012f5a;
+      font-family: Space Mono, monospace;
+    `}
+  ${(props) =>
+    props.icon &&
+    css`
+      width: 18rem;
     `}
 `;
 
@@ -151,18 +140,14 @@ const AppData = () => {
               </Thead>
               <Tbody>
                 {i?.blocks?.map((j: any, blockid: number) => (
-                  <Tr key={blockid}>
+                  <Tr key={blockid} secondary={blockid % 2 === 0}>
                     <Td>{blockid + 1}</Td>
-                    <Td left>{j.name}</Td>
+                    <Td>{j.name}</Td>
                     <Td mono color={(blockid + 1) as any}>
                       {j.code}
                     </Td>
-                    <Td left green>
-                      {j.teacher ? j.teacher.name : 'N/A'}
-                    </Td>
-                    <Td mono blue>
-                      {j.room ? j.room : 'N/A'}
-                    </Td>
+                    <Td>{j.teacher ? j.teacher.name : "N/A"}</Td>
+                    <Td mono>{j.room ? j.room : "N/A"}</Td>
                     {/* <Td>
                         {j.duration !== null ? `${j.duration} hrs` : 'N/A'}
                       </Td> */}
