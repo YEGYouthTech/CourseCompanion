@@ -1,8 +1,8 @@
-import { useContext } from 'react';
-import { Tooltip } from 'react-tippy';
-import styled, { css } from 'styled-components';
+import { useContext } from "react";
+import { Tooltip } from "react-tippy";
+import styled, { css } from "styled-components";
 
-import { DataContext } from '@/templates/AppMain';
+import { DataContext } from "@/templates/AppMain";
 
 const TableWrapper = styled.div`
   padding-right: 3rem;
@@ -18,38 +18,49 @@ const TableWrapper = styled.div`
     padding-top: 1rem;
     padding-bottom: 0;
   }
-  width: min(100vw, 50rem);
+  width: min(100vw, 60rem);
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  overflow: hidden;
 `;
 
 const Table = styled.table`
   position: relative;
   width: 100%;
-  border-collapse: collapse;
   border-style: hidden;
-  border-radius: 5px;
-  box-shadow: 0 0 0 1px #666;
+  border-radius: 10px;
+  overflow: hidden;
   margin-top: 1rem;
   @media (max-width: 850px) {
     border-radius: 0px;
   }
 `;
 
-const Tbody = styled.tbody``;
+const Tbody = styled.tbody`
+  border-style: hidden;
+  border-radius: 10px;
+`;
 
 const Thead = styled.thead``;
 
-const Tr = styled.tr``;
+const Tr = styled.tr<{ secondary?: boolean }>`
+  background-color: #a7f3d0;
+  color: #065f46;
+  ${(props) =>
+    props.secondary &&
+    css`
+      background-color: #d1fae5;
+    `}
+`;
 
 const Th = styled.th<{ left?: boolean; mono?: boolean }>`
-  background-color: #4263eb;
+  background-color: #065f46;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  border-left: 1px solid #364fc7;
-  border-right: 1px solid #364fc7;
-  color: white;
+  border-left: 1px solid #064e3b;
+  border-right: 1px solid #064e3b;
+  color: #d1fae5;
   ${(props) =>
     props.left &&
     css`
@@ -57,6 +68,7 @@ const Th = styled.th<{ left?: boolean; mono?: boolean }>`
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     `}
+
   ${(props) =>
     props.mono &&
     css`
@@ -68,17 +80,19 @@ const Td = styled.td<{
   mono?: boolean;
   color?: string;
   icon?: boolean;
+  colSpan?: string;
 }>`
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  border-left: 1px solid #6ee7b7;
+  border-right: 1px solid #6ee7b7;
   vertical-align: middle;
   text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   min-width: 4rem;
   background-color: ${(props) => props.color && props.color};
+  font-weight: 500;
   ${(props) =>
     props.mono &&
     css`
@@ -108,7 +122,7 @@ const AppMutuals = () => {
     ),
   ].sort();
   const mutuals = listOfClasses.map((code: string) => {
-    const [courseCode, blockNumber] = code.split('_');
+    const [courseCode, blockNumber] = code.split("_");
     const mutuals = data
       .map((timetable: any) => {
         const block = timetable.blocks.find(
@@ -145,8 +159,8 @@ const AppMutuals = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {mutuals.map((i) => (
-              <Tr>
+            {mutuals.map((i, idx: number) => (
+              <Tr secondary={idx % 2 === 0}>
                 <Td mono>{i.blockNumber}</Td>
                 <Td mono>{i.courseCode}</Td>
                 <Td mono icon>
