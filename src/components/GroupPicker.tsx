@@ -41,7 +41,7 @@ export default function GroupPicker({ state, groupsState }) {
                   key={group._id}
                   className={({ active }) =>
                     `relative cursor-pointer select-none py-3 pl-14 pr-4 my-2 ${
-                      active ? "bg-emerald-100 text-emerald-900" : "text-white"
+                      active ? "bg-gray-700" : "text-white"
                     }`
                   }
                   value={group.name}
