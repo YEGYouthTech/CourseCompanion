@@ -3,23 +3,6 @@ import styled, { css } from "styled-components";
 
 import { DataContext } from "@/templates/AppMain";
 
-const Header = styled.h1<{ secondary?: boolean }>`
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0;
-  ${(props) =>
-    props.secondary &&
-    css`
-      margin-top: -0.5rem;
-      font-size: 1.1rem;
-      font-weight: normal;
-    `}
-  padding-left: 0rem;
-  @media (max-width: 850px) {
-    padding-left: 1.25rem;
-  }
-`;
-
 const TableWrapper = styled.div`
   padding-right: 3rem;
   padding-left: 3rem;
