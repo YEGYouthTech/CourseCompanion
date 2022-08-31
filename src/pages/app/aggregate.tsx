@@ -40,7 +40,9 @@ export default function AppAggregate() {
     if (!playerName) return;
     const playerTimetable = data.find((i) => i.name === playerName);
     if (!playerTimetable) return;
-    const players = Object.fromEntries(data.map((i) => [i.name, 0]));
+    const players = Object.fromEntries(
+      data.map((i) => [i.name, 0]).filter((i) => i[0] !== playerName)
+    );
     console.log(players);
     data.forEach((i) => {
       if (i.name === playerName) return;
@@ -74,7 +76,7 @@ export default function AppAggregate() {
                 `}
               </style>
             </Helmet>
-            <div className="flex gap-8 overflow-auto p-8 sm:items-center sm:justify-center">
+            <div className="flex items-start gap-8 overflow-auto p-8 sm:justify-center">
               <div>
                 <Leaderboard
                   title="Highest Aggregate Scores"
