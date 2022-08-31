@@ -22,7 +22,6 @@ const TableWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
-  overflow: hidden;
 `;
 
 const Table = styled.table`

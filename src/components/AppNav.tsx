@@ -27,7 +27,7 @@ function AppNav() {
           </div>
         </div>
       </nav>
-      <div className="mt-36"></div>
+      <div className="mt-4"></div>
     </>
   );
 }

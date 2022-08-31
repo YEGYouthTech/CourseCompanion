@@ -8,6 +8,7 @@ type IMainProps = {
 const Main = (props: IMainProps) => (
   <>
     <Nav></Nav>
+    <div className="min-h-[4rem]"></div>
 
     {props.meta}
 

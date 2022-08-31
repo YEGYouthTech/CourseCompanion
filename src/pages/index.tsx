@@ -21,18 +21,17 @@ const Index = () => {
       <Helmet>
         <style>{`
           html, body {
-            overflow: hidden;
             background-color: #18181b;
           }
         `}</style>
       </Helmet>
 
-      <div className="relative flex min-h-screen w-full flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:min-h-screen lg:p-8 lg:pt-32 xl:p-16 2xl:p-24">
-        <div className="z-10 flex flex-col justify-center px-16 md:flex-row">
-          <div className="mb-16 flex flex-col items-center justify-center md:mr-8 lg:p-8 2xl:p-12">
+      <div className="relative flex w-full grow flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:p-8 lg:pt-16 xl:p-16 2xl:p-24">
+        <div className="z-10 flex flex-col justify-center md:flex-row md:px-16">
+          <div className="mb-16 flex flex-col items-center justify-center px-8 md:mr-8 lg:p-8 2xl:p-12">
             <img src="/logo.png" className="block w-full max-w-sm" />
           </div>
-          <div className="flex min-w-[300px] grow flex-col items-center justify-center gap-8">
+          <div className="flex grow flex-col items-center justify-center gap-8">
             <p className="max-w-[50vh] text-center font-body text-xl text-text-500/[.6] md:text-left">
               A non-district tool to help students compare their timetables,
               filling in the gaps in official programs (SchoolZone).

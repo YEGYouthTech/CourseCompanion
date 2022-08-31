@@ -106,7 +106,7 @@ const AppTable = () => {
 
   return (
     <>
-      <ScrollContainer className="mx-auto mt-4 px-12 pb-4 font-display">
+      <ScrollContainer className="mx-auto mt-4 w-full px-12 pb-4 font-display">
         <Table>
           <Thead>
             <Tr>
@@ -129,7 +129,9 @@ const AppTable = () => {
                 <Td green>{timetable.name}</Td>
                 {timetable.blocks.map((block: any, idx: number) => (
                   <Td mono color={rainbowColors[idx]}>
-                    <Tooltip title={block.name}>{block.code}</Tooltip>
+                    <Tooltip title={block.name} trigger="click">
+                      {block.code}
+                    </Tooltip>
                   </Td>
                 ))}
               </Tr>

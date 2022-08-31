@@ -128,6 +128,7 @@ const AppMain = (props: IAppMainProps) => {
       ) : (
         <>
           <AppNav />
+          <div className="min-h-[4rem]"></div>
           <div className="flex">
             <div className="grow"></div>
             <GroupPicker
