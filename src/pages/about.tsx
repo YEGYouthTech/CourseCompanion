@@ -22,7 +22,7 @@ const About = () => (
         href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"
       />
     </Helmet>
-    <div className="flex min-h-screen items-center justify-center pt-16">
+    <div className="flex pt-16">
       <div className="flex flex-col">
         <div className="mt-8 flex flex-col">
           <div className="container max-w-7xl px-4">
@@ -180,7 +180,7 @@ const About = () => (
                   <span className="text-base font-medium text-gray-100/75">
                     And a huge thank you to...
                   </span>
-                  <h1 className="mt-2 mb-8 text-xl font-bold text-gray-100">
+                  <h1 className="mt-2 mb-8 text-center text-xl font-bold text-gray-100">
                     All YEGYouth.Tech Executives
                   </h1>
                   <TeamScroller
