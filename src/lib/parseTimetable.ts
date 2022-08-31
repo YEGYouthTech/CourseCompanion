@@ -208,6 +208,8 @@ function parseTimetable(content: string) {
           }
           return false;
         }
+        // console.log('No match:', line, name_, code_);
+
         return true;
       });
       if (!courseName) {

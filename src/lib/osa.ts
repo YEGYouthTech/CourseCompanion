@@ -78,11 +78,8 @@ const SUBJKEY_OLD: { [index: string]: string } = {
   // Other
   'Career & Life Management Program': 'CALM20',
   'Introductory Team Leadership': 'LD15',
-  'Leadership Character & Social Resp 15': 'LD15',
   'Intermediate Team Leadership': 'LD25',
-  'Leadership Character & Social Resp 25': 'LD25',
   'Advanced Team Leadership': 'LD35',
-  'Leadership Character & Social Resp 35': 'LD35',
   'Physical Education 10': 'PE10',
 };
 
@@ -292,6 +289,9 @@ const SUBJKEY: { [index: string]: string } = {
   'Introductory Team Leadership': 'LD15',
   'Intermediate Team Leadership': 'LD25',
   'Advanced Team Leadership': 'LD35',
+  'Leadership Character & Social Resp 15': 'LD15',
+  'Leadership Character & Social Resp 25': 'LD25',
+  'Leadership Character & Social Resp 35': 'LD35',
   'Physical Education 10': 'PE10',
   'Physical Education 20': 'PE20',
   'Physical Education 30': 'PE30',
