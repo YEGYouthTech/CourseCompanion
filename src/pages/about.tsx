@@ -37,7 +37,7 @@ const About = () => (
                 </p>
               </div>
             </div>
-            <div className="mb-16 flex flex-wrap justify-center px-16">
+            <div className="mb-16 flex flex-wrap justify-center px-6 sm:px-16">
               <ExecMember
                 name="Oliver Chen"
                 title="Project Manager"
@@ -53,7 +53,7 @@ const About = () => (
               />
               <ExecMember
                 name="Justin Qian"
-                title="Information Architect"
+                title="User Feedback Connoisseur"
                 image="/assets/images/team/Justin_Qian.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
@@ -75,6 +75,18 @@ const About = () => (
                 name="Hao Cheng"
                 title="Web Developer"
                 image="/assets/images/team/Hao_Cheng.jpg"
+                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
+              />
+              <ExecMember
+                name="Jason Li"
+                title="Professional Hottie"
+                image="/assets/images/team/Jason_Li.jpg"
+                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
+              />
+              <ExecMember
+                name="William Ma"
+                title="System Administrator"
+                image="/assets/images/team/William_Ma.png"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
             </div>
