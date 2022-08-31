@@ -1,3 +1,4 @@
+const path = require('path');
 const withOffline = require('next-offline');
 
 /* eslint-disable import/no-extraneous-dependencies */
@@ -26,6 +27,9 @@ module.exports = withOffline(
       // your project has type errors.
       // !! WARN !!
       ignoreBuildErrors: true,
+    },
+    sassOptions: {
+      includePaths: [path.join(__dirname, 'styles')],
     },
   })
 );
