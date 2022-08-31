@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-import TeamMember from '../components/TeamMember';
+import ExecMember from '../components/ExecMember';
 import TeamScroller from '../components/TeamScroller';
 
 const About = () => (
@@ -38,26 +38,26 @@ const About = () => (
               </div>
             </div>
             <div className="mb-16 flex flex-wrap justify-center px-16">
-              <TeamMember
+              <ExecMember
                 name="Oliver Chen"
                 title="Project Manager"
                 // image="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
                 image="/assets/images/team/Oliver_Chen.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
-              <TeamMember
+              <ExecMember
                 name="Evan Yin"
                 title="Art &amp; Design Manager"
                 image="/assets/images/team/Evan_Yin.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
-              <TeamMember
+              <ExecMember
                 name="Justin Qian"
                 title="Information Architect"
                 image="/assets/images/team/Justin_Qian.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
-              <TeamMember
+              <ExecMember
                 name="Elina Ajamian"
                 title="Trust &amp; Safety Manager"
                 // image="https://images.unsplash.com/photo-1634193295627-1cdddf751ebf?fit=clamp&w=400&h=400&q=80"
@@ -65,13 +65,13 @@ const About = () => (
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
               {/* <div className="basis-full"></div> */}
-              <TeamMember
+              <ExecMember
                 name="Heril Saha"
                 title="Full Stack Web Developer"
                 image="/assets/images/team/Heril_Saha.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />
-              <TeamMember
+              <ExecMember
                 name="Hao Cheng"
                 title="Web Developer"
                 image="/assets/images/team/Hao_Cheng.jpg"
