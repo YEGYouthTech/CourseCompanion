@@ -62,18 +62,19 @@ export default function AppAggregate() {
             <Helmet>
               <style>
                 {`
-            body {
-              min-height: 450px;
-              height: 100vh;
-              margin: 0;  
-              background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%) fixed;
-              color: #fff;
-              font-family: 'Open Sans', sans-serif;  
-            }
-          `}
+                  body {
+                    min-height: 450px;
+                    height: 100vh;
+                    margin: 0;  
+                    /* background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%) fixed; */
+                    /* background: radial-gradient(ellipse farthest-corner at center top, #7EF364 0%, #B8F260 100%) fixed; */
+                    color: #fff;
+                    font-family: 'Open Sans', sans-serif;  
+                  }
+                `}
               </style>
             </Helmet>
-            <div className="flex items-center justify-center gap-8">
+            <div className="flex gap-8 overflow-auto p-8 sm:items-center sm:justify-center">
               <div>
                 <Leaderboard
                   title="Highest Aggregate Scores"
@@ -91,7 +92,7 @@ export default function AppAggregate() {
             </div>
           </>
         ) : (
-          <div className="flex h-full items-center justify-center">
+          <div className="flex w-full items-center justify-center">
             <div className="text-center">
               <h1 className="text-4xl font-bold text-white/90">
                 Not enough data
