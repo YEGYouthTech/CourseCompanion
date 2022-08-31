@@ -27,6 +27,7 @@ function AppNav() {
           </div>
         </div>
       </nav>
+      <div className="min-h-[4rem]"></div>
       <div className="mt-4"></div>
     </>
   );
