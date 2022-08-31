@@ -7,9 +7,9 @@ import AppNavItem from './AppNavItem';
 function AppNav() {
   return (
     <>
-      <nav className="nav fixed top-16 left-0 z-10 w-screen AppTopControlBar">
-        <div className="mx-auto h-16 max-w-7xl overflow-y-hidden overflow-x-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between backdrop-blur-sm AppTopControlBarChild">
+      <nav className="nav AppTopControlBar fixed top-16 left-0 z-10 w-screen">
+        <div className="mx-auto h-16 max-w-7xl overflow-x-auto overflow-y-hidden px-4 sm:px-6 lg:px-8">
+          <div className="AppTopControlBarChild flex h-16 items-center justify-between backdrop-blur-sm">
             <div className="flex items-center">
               <div className="md:block">
                 <div className="flex items-baseline space-x-4">
@@ -20,7 +20,7 @@ function AppNav() {
                   <AppNavItem href="/app/similarity">Matrix</AppNavItem>
                   <AppNavItem href="/app/data">Data</AppNavItem>
                   <AppNavItem href="/app/table">Table</AppNavItem>
-                  {/* <AppNavItem href="/app/aggregate">Aggregate</AppNavItem> */}
+                  <AppNavItem href="/app/aggregate">Aggregate</AppNavItem>
                 </div>
               </div>
             </div>

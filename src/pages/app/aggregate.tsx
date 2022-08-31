@@ -56,9 +56,12 @@ export default function AppAggregate() {
 
   return (
     <>
-      <Helmet>
-        <style>
-          {`
+      <div className="mt-8 h-full w-full">
+        {data.length >= 5 ? (
+          <>
+            <Helmet>
+              <style>
+                {`
             body {
               min-height: 450px;
               height: 100vh;
@@ -68,25 +71,37 @@ export default function AppAggregate() {
               font-family: 'Open Sans', sans-serif;  
             }
           `}
-        </style>
-      </Helmet>
-      <div className="mt-8 h-full w-full">
-        <div className="flex items-center justify-center gap-8">
-          <div>
-            <Leaderboard
-              title="Highest Aggregate Scores"
-              positions={highestAggregate}
-            />
+              </style>
+            </Helmet>
+            <div className="flex items-center justify-center gap-8">
+              <div>
+                <Leaderboard
+                  title="Highest Aggregate Scores"
+                  positions={highestAggregate}
+                />
+              </div>
+              <div>
+                <Leaderboard
+                  title={`Highest with ${
+                    user?.displayName?.split(' ')[0] || 'You'
+                  }`}
+                  positions={highestWithUser}
+                />
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="flex h-full items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-white/90">
+                Not enough data
+              </h1>
+              <p className="mt-4 text-xl text-white/80">
+                You need at least 5 people in your group to see this page.
+              </p>
+            </div>
           </div>
-          <div>
-            <Leaderboard
-              title={`Highest with ${
-                user?.displayName?.split(' ')[0] || 'You'
-              }`}
-              positions={highestWithUser}
-            />
-          </div>
-        </div>
+        )}
       </div>
     </>
   );
