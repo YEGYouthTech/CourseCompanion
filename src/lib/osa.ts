@@ -78,8 +78,11 @@ const SUBJKEY_OLD: { [index: string]: string } = {
   // Other
   'Career & Life Management Program': 'CALM20',
   'Introductory Team Leadership': 'LD15',
+  'Leadership Character & Social Resp 15': 'LD15',
   'Intermediate Team Leadership': 'LD25',
+  'Leadership Character & Social Resp 25': 'LD25',
   'Advanced Team Leadership': 'LD35',
+  'Leadership Character & Social Resp 35': 'LD35',
   'Physical Education 10': 'PE10',
 };
 
