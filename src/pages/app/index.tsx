@@ -134,7 +134,7 @@ const AppIndex = () => {
           </div>
         </div>
       </section>
-      <section className="my-16">
+      <section className="py-16">
         <div className="flex flex-col items-center gap-4">
           <h2 className="text-2xl font-bold text-white">Your Progress</h2>
           <div className="flex w-full max-w-lg flex-col gap-2">
