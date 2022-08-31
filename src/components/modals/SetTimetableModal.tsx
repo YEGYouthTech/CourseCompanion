@@ -1,6 +1,7 @@
 import { Dialog } from '@headlessui/react';
+import PDFJS from 'pdfjs-dist';
 import type { Dispatch, SetStateAction } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import {
   HiCheckCircle as CheckCircleIcon,
@@ -91,6 +92,7 @@ export default function SetTimetableModal({
     reason: 'No changes made.',
   });
   const [parsedTimetable, setParsedTimetable] = useState({});
+  const fileInputRef = useRef(null);
   useEffect(() => {
     try {
       const timetable = parseTimetable(timetableString);
@@ -153,6 +155,58 @@ export default function SetTimetableModal({
               https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,22&daylist=false
             </a>
           </p>
+          <div>
+            <p className="text-sm">
+              Alternatively, just upload the PDF you downloaded:
+            </p>
+            <div className="flex items-center">
+              <input type="file" ref={fileInputRef} className="w-80" />
+              <span className="grow"></span>
+              <button
+                className="mt-2 rounded-lg bg-blue-500 px-4 py-2 font-body text-sm text-white"
+                onClick={function () {
+                  const file = fileInputRef.current.files[0];
+                  const reader = new FileReader();
+                  reader.onload = async function (e) {
+                    const data = new Uint8Array(e.target.result);
+                    const pdf = await PDFJS.getDocument(data);
+                    let text = '';
+                    console.log(pdf);
+                    for (let i = 1; i <= pdf.numPages; i++) {
+                      console.log(i);
+                      const page = await pdf.getPage(i);
+                      const textContent = await page.getTextContent();
+                      console.log(textContent);
+                      const str = textContent.items
+                        .map(function (s) {
+                          if (s.str === ' ') {
+                            return '\n';
+                          }
+                          if (s.transform[4] < 30) {
+                            return `\n${s.str}`;
+                          }
+                          return s.str;
+                        })
+                        .join(' ');
+                      text += str;
+                    }
+                    console.log(text);
+                    setTimetableString(
+                      text
+                        .replace(/ +/g, ' ')
+                        .replace(/\n +/g, '\n')
+                        .replace(/ +\n/g, '\n')
+                        .replace(/\n+/g, '\n')
+                        .trim()
+                    );
+                  };
+                  reader.readAsArrayBuffer(file);
+                }}
+              >
+                Convert
+              </button>
+            </div>
+          </div>
           <div className="mt-4">
             <h3 className="mb-2 leading-6 text-gray-900">Preview</h3>
 
