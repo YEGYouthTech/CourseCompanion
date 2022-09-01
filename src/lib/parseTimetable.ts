@@ -15,35 +15,33 @@ const HAS_ROOM_AND_TEACHER = true;
 /* eslint-disable no-console */
 const SAMPLE = `
 Timetable for Oliver Chen at Old Scona School
-February 2022
+September 2022
 Day 01
 Time Room Course Teacher Course Duration
-8:25 AM - 9:55 AM 003 Social Studies 10-1 (IB) James Kosowan Sep 2 - Jun 28
-12:15 PM - 1:45 PM 212 English Language Arts 10-1 (IB) Gurpreet Virdi /
-Sabrina Lee Sep 2 - Jun 28
-1:50 PM - 3:20 PM 103 Mathematics 20-1 (IB) Shawn Gan Jan 29 - Jun 28
+8:25 AM - 9:55 AM 209 English Language Arts 20-1 (IB) Derek Malin Sep 1 - Jun 27 
+10:00 AM - 11:30 AM 001 Social Studies 20-1 (IB) Michael Peters Sep 1 - Jun 27 
+12:15 PM - 1:45 PM 101 Chemistry 20 (IB) Brian Lee Sep 1 - Jun 27 
+1:50 PM - 3:20 PM 201 Mathematics 30-1 (IB) Stephanie Gower Sep 1 - Jun 27 
 Day 02
 Time Room Course Teacher Course Duration
-10:00 AM - 11:30 AM 200 Science 10 (IB) Alfred Ye Sep 2 - Jun 28
-12:15 PM - 1:45 PM 100 Introductory Computing Science
-(IB) Shawn Gan Sep 2 - Jun 28
-1:50 PM - 3:20 PM 103 Mathematics 20-1 (IB) Shawn Gan Jan 29 - Jun 28
+10:00 AM - 11:30 AM 200 Physics 35 (IB) Alfred Ye Sep 1 - Jan 27 
+1:50 PM - 3:20 PM 200 Physics 20 (IB) Alfred Ye Sep 1 - Jun 27 
 Day 03
 Time Room Course Teacher Course Duration
-8:25 AM - 9:55 AM 003 Social Studies 10-1 (IB) James Kosowan Sep 2 - Jun 28
-12:15 PM - 1:45 PM 212 English Language Arts 10-1 (IB) Gurpreet Virdi /
-Sabrina Lee Sep 2 - Jun 28
-1:50 PM - 3:20 PM 100 French-9Y 10 (IB) Heather Taschuk Sep 2 - Jun 28
+8:25 AM - 9:55 AM 209 English Language Arts 20-1 (IB) Derek Malin Sep 1 - Jun 27 
+10:00 AM - 11:30 AM 100 Advanced Computing Science (IB) Jeff Karas Sep 1 - Jun 27 
+12:15 PM - 1:45 PM 101 Chemistry 20 (IB) Brian Lee Sep 1 - Jun 27 
+1:50 PM - 3:20 PM 002 French-9Y 20 (IB) Melanie Liles Sep 1 - Jun 27 
 Day 04
 Time Room Course Teacher Course Duration
-12:15 PM - 1:45 PM 100 Introductory Computing Science
-(IB) Shawn Gan Sep 2 - Jun 28
-1:50 PM - 3:20 PM 103 Mathematics 20-1 (IB) Shawn Gan Jan 29 - Jun 28
+10:00 AM - 11:30 AM 001 Social Studies 20-1 (IB) Michael Peters Sep 1 - Jun 27 
+12:15 PM - 1:45 PM 201 Mathematics 30-1 (IB) Stephanie Gower Sep 1 - Jun 27 
+1:50 PM - 3:20 PM 200 Physics 20 (IB) Alfred Ye Sep 1 - Jun 27 
 Day 05
 Time Room Course Teacher Course Duration
-8:25 AM - 9:55 AM 200 Science 10 (IB) Alfred Ye Sep 2 - Jun 28
-12:15 PM - 1:45 PM 103 Mathematics 20-1 (IB) Shawn Gan Jan 29 - Jun 28
-1:50 PM - 3:20 PM 100 French-9Y 10 (IB) Heather Taschuk Sep 2 - Jun 28
+8:25 AM - 9:55 AM 100 Advanced Computing Science (IB) Jeff Karas Sep 1 - Jun 27 
+10:00 AM - 11:30 AM 200 Physics 35 (IB) Alfred Ye Sep 1 - Jan 27 
+1:50 PM - 3:20 PM 002 French-9Y 20 (IB) Melanie Liles Sep 1 - Jun 27 
 `;
 
 export type ICourse = {
