@@ -71,7 +71,6 @@ export default function AppAggregate() {
                     /* background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%) fixed; */
                     /* background: radial-gradient(ellipse farthest-corner at center top, #7EF364 0%, #B8F260 100%) fixed; */
                     color: #fff;
-                    font-family: 'Open Sans', sans-serif;  
                   }
                 `}
               </style>
