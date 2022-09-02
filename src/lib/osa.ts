@@ -123,6 +123,8 @@ const SUBJKEY: { [index: string]: string } = {
   'Speech & Debate 35': 'SD35',
   'Theory of Knowledge 25 (IB)': 'TOK25IB',
   'Theory of Knowledge 35 (IB)': 'TOK35IB',
+  'Theory Of Knowledge 25 (IB)': 'TOK25IB',
+  'Theory Of Knowledge 35 (IB)': 'TOK35IB',
   'Theory Of Knowledge 25': 'TOK25IB',
   'Theory Of Knowledge 35': 'TOK35IB',
 
