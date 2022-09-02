@@ -13,6 +13,7 @@ const Table = styled.table`
   border-radius: 10px;
   overflow: hidden;
   margin-top: 1rem;
+  cursor: grabbing;
   @media (max-width: 1340px) {
     border-radius: 0px;
   }

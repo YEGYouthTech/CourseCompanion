@@ -37,7 +37,7 @@ const Support = () => {
         if (json?.timetable) {
           setReadyState(3);
         }
-      } catch (err) {}
+      } catch (err) { }
     }
 
     checkReadyState();
@@ -52,8 +52,8 @@ const Support = () => {
       <Helmet>
         <style>{`
           html, body {
-            // background: rgba(25,24,31,1);
-            background: #18181b;
+            // background: #18181b;
+            background: rgba(25,24,31,1);
           }
         `}</style>
       </Helmet>
@@ -89,9 +89,8 @@ const Support = () => {
                         What is a block and what is a period?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -114,9 +113,8 @@ const Support = () => {
                         My timetable changed! What should I do?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -135,9 +133,8 @@ const Support = () => {
                         Can anyone see my information?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -160,9 +157,8 @@ const Support = () => {
                         app?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -173,6 +169,7 @@ const Support = () => {
                 )}
               </Disclosure>
             </div>
+
             <div className="mx-0 w-full max-w-md rounded-2xl bg-transparent p-2">
               <Disclosure as="div" className="mt-2">
                 {({ open }) => (
@@ -183,16 +180,11 @@ const Support = () => {
                         YEGYouth.tech. What should I do?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
-                      Courses that are not in our database are shown as “EDGE”
-                      classes. They will be added later on. If you have a course
-                      that is not in our database, you can contact Oliver at
-                      o.chen@share.epsb.ca.
                     </Disclosure.Panel>
                   </>
                 )}
@@ -206,9 +198,8 @@ const Support = () => {
                         Are you stealing my data?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -227,9 +218,8 @@ const Support = () => {
                         When is the full version coming out?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -247,9 +237,8 @@ const Support = () => {
                         My timetable is not being accepted. Help!
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -272,9 +261,8 @@ const Support = () => {
                         line. What should I do?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -293,9 +281,8 @@ const Support = () => {
                     <Disclosure.Button className="my-4 flex w-full justify-between rounded-lg border-2 border-solid border-gray-800 bg-transparent px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75">
                       <span className="font-bold">How do I join a group?</span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -315,9 +302,8 @@ const Support = () => {
                         How can I join the team?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -334,9 +320,8 @@ const Support = () => {
                     <Disclosure.Button className="my-4 flex w-full justify-between rounded-lg border-2 border-solid border-gray-800 bg-transparent px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75">
                       <span className="font-bold">How can I report bugs?</span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
@@ -355,9 +340,8 @@ const Support = () => {
                         How can I request features?
                       </span>
                       <ChevronUpIcon
-                        className={`${
-                          open ? 'rotate-180' : ''
-                        } h-5 w-5 text-teal-500`}
+                        className={`${open ? 'rotate-180' : ''
+                          } h-5 w-5 text-teal-500`}
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-1 rounded-lg px-4 py-2 text-sm text-white">
