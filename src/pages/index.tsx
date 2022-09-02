@@ -13,7 +13,7 @@ const Index = () => {
     <Main
       meta={
         <Meta
-          title="Course Companion"
+          title="Course C702ompanion"
           description="A non-district tool to help students compare their timetables, filling in the gaps in official programs (SchoolZone)."
         />
       }
@@ -26,7 +26,7 @@ const Index = () => {
         `}</style>
       </Helmet>
 
-      <div className="relative flex w-full grow flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:p-8 lg:pt-16 xl:p-16 2xl:p-24">
+      <div className="2xl:overflow-y-hidden relative flex w-full grow flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:p-8 lg:pt-16 xl:p-16 2xl:p-24">
         <div className="z-10 flex flex-col justify-center md:flex-row md:px-16">
           <div className="mb-16 flex flex-col items-center justify-center px-8 md:mr-8 lg:p-8 2xl:p-12">
             <img src="/logo.png" className="block w-full max-w-sm" />
