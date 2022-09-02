@@ -58,15 +58,11 @@ const Td = styled.td<{
 }>`
   vertical-align: middle;
   text-align: left;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
   white-space: nowrap;
   border-left: 1px solid #064e3b;
   border-right: 1px solid #064e3b;
   border-top: 1px solid #064e3b;
   border-bottom: 1px solid #064e3b;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
   min-width: 4rem;
   background-color: ${(props) => props.color && props.color};
   color: black;
@@ -127,11 +123,17 @@ const AppTable = () => {
           <Tbody>
             {(data as any).map((timetable: any) => (
               <Tr>
-                <Td green>{timetable.name}</Td>
+                <Td green>
+                  <span className="block h-full w-full py-1 px-5">
+                    {timetable.name}
+                  </span>
+                </Td>
                 {timetable.blocks.map((block: any, idx: number) => (
                   <Td mono color={rainbowColors[idx]}>
                     <Tooltip title={block.name} trigger="click">
-                      {block.code}
+                      <span className="block h-full w-full py-1 px-5">
+                        {block.code}
+                      </span>
                     </Tooltip>
                   </Td>
                 ))}
