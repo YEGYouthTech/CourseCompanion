@@ -67,9 +67,9 @@ const About = () => (
               {/* <div className="basis-full"></div> */}
               <ExecMember
                 name="Heril Saha"
-                title="Full Stack Web Developer"
+                title="Lead Developer"
                 image="/assets/images/team/Heril_Saha.jpg"
-                socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
+                socials={{ linkedin: 'https://www.linkedin.com/in/herilsaha/', twitter: 'https://www.twitter.com/herilsaha/', instagram: 'https://www.instagram.com/heril.saha/' }}
               />
               <ExecMember
                 name="Hao Cheng"
@@ -79,7 +79,7 @@ const About = () => (
               />
               <ExecMember
                 name="Jason Li"
-                title="Professional Hottie"
+                title="Data Manager"
                 image="/assets/images/team/Jason_Li.jpg"
                 socials={{ linkedin: '#', twitter: '#', instagram: '#' }}
               />

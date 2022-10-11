@@ -25,7 +25,7 @@ export default function ExecMember({ name, title, image, socials }) {
             )}
             {socials.twitter && (
               <a
-                href="#"
+                href={socials.twitter}
                 className="flex h-10 w-10 rounded-full hover:bg-blue-50/10"
               >
                 <i className="mdi mdi-twitter mx-auto mt-2 text-blue-300" />
@@ -33,7 +33,7 @@ export default function ExecMember({ name, title, image, socials }) {
             )}
             {socials.instagram && (
               <a
-                href="#"
+                href={socials.instagram}
                 className="flex h-10 w-10 rounded-full hover:bg-orange-50/10"
               >
                 <i className="mdi mdi-instagram mx-auto mt-2 text-orange-400" />
