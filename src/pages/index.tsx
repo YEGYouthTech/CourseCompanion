@@ -13,7 +13,7 @@ const Index = () => {
     <Main
       meta={
         <Meta
-          title="Course C702ompanion"
+          title="Course Companion"
           description="A non-district tool to help students compare their timetables, filling in the gaps in official programs (SchoolZone)."
         />
       }
