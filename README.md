@@ -9,3 +9,5 @@ Assuming these tools are properly installed, you can start the server using the 
 This project has been modified to work without Firebase secrets. Most functionality is available without the configuration file containing the Firebase secrets. This is not secure and should not be used in production.
 
 However, login still needs to be done through Google OAuth. To simulate multiple users, you could use another Google account in incognito mode. The non-EPSB email warning has been made ornamental and functionality will not be affected by the use of a non-EPSB email.
+
+The production version is available at [https://coco.yegyouth.tech/](https://coco.yegyouth.tech/).
