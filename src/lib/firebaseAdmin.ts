@@ -1,10 +1,38 @@
 import admin from 'firebase-admin';
 
-import serviceAccount from '../../epsb-course-companion-firebase-adminsdk-yobpv-4dce5ea401.json';
+// import serviceAccount from '../../epsb-course-companion-firebase-adminsdk-yobpv-4dce5ea401.json';
+let serviceAccount: any;
+try {
+  // eslint-disable-next-line global-require
+  serviceAccount = require('../../epsb-course-companion-firebase-adminsdk-yobpv-4dce5ea401.json');
+} catch (error) {
+  serviceAccount = null;
+}
 
 export async function verifyToken(
   token: string
 ): Promise<admin.auth.DecodedIdToken | null> {
+  if (!serviceAccount) {
+    // Important for IB moderators to be able to test the site on their local machines
+    const base64Url = token.split('.')[1];
+    if (!base64Url) {
+      return null;
+    }
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split('')
+        .map((c) => `%${`00${c.charCodeAt(0).toString(16)}`.slice(-2)}`)
+        .join('')
+    );
+    const decodedToken = JSON.parse(jsonPayload);
+    // eslint-disable-next-line no-console
+    console.warn(
+      'WARNING!!! Firebase key not found. THIS SHOULD NEVER HAPPEN IN PRODUCTION!!!'
+    );
+    return decodedToken;
+  }
+  // If it does exist, then verify the token
   if (!admin.apps.length) {
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
