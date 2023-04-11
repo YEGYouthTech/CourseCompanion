@@ -7,3 +7,5 @@ In production, we use MongoDB Atlas, but the simplest way to run this project lo
 Assuming these tools are properly installed, you can start the server using the command `docker-compose up` in the root directory of the project. This will take a few minutes to build, and then it will start the server on port 3000. You can access the server at [http://localhost:3000](http://localhost:3000).
 
 This project has been modified to work without Firebase secrets. Most functionality is available without the configuration file containing the Firebase secrets. This is not secure and should not be used in production.
+
+However, login still needs to be done through Google OAuth. To simulate multiple users, you could use another Google account in incognito mode. The non-EPSB email warning has been made ornamental and functionality will not be affected by the use of a non-EPSB email.
