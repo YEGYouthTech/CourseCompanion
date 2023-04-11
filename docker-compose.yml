@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+  coco:
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/mydatabase
+    depends_on:
+      - mongodb
