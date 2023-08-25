@@ -250,6 +250,6 @@ function parseTimetable(content: string) {
   return { name, school, timePeriod, blocks, content };
 }
 
-console.log(parseTimetable(SAMPLE));
+// console.log(parseTimetable(SAMPLE));
 
 export { parseTimetable };
