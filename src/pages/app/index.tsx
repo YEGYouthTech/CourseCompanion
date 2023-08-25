@@ -107,7 +107,7 @@ const AppIndex = () => {
               <span className="font-bold text-yellow-500/[.87]">timetable</span>
               . Follow{' '}
               <a
-                href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,22&daylist=false"
+                href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,23&daylist=false"
                 className="text-primary-500 underline"
               >
                 the link

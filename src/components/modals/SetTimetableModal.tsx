@@ -148,11 +148,11 @@ export default function SetTimetableModal({
             Copy your timetable from this link:{' '}
             <a
               className="inline-block max-w-[15ch] truncate align-middle text-emerald-600 underline"
-              href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,22&daylist=false"
+              href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,23&daylist=false"
               target="_blank"
               rel="noreferrer"
             >
-              https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,22&daylist=false
+              https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,23&daylist=false
             </a>
           </p>
           <div>
