@@ -4,7 +4,7 @@ import admin from 'firebase-admin';
 let serviceAccount: any;
 try {
   // eslint-disable-next-line global-require
-  serviceAccount = require('../../epsb-course-companion-firebase-adminsdk-yobpv-4dce5ea401.json');
+  serviceAccount = require('../../epsb-course-companion-firebase-adminsdk-yobpv-ece3f1b007.json');
 } catch (error) {
   serviceAccount = null;
 }
