@@ -10,7 +10,7 @@ import {
   SUBJKEY,
 } from './osa';
 
-const HAS_ROOM_AND_TEACHER = true;
+const HAS_ROOM_AND_TEACHER = false;
 
 /* eslint-disable no-console */
 const SAMPLE = `
