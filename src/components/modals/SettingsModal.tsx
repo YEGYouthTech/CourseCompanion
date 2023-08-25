@@ -154,9 +154,9 @@ export default function SettingsModal({
                     },
                     body: JSON.stringify({
                       group: {
-                        'Old Scona Academic 10': '630c00e79ab6a85681669afe',
-                        'Old Scona Academic 11': '630c00f39ab6a85681669b07',
-                        'Old Scona Academic 12': '630c00f69ab6a85681669b10',
+                        'Old Scona Academic 10': '64e8da5d1da43c44be72b973',
+                        'Old Scona Academic 11': '64e8da581da43c44be72b96a',
+                        'Old Scona Academic 12': '64e8da521da43c44be72b961',
                       }[`${schoolState[0]} ${gradeState[0]}`],
                       user: user.uid,
                       action: 'add',
