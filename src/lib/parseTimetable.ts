@@ -56,7 +56,7 @@ export type ICourse = {
 };
 
 function parseTimetable(content: string) {
-  if (content.includes('Jan 28')) {
+  if (content.includes('Jan 31')) {
     throw new Error(
       'Timetable is for the wrong semester. You definitely copied from the wrong link.'
     );
