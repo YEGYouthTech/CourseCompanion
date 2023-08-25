@@ -27,7 +27,7 @@ const GroupSchema = new mongoose.Schema({
     required: false,
     trim: true,
     minLength: 0,
-    maxLength: 256,
+    maxLength: 4096,
   },
   public: {
     type: Boolean,

@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
     true: false,
     trim: true,
     minLength: 2,
-    maxLength: 256,
+    maxLength: 4096,
   },
   grade: {
     type: Number,
