@@ -320,8 +320,8 @@ const DAYPERIOD2BLOCK_OLD: { [index: number]: number[] } = {
 
 const DAYPERIOD2BLOCK: { [index: number]: number[] } = {
   1: [1, 3, 6, 8],
-  2: [2, 5, 7, 9],
-  3: [1, 4, 6, 10],
+  2: [2, 4, 7, 9],
+  3: [1, 5, 6, 10],
   4: [2, 3, 8, 9],
   5: [4, 5, 7, 10],
 };
