@@ -138,6 +138,10 @@ export default function SetTimetableModal({
             e.preventDefault();
           }}
         >
+          <p className="mb-2 font-body">
+            Open this link and sign in. If it doesn't take you to the timetable PDF directly, click it again. Copy your timetable from this link and only this link:{' '}
+            <a class="inline-block max-w-[30ch] truncate align-middle text-emerald-600 underline" href="https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,23&amp;daylist=false" target="_blank" rel="noreferrer">https://schoolzone.epsb.ca/cf/profile/Timetable/printPdf.cfm?timetableDate=9,01,23&amp;daylist=false</a>
+          </p>
           <textarea
             className="min-h-[10rem] w-full rounded-lg border-2 border-blue-200 p-4 text-sm text-gray-500 outline-none focus:border-[3px] focus:border-blue-500"
             value={timetableString}
