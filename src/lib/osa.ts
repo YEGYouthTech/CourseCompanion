@@ -357,7 +357,279 @@ function durationTextToSemesterNumber(durationText: string): number {
   return 0;
 }
 
+function courseCodeToColor(courseCode: string): string {
+  const COURSES = [
+    'ABS30',
+    'ART10',
+    'ART10IB',
+    'ART20',
+    'ART20IB',
+    'ART30',
+    'ART30IB',
+    'BAND10',
+    'BAND20',
+    'BAND20IB',
+    'BAND30',
+    'BAND30IB',
+    'BIO20',
+    'BIO20IB',
+    'BIO30',
+    'BIO30IB',
+    'BIO35IB',
+    'CALM20',
+    'CHEM20',
+    'CHEM20IB',
+    'CHEM30',
+    'CHEM30IB',
+    'CHEM35IB',
+    'CHN310',
+    'CHN310IB',
+    'CHN320',
+    'CHN320IB',
+    'CHN330',
+    'CHN330IB',
+    'CHN610',
+    'CHN620',
+    'CHN630',
+    'CHN910',
+    'CHN910IB',
+    'CHN920',
+    'CHN920IB',
+    'CHN930',
+    'CHN930IB',
+    'CRWR15',
+    'CRWR25',
+    'CRWR35',
+    'CS10',
+    'CS10IB',
+    'CS20',
+    'CS20IB',
+    'CS30',
+    'CS30IB',
+    'CSEC10',
+    'CSEC20',
+    'CSEC30',
+    'CSTR10',
+    'CSTR20',
+    'CSTR30',
+    'DAN15',
+    'DAN15IB',
+    'DAN25',
+    'DAN25IB',
+    'DAN35',
+    'DAN35IB',
+    'DISMISSED',
+    'DMED10',
+    'DMSC15',
+    'DMSC25',
+    'DMSC35',
+    'DRAW10',
+    'DRAW20',
+    'DRAW30',
+    'DRMA10',
+    'DRMA10IB',
+    'DRMA20',
+    'DRMA20IB',
+    'DRMA30',
+    'DRMA30IB',
+    'DRUM15',
+    'DRUM25',
+    'DRUM35',
+    'ELA10',
+    'ELA102',
+    'ELA10IB',
+    'ELA20',
+    'ELA202',
+    'ELA20IB',
+    'ELA30',
+    'ELA302',
+    'ELA30IB',
+    'ELA35IB',
+    'FIS15',
+    'FIS15IB',
+    'FIS25',
+    'FIS25IB',
+    'FIS35',
+    'FIS35IB',
+    'FOOD10',
+    'FOOD20',
+    'FOOD30',
+    'FR10',
+    'FR10IB',
+    'FR20',
+    'FR20IB',
+    'FR30',
+    'FR30IB',
+    'FRSC25',
+    'FRSC35',
+    'FSHN10',
+    'FSHN20',
+    'FSHN30',
+    'GM10IB',
+    'GRAD20',
+    'GRAD30',
+    'GUI15',
+    'GUI25',
+    'GUI35',
+    'IMPT15',
+    'IMPT25',
+    'IMPT35',
+    'JAZZ15',
+    'JAZZ25',
+    'JAZZ35',
+    'LD15',
+    'LD25',
+    'LD35',
+    'MATH10',
+    'MATH103',
+    'MATH10IB',
+    'MATH15',
+    'MATH20',
+    'MATH202',
+    'MATH203',
+    'MATH20IB',
+    'MATH30',
+    'MATH302',
+    'MATH303',
+    'MATH30IB',
+    'MATH31',
+    'MATH31IB',
+    'MUST15',
+    'MUST25',
+    'MUST35',
+    'NET10',
+    'NET20',
+    'NET20IB',
+    'NET30',
+    'PE10',
+    'PE20',
+    'PE30',
+    'PHO20',
+    'PHO30',
+    'PHYS20',
+    'PHYS20IB',
+    'PHYS30',
+    'PHYS30IB',
+    'PHYS35IB',
+    'ROB10',
+    'ROB20',
+    'ROB30',
+    'SCI10',
+    'SCI10IB',
+    'SCI14',
+    'SCI20',
+    'SCI24',
+    'SCI30',
+    'SD15',
+    'SD25',
+    'SD35',
+    'SPA310',
+    'SPA310IB',
+    'SPA320',
+    'SPA320IB',
+    'SPA330',
+    'SPA330IB',
+    'SPARE',
+    'SPE10',
+    'SPE20',
+    'SPE30',
+    'SS10',
+    'SS102',
+    'SS10IB',
+    'SS20',
+    'SS202',
+    'SS20IB',
+    'SS30',
+    'SS302',
+    'SS30IB',
+    'SS35IB',
+    'TECT15',
+    'TECT25',
+    'TECT35',
+    'TOK25IB',
+    'TOK35IB',
+  ];
+  const COURSE_HUES = {
+    ELA: 275,
+    SS: 180,
+    MATH: 240,
+    SCI: 120,
+    BIO: 90,
+    CHEM: 60,
+    PHYS: 30,
+    FR: 0,
+    PE: 330,
+    CALM: 300,
+    ART: 315,
+    DRMA: 345,
+    BAND: 15,
+    GM: 45,
+    JB: 75,
+    MT: 105,
+    LD: 135,
+    SD: 165,
+    NET: 210,
+    CSEC: 195,
+    CS: 225,
+    TOK: 285,
+    EDGE: 0,
+    SPARE: 110,
+  };
+  if (courseCode === 'EDGE') {
+    return '#ff0000';
+  }
+  if (courseCode === 'SPARE') {
+    return '#999999';
+  }
+  const HSLToRGB = (h, s, l) => {
+    s /= 255;
+    l /= 255;
+    const k = (n) => (n + h / 30) % 12;
+    const a = s * Math.min(l, 1 - l);
+    const f = (n) =>
+      l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+    return [255 * f(0), 255 * f(8), 255 * f(4)].map((v) => Math.round(v));
+  };
+  let hue;
+  // loop over COURSE_HUES to find the hue
+  for (const [key, value] of Object.entries(COURSE_HUES)) {
+    if (courseCode.startsWith(key)) {
+      hue = value;
+      break;
+    }
+  }
+  if (hue === undefined) {
+    return '#ff0000';
+  }
+  // count the number of courses with the same hue
+  let count = 0;
+  for (const course of COURSES) {
+    if (course.startsWith(courseCode.split(/\d/)[0])) {
+      count++;
+    }
+  }
+  // check the course's relative position in similar courses
+  const index = COURSES.indexOf(courseCode);
+  let startIndex;
+  for (const course of COURSES) {
+    if (course.startsWith(courseCode.split(/\d/)[0])) {
+      startIndex = COURSES.indexOf(course);
+      break;
+    }
+  }
+  // calculate the saturation and lightness
+  const sat = 64 + Math.round(128 / count) * (index - startIndex + 1);
+  const light = 144 + Math.round(60 / count) * (index - startIndex + 1);
+  // convert to rgb
+  const rgb = HSLToRGB(hue, sat, light);
+  // convert to hex
+  const hex = rgb.map((e) => e.toString(16).padStart(2, 0)).join('');
+  console.log(rgb, hex);
+  return `#${hex}`;
+}
+
 export {
+  courseCodeToColor,
   durationTextToSemesterNumber,
   getBlockFromPeriod,
   getCourseCode,

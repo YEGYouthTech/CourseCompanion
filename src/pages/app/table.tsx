@@ -3,6 +3,7 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import { Tooltip } from 'react-tippy';
 import styled, { css } from 'styled-components';
 
+import { courseCodeToColor } from '@/lib/osa';
 import { DataContext } from '@/templates/AppMain';
 
 const Table = styled.table`
@@ -124,14 +125,15 @@ const AppTable = () => {
             {(data as any).map((timetable: any) => (
               <Tr>
                 <Td green>
-                  <span className="block h-full w-full py-1 px-5">
+                  <span className="block h-full w-full px-5 py-1">
                     {timetable.name}
                   </span>
                 </Td>
                 {timetable.blocks.map((block: any, idx: number) => (
-                  <Td mono color={rainbowColors[idx]}>
+                  // <Td mono color={rainbowColors[idx]}>
+                  <Td mono color={courseCodeToColor(block.code)}>
                     <Tooltip title={block.name} trigger="click">
-                      <span className="block h-full w-full py-1 px-5">
+                      <span className="block h-full w-full px-5 py-1">
                         {block.code}
                       </span>
                     </Tooltip>
