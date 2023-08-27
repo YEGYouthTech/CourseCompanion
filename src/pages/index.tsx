@@ -26,12 +26,12 @@ const Index = () => {
         `}</style>
       </Helmet>
 
-      <div className="2xl:overflow-y-hidden relative flex w-full grow flex-col justify-center bg-gray-900 px-4 py-32 md:h-auto lg:p-8 lg:pt-16 xl:p-16 2xl:p-24">
-        <div className="z-10 flex flex-col justify-center md:flex-row md:px-16">
-          <div className="mb-16 flex flex-col items-center justify-center px-8 md:mr-8 lg:p-8 2xl:p-12">
+      <div className="relative flex w-full grow flex-col justify-center bg-gray-900 px-16 py-32 md:h-auto md:px-4 lg:p-8 lg:pt-16 xl:p-16 2xl:overflow-y-hidden 2xl:p-24">
+        <div className="z-10 mx-auto flex max-w-4xl flex-col justify-center md:flex-row md:px-16">
+          <div className="mb-16 flex flex-col items-center justify-center md:mr-8 md:px-8 lg:p-8 2xl:p-12">
             <img src="/logo.png" className="block w-full max-w-sm" />
           </div>
-          <div className="flex grow flex-col items-center justify-center gap-8">
+          <div className="flex flex-col items-center justify-center gap-8">
             <p className="max-w-[50vh] text-center font-body text-xl text-text-500/[.6] md:text-left">
               A non-district tool to help students compare their timetables,
               filling in the gaps in official programs (SchoolZone).
@@ -41,7 +41,7 @@ const Index = () => {
             </p>
             <br />
             <div className="flex w-full flex-col items-center gap-4 lg:grow lg:justify-end">
-              <div className="flex w-full max-w-[50vh] flex-row gap-4 lg:flex-col">
+              <div className="flex w-full max-w-[50vh] flex-row justify-center gap-4 md:justify-start lg:flex-col">
                 <div className="">
                   <Link href={(!user?.uid && '/signin') || '/app'}>
                     <a className="cursor-pointer rounded-full border-2 border-gray-800  !bg-transparent p-2 px-6 text-lg  transition-all hover:!border-primary-500 hover:bg-primary-400 hover:shadow-sm focus:bg-primary-700 disabled:opacity-50">
