@@ -11,6 +11,12 @@ export default async (req, res) => {
   if (!uid) {
     return res.status(401).json({ error: 'Invalid token' });
   }
+  if (!process.env.JWT_SECRET) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      'WARNING!!! JWT secret not found. THIS SHOULD NEVER HAPPEN IN PRODUCTION!!!'
+    );
+  }
   const jwtToken = jwt.sign(
     { time: Date(), uid },
     process.env.JWT_SECRET || 'secret',
