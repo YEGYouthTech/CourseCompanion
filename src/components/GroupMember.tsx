@@ -9,10 +9,15 @@ export default function GroupMember({
   groupId,
   reloadSettings,
   modalState,
+  memberData,
 }) {
   const [member, setMember] = useState(null);
   const { user } = useAuth();
   async function loadMember() {
+    if (memberData) {
+      setMember(memberData);
+      return;
+    }
     const request = await fetch(`/api/users/${memberId}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +41,7 @@ export default function GroupMember({
 
   // return <li>{member ? member.name : memberId}</li>;
   return (
-    <div className="mt-2 flex w-full items-center gap-4 rounded-lg border-gray-600 py-2 px-4">
+    <div className="mt-2 flex w-full items-center gap-4 rounded-lg border-gray-600 px-4 py-2">
       {member?.profileImage && (
         <img
           className="h-8 w-8 rounded-full"
