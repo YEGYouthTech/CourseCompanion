@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { Tooltip } from 'react-tippy';
 import styled, { css } from 'styled-components';
@@ -104,6 +105,15 @@ const AppTable = () => {
 
   return (
     <>
+      <Helmet>
+        <style>
+          {`
+          body {
+            overflow: hidden;
+          }
+          `}
+        </style>
+      </Helmet>
       <ScrollContainer className="mx-auto mt-4 w-full px-12 pb-4 font-display">
         <Table>
           <Thead>

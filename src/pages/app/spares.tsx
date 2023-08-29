@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { Tooltip } from 'react-tippy';
 
@@ -19,6 +20,15 @@ const AppSpares = () => {
     dataContext === null ? { group: null, data: null } : dataContext;
   return (
     <>
+      <Helmet>
+        <style>
+          {`
+          body {
+            overflow: hidden;
+          }
+          `}
+        </style>
+      </Helmet>
       <ScrollContainer>
         <div className="relative mx-auto max-w-7xl shadow-md sm:rounded-lg">
           <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
