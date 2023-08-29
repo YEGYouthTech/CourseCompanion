@@ -16,12 +16,12 @@ function AppNav() {
                   <AppNavItem href="/app">Home</AppNavItem>
                   <AppNavItem href="/app/classes">Classes</AppNavItem>
                   <AppNavItem href="/app/mutuals">Mutuals</AppNavItem>
-                  {/* <AppNavItem href="/app/spares">Spares</AppNavItem> */}
                   <AppNavItem href="/app/similarity">Matrix</AppNavItem>
                   <AppNavItem href="/app/data">Data</AppNavItem>
                   <AppNavItem href="/app/table">Table</AppNavItem>
                   <AppNavItem href="/app/aggregate">Aggregate</AppNavItem>
                   <AppNavItem href="/app/spares">Spares</AppNavItem>
+                  <AppNavItem href="/app/timetable">Timetable</AppNavItem>
                 </div>
               </div>
             </div>

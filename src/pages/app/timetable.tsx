@@ -1,24 +1,31 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
-import { Tooltip } from 'react-tippy';
 
 import { getBlockFromPeriod } from '@/lib/osa';
 import { DataContext } from '@/templates/AppMain';
 
-function getPeopleWithSpares(data: any, day: number, period: number) {
-  if (!data) {
-    return [];
-  }
-  const block = getBlockFromPeriod(day, period);
-  return data.filter((person) => person.blocks[block - 1]?.code === 'SPARE');
-}
+import UserPicker from '../../components/UserPicker';
 
-const AppSpares = () => {
+const AppTimetable = () => {
+  const selectedState1 = useState(null);
   const dataContext = useContext(DataContext);
   const { group, data } =
     dataContext === null ? { group: null, data: null } : dataContext;
+
   return (
     <>
+      <div className="mx-auto my-8 flex max-w-xl flex-col">
+        <UserPicker
+          selectedState={selectedState1}
+          onSelect={() => {}}
+          showButton={false}
+        />
+        <span className="xs:hidden flex w-56 items-center text-left text-xs font-bold text-red-400">
+          {!data.find(
+            (timetable: any) => timetable.uid === selectedState1[0]?.uid
+          )?.blocks?.length && "User's timetable not found in group"}
+        </span>
+      </div>
       <ScrollContainer>
         <div className="relative mx-auto max-w-7xl shadow-md sm:rounded-lg">
           <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
@@ -58,19 +65,12 @@ const AppSpares = () => {
                   {/* inline nested for loop - 4 periods and 5 days */}
                   {Array.from({ length: 5 }, (_, i) => i + 1).map((day) => (
                     <td className="px-6 py-4" key={`${day}_${period}`}>
-                      {getPeopleWithSpares(data, day, period).map((person) => (
-                        <span className="-ml-4" key={person.name}>
-                          <Tooltip title={person.name}>
-                            <img
-                              className="mt-8 inline-block h-8 w-8 max-w-full rounded-full border-2 border-gray-200 bg-gray-300 shadow-xl hover:-translate-y-1 dark:border-gray-700 dark:bg-gray-900 md:h-12 md:w-12"
-                              src={person.profileImage}
-                              alt={person.name}
-                              title={person.name}
-                              referrerPolicy="no-referrer"
-                            />
-                          </Tooltip>
-                        </span>
-                      ))}
+                      {data &&
+                        selectedState1[0]?.uid &&
+                        data?.find(
+                          (timetable: any) =>
+                            timetable.uid === selectedState1[0]?.uid
+                        )?.blocks?.[getBlockFromPeriod(day, period) - 1]?.code}
                     </td>
                   ))}
                 </tr>
@@ -83,4 +83,4 @@ const AppSpares = () => {
   );
 };
 
-export default AppSpares;
+export default AppTimetable;
