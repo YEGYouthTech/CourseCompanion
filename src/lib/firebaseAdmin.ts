@@ -12,10 +12,10 @@ try {
 export async function verifyToken(
   token: string
 ): Promise<admin.auth.DecodedIdToken | null> {
-  console.log('SA', serviceAccount);
+  // console.log('SA', serviceAccount);
   if (!serviceAccount) {
     // Important for IB moderators to be able to test the site on their local machines
-    console.log(token);
+    // console.log(token);
     const base64Url = token.split('.')[1];
     if (!base64Url) {
       return null;
@@ -32,7 +32,7 @@ export async function verifyToken(
     console.warn(
       'WARNING!!! Firebase key not found. THIS SHOULD NEVER HAPPEN IN PRODUCTION!!!'
     );
-    console.log('JSON PAYLOAD', decodedToken);
+    // console.log('JSON PAYLOAD', decodedToken);
     return decodedToken;
   }
   // If it does exist, then verify the token
